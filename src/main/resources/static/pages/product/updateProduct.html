@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<input type="hidden" id="id" name="id">
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>title</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='title 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>detail</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='detail' type='text' name='detail' id='detail' data-bv-notempty='true' data-bv-notempty-message='detail 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>productMode</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='productMode' type='text' name='productMode' id='productMode' data-bv-notempty='true' data-bv-notempty-message='productMode 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>productType</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='productType' type='text' name='productType' id='productType' data-bv-notempty='true' data-bv-notempty-message='productType 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>startTime</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='startTime' type='text' name='startTime' id='startTime' data-bv-notempty='true' data-bv-notempty-message='startTime 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>imgs</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='imgs' type='text' name='imgs' id='imgs' data-bv-notempty='true' data-bv-notempty-message='imgs 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>price</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='price' type='text' name='price' id='price' data-bv-notempty='true' data-bv-notempty-message='price 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>startCity</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='startCity' type='text' name='startCity' id='startCity' data-bv-notempty='true' data-bv-notempty-message='startCity 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>targetCountry</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='targetCountry' type='text' name='targetCountry' id='targetCountry' data-bv-notempty='true' data-bv-notempty-message='targetCountry 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>days</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='days' type='number' name='days' id='days' data-bv-notempty='true' data-bv-notempty-message='days 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>afterCity</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='afterCity' type='text' name='afterCity' id='afterCity' data-bv-notempty='true' data-bv-notempty-message='afterCity 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>vehicle</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='vehicle' type='text' name='vehicle' id='vehicle' data-bv-notempty='true' data-bv-notempty-message='vehicle 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>亮点</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='brightSpot' type='text' name='brightSpot' id='brightSpot' data-bv-notempty='true' data-bv-notempty-message='brightSpot 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>costDescription</label>
+				<div class='col-md-10'>
+					<textarea class="layui-textarea" id="costDescription" name="costDescription" style="display: none"></textarea>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>reservationNotes</label>
+				<div class='col-md-10'>
+					<textarea class="layui-textarea" id="reservationNotes" name="reservationNotes" style="display: none"></textarea>
+				</div>
+			</div>
+
+
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='productList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="update()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		var pro = window.location.protocol;
+		var host = window.location.host;
+		var domain = pro + "//" + host;
+		layui.use(['layer','laydate'], function(){
+			var layer = layui.layer;
+			var laydate = layui.laydate;
+			laydate.render({
+				elem: '#startTime'
+			});
+		});
+		var layedit, index1,index2;
+		layui.use(['layedit','upload'], function(){
+			layedit = layui.layedit;
+			layedit.set({
+				uploadImage: {
+					url: '/files/layui?domain=' + domain+"&token="+localStorage.getItem("token"),
+					type: 'post'
+				}
+			});
+			index1 = layedit.build('costDescription');
+
+			index2 = layedit.build('reservationNotes');
+		});
+		
+		initData();
+		
+		function initData(){
+			var id = getUrlParam("id");
+			if(id != ""){
+				$.ajax({
+					type : 'get',
+					url : '/products/'+id,
+					async : false,
+					success : function(data) {
+						$('#id').val(data.id);
+						$('#createTime').val(data.createTime);
+						$('#updateTime').val(data.updateTime);
+						$('#title').val(data.title);
+						$('#detail').val(data.detail);
+						$('#productMode').val(data.productMode);
+						$('#productType').val(data.productType);
+						$('#startTime').val(data.startTime);
+						$('#imgs').val(data.imgs);
+						$('#price').val(data.price);
+						$('#startCity').val(data.startCity);
+						$('#targetCountry').val(data.targetCountry);
+						$('#days').val(data.days);
+						$('#afterCity').val(data.afterCity);
+						$('#vehicle').val(data.vehicle);
+						$('#brightSpot').val(data.brightSpot);
+						$('#costDescription').text(data.costDescription);
+						$('#reservationNotes').text(data.reservationNotes);
+
+					}
+				});
+			}
+		}
+
+		function update(obj) {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+			var formdata = $("#form").serializeObject();
+			$(obj).attr("disabled",true);
+			formdata.costDescription = layedit.getContent(index1);
+			formdata.reservationNotes = layedit.getContent(index2);
+			$.ajax({
+				type : 'put',
+				url : '/products',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "productList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

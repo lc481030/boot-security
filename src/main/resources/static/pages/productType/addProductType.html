@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>productType</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='productType'  style="width: 200px" type='text' name='productType' id='productType' data-bv-notempty='true' data-bv-notempty-message='productType 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>旅游方式</label>
+				<div class="col-md-10 form-inline">
+					<select class="form-control" name="productMode"  id="productMode" data-bv-notempty="true" data-bv-notempty-message="旅游方式不能为空">
+						<option value="1">地区</option>
+						<option value="2">主题</option>
+						<option value="3">景点</option>
+						<option value="4">交通</option>
+					</select>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>isShow</label>
+				<div class="col-md-10 form-inline">
+					<select class="form-control" name="isShow" id="isShow" data-bv-notempty="true" data-bv-notempty-message="方法名 不能为空">
+						<option value="1">显示</option>
+						<option value="0">不显示</option>
+					</select>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>排序</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='sort'  style="width: 200px" type='number' name='sort' id='sort' data-bv-notempty='true' data-bv-notempty-message='排序编号不能为空'>
+				</div>
+			</div>
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='productTypeList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/productTypes',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "productTypeList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

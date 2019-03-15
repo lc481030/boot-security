@@ -1,0 +1,92 @@
+.navwp{
+    background: #ffffff;
+    border-bottom: 2px solid #1ea9e1;
+    margin-top: 4px;
+}
+.nav .right li{
+    color: #000000;
+}
+.navwp{
+    opacity: 1;
+}
+.topnav{
+    box-shadow: 0 0 2px  rgba(6,6,6,0.5);
+}
+.msg{
+    width: 100%;
+    height: 700px;
+    background: url('../img/pc/liuyanbg.png') no-repeat;
+    background-size: 100% 100%;
+}
+.msg-content{
+    width: 430px;
+    margin: 100px auto;
+    overflow: hidden;
+    transform:translate(-100px);
+}
+.msg-content .title{
+    width: 335px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding-left: 95px;
+}
+.name,.contact{
+    width: 100%;
+    height: 40px;
+    margin-top: 30px;
+}
+.txt{
+    width: 100%;
+    height: 130px;
+    margin-top: 30px;
+}
+.name span,.contact span,.txt span{
+    display: block;
+    width: 100px;
+    height: 40px;
+    text-align: right;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.name input,.contact input{
+    width: 300px;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px;
+    font-size: 14px;
+    color: #aaaaaa;
+    margin-left: 30px;
+    border: none;
+    outline: none;
+}
+.msg-content .txt textarea{
+    width: 300px;
+    height: 130px;
+    line-height: 20px;
+    padding: 10px;
+    font-size: 14px;
+    color: #aaaaaa;
+    margin-left: 30px;
+    border: none;
+    outline: none;
+}
+.msg-content .btn{
+    width: 310px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    background: -webkit-linear-gradient(#f79648,#f16838); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#f79648,#f16838); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#f79648,#f16838); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#f79648,#f16838); /* 标准的语法 */
+    margin:70px 0 0 130px;
+    border-radius: 2px;
+}

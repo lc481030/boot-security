@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>title</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='标题不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>详情</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='detail' type='text' name='detail' id='detail' data-bv-notempty='true' data-bv-notempty-message='详情不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>旅游类型</label>
+				<div class='col-md-10'>
+					<select class="form-control" name="productType"  id="productType" data-bv-notempty="true" data-bv-notempty-message="旅游方式类型不能为空">
+						<option value="1">地区</option>
+						<option value="2">主题</option>
+						<option value="3">景点</option>
+						<option value="4">交通</option>
+					</select>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>出发时间</label>
+				<div class='col-md-10'>
+					<input type="text" class="form-control" placeholder="结束时间" id="startTime" name='startTime'data-bv-notempty='true' data-bv-notempty-message='出发时间不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>图片</label>
+				<div class='col-md-10'>
+					<div id="productImg">
+					</div>
+					<input class='form-control' placeholder='imgs' type='text' name='imgs' id='imgs' data-bv-notempty='true' data-bv-notempty-message='最少上传一张'>
+					<button type="button" class="layui-btn" id="test1">
+						<i class="layui-icon">&#xe67c;</i>上传文件
+					</button>
+
+				</div>
+
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>价格</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='price' type='text' name='price' id='price' data-bv-notempty='true' data-bv-notempty-message='价格不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>出发城市</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='startCity' type='text' name='startCity' id='startCity' data-bv-notempty='true' data-bv-notempty-message='出发城市不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>目标国家</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='targetCountry' type='text' name='targetCountry' id='targetCountry' data-bv-notempty='true' data-bv-notempty-message='目标国家不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>天数</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='days' type='text' name='days' id='days' data-bv-notempty='true' data-bv-notempty-message='天数不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>沿途城市</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='afterCity' type='text' name='afterCity' id='afterCity' data-bv-notempty='true' data-bv-notempty-message='沿途城市不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>出行方式</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='vehicle' type='text' name='vehicle' id='vehicle' data-bv-notempty='true' data-bv-notempty-message='出行方式不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>亮点</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='brightSpot' type='text' name='brightSpot' id='brightSpot' data-bv-notempty='false' data-bv-notempty-message='请输入亮点'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>costDescription</label>
+				<div class='col-md-10'>
+					<textarea class="layui-textarea" id="costDescription" name="costDescription" style="display: none"></textarea>
+					<!--<input class='form-control' placeholder='costDescription' type='text' name='costDescription' id='costDescription' data-bv-notempty='true' data-bv-notempty-message='costDescription 不能为空'>-->
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>reservationNotes</label>
+				<div class='col-md-10'>
+					<textarea class="layui-textarea" id="reservationNotes" name="reservationNotes" style="display: none"></textarea>
+					<!--<input class='form-control' placeholder='reservationNotes' type='text' name='reservationNotes' id='reservationNotes' data-bv-notempty='true' data-bv-notempty-message='reservationNotes 不能为空'>-->
+				</div>
+			</div>
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='productList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+
+		var pro = window.location.protocol;
+		var host = window.location.host;
+		var domain = pro + "//" + host;
+
+
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+			var laydate = layui.laydate;
+			laydate.render({
+				elem: '#startTime'
+			});
+		});
+
+		var layedit, index1,index2;
+		layui.use(['layedit','upload'], function(){
+			layedit = layui.layedit;
+			layedit.set({
+				uploadImage: {
+					url: '/files/layui?domain=' + domain+"&token="+localStorage.getItem("token"),
+					type: 'post'
+				}
+			});
+			index1 = layedit.build('costDescription');
+
+			index2 = layedit.build('reservationNotes');
+		});
+
+		function delImg(e,url) {
+			var imgVal = $("#imgs").val();
+			imgVal = imgVal.replace(url+";","");
+			imgVal = imgVal.replace(url,"");
+
+			$("#imgs").val(imgVal);
+			e.parentNode.parentNode.removeChild(e.parentNode);
+		}
+
+		function add(obj) {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+			$(obj).attr("disabled",true);
+			formdata.costDescription = layedit.getContent(index1);
+			formdata.reservationNotes = layedit.getContent(index2);
+			$.ajax({
+				type : 'post',
+				url : '/products',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "productList.html";
+                    });
+				}
+			});
+		}
+
+		layui.use('upload', function(){
+			var upload = layui.upload;
+			upload.render({
+				elem: '#test1' //绑定元素
+				,accept: 'file' //允许上传的文件类型
+				,url: '/files' //上传接口
+				,done: function(res, index, upload){
+					var html =  "<div>\n"
+								+"	<img src="+res.baseUrl+res.url+" style=\"width: 100px;height: 100px\"><span onclick=\"delImg(this,'"+res.baseUrl+res.url+"')\">删除</span>\n"
+								+"</div>";
+
+					$("#productImg").append(html);
+					var imgVal = $("#imgs").val();
+					if (imgVal==''){
+						$("#imgs").val(res.baseUrl+res.url);
+					} else{
+						$("#imgs").val(imgVal +";"+res.baseUrl+res.url);
+					}
+					layer.msg("上传成功");
+				}
+			});
+		});
+	</script>
+</body>
+</html>

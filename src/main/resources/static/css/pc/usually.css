@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding: 0;
+    list-style: none;
+    font-family: 'MicrosoftYaHei';
+}
+body{min-width:1200px}
+.p-l1{
+    padding-left: 10px;
+}
+.p-l2{
+    padding-left: 20px;
+}
+.p-r1{
+    padding-right: 10px;
+}
+.p-r2{
+    padding-right: 20px;
+}
+.cursor{
+    cursor: pointer;
+}
+.box-direction-r{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.box-direction-c{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.box-direction-r-c{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.box-direction-c-c{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}

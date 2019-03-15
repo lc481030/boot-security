@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"  >
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <title>关于我们</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/about.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+</head>
+<body>
+<div class="box box-direction-c">
+    <!-- 顶部 -->
+    <div class="topnav">
+        <div class="topnav-c box-direction-r">
+            <ul class="right p-l1">
+                <li class="cursor">收藏首页</li>
+                <li class="cursor">保存到桌面</li>
+                <li class="cursor">客服中心</li>
+                <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
+            </ul>
+            <div class="left p-r1">
+                <input type="text" placeholder="目的地/关键词/旅行天数">
+                <div class="btn btn1 cursor">去哪儿玩</div>
+                <div class="btn btn2 cursor">免费咨询</div>
+            </div>
+        </div>
+    </div>
+    <!-- 导航 -->
+    <div class="navwp">
+        <div class="nav box-direction-r">
+            <div class="left display p-l1">
+                <img src="../img/pc/logo.png" alt="">
+            </div>
+            <ul class="right p-r1">
+                <li class="cursor">
+                    <a href="../index.html">首页</a>
+                </li>
+                <li class="cursor">
+                    <a href="../html/main.html">旅游商城</a>
+                </li>
+                <li class="cursor">
+                    <a href="../html/main.html">咨询活动</a>
+                </li>
+                <li class="cursor">
+                    <a href="../html/main.html">会员中心</a>
+                </li>
+                <li class="cursor">
+                    <a href="../about.html">关于我们</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 简介文字 -->
+    <div class="introtxt box-direction-r-c">
+        <img src="../img/pc/aboutBg.png" alt="">
+        <div class="textwp">
+            <div class="text" th:text="${aaa}">
+            </div>
+            <div class="text">
+                会泽千寻以高端、优质、舒心的旅游产品为核心，以健康绿色返璞归为主题。迄今，公司已经为广大游客提供了上百种品质上乘的组团旅游，创意性的提出“自由组团”和“约团”等DIY旅游服务，现已成功打造多款尊享的特色化、个性化旅游产品：包括“寻学奇旅”（夏令营系列），“老来乐游”（夕阳红系列），“自在自游”（自驾游和自由行系列）、“蜜月伴旅”（浪漫海岛、游轮系列），深受广大游客喜爱和好评，回访调研满意度高达98.8%。
+            </div>
+        </div>
+    </div>
+    <!-- 优势 -->
+    <div class="youshi">
+        <div class="youshi-c">
+            <div class="title box-direction-r-c"><img src="../img/pc/youshi.png" alt=""></div>
+            <div class="youshi-content box-direction-r-c">
+                <img src="../img/pc/youshiimg.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 随心选 -->
+    <div class="choose">
+        <div class="choose-c">
+            <div class="title box-direction-r-c"><img src="../img/pc/followTitle.png" alt=""></div>
+            <div class="choose-content box-direction-r-c">
+                <img src="../img/pc/followImgDiv.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 图文布局 -->
+    <div class="style1">
+        <div class="style1-c">
+            <div class="title box-direction-r-c"><img src="../img/pc/customizedTitle.png" alt=""></div>
+            <div class="style1-content  box-direction-r-c">
+                <img src="../img/pc/style1.png" alt="">
+                <ul class="style1ul">
+                    <li class="big">我们为您定制的路线专属于您</li>
+                    <li class="big">给您不可复制的美好旅程！</li>
+                    <li class="big">告别人在囧途！</li>
+                    <li class="mt3">千寻旅游是有上百位专业的资深旅游顾问。</li>
+                    <li>对各个旅游目的地都非常的熟悉。</li>
+                    <li>我们都在您身边</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="style2">
+        <div class="style2-c">
+            <div class="title box-direction-r-c"><img src="../img/pc/goTitle.png" alt=""></div>
+            <div class="style2-content  box-direction-r-c">
+                <ul class="style2ul">
+                    <li class="big">我们为您定制的路线专属于您</li>
+                    <li class="big">给您不可复制的美好旅程！</li>
+                    <li class="big">告别人在囧途！</li>
+                    <li class="mt1">千寻旅游是有上百位专业的资深旅游顾问。</li>
+                    <li>对各个旅游目的地都非常的熟悉。</li>
+                    <li>我们都在您身边</li>
+                </ul>
+                <img src="../img/pc/style2.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="style1">
+        <div class="style1-c">
+            <div class="title box-direction-r-c"><img src="../img/pc/housekeeper.png" alt=""></div>
+            <div class="style1-content  box-direction-r-c">
+                <img src="../img/pc/style1.png" alt="">
+                <ul class="style1ul">
+                    <li class="big">优质旅游服务管家</li>
+                    <li class="big">及时为您解答旅游中的各种疑问！</li>
+                    <li class="big">告别人在囧途！</li>
+                    <li class="mt3">行程开始前，旅途中，归程后</li>
+                    <li>我们都在您身边</li>
+                    <li>为您提供专属服务</li>
+                    <li>贴心管家随叫随到</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="style2">
+        <div class="style2-c">
+            <div class="title box-direction-r-c"><img src="../img/pc/intimateTitle.png" alt=""></div>
+            <div class="style2-content  box-direction-r-c">
+                <ul class="style2ul">
+                    <li class="big">根据需求定制</li>
+                    <li class="big">不多花一分冤枉钱！</li>
+                    <li class="big">告别人在囧途！</li>
+                    <li class="big">明码标价，绝无隐形消费</li>
+                    <li class="mt1">同时，千寻旅游在世界各地拥有丰富的旅游资源</li>
+                    <li>为您提供高性价比的酒店/游玩服务</li>
+                </ul>
+                <img src="../img/pc/style2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom" th:include="pctop::#bottom"></div>
+    <!-- 底部
+    <div class="bottom">
+        <div class="code">
+            <img src="../img/pc/code.png" alt="">
+            <span>扫码关注会泽千寻公众号</span>
+        </div>
+        <div class="text">
+            <ul class="one">
+                <li>网站地图</li>
+                <li>联系我们</li>
+                <li>加入我们</li>
+                <li>商务合作</li>
+                <li>帮助中心</li>
+                <li>云南省旅游合同下载</li>
+            </ul>
+            <ul class="two">
+                <li><span class="span1">客服联系电话：</span><span class="span2">15912028657</span></li>
+                <li><span class="span1">售后联系电话：</span><span class="span2">18183563938</span></li>
+                <li><span class="span1"> 监督热线：</span><span class="span2">15398622336 </span></li>
+                <li><span class="span1"> 座机：</span><span class="span2">0874-5122228</span></li>
+            </ul>
+            <div class="copyright">Copyright ©   重庆夕阳果果信息科技有限公司 版权所有  渝ICP备17016541号-1</div>
+        </div>
+    </div>
+    -->
+</div>
+</body>
+<html/>

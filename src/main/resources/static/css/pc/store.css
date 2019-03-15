@@ -1,0 +1,231 @@
+.navwp{
+    background: #ffffff;
+    border-bottom: 2px solid #1ea9e1;
+    margin-top: 4px;
+}
+.nav .right li{
+    color: #000000;
+}
+.navwp{
+    opacity: 1;
+}
+.topnav{
+    box-shadow: 0 0 2px  rgba(6,6,6,0.5);
+}
+.top-lunbo{
+    width: 100%;
+    height: 400px;
+    background: url('../../img/pc/companybg.jpg')no-repeat;
+    background-size: 100% 100%;
+}
+.t-l-c{
+    width: 1180px;
+    height: 100%;
+    margin: 0 auto;
+}
+.t-l-c-ul{
+    width: 220px;
+    height: 100%;
+}
+.t-l-c-li{
+    width: 220px;
+    padding: 15px 10px;
+    height: 80px;
+    border-top: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    background: #ffffff;
+    cursor: pointer;
+}
+.t-l-c-li:nth-child(1){
+    border-top: none;
+}
+.t-l-c-li .top{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #000000;
+    font-weight: 500;
+}
+.t-l-c-li span:nth-child(2){
+    font-size: 18px;
+}
+.t-l-c-li .city{
+    width: 100%;
+    margin-top: 10px;
+    background: #ffffff;
+}
+.t-l-c-li .city li{
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #888888;
+    float: left;
+    margin-left: 10px;
+}
+.t-l-c-li .city li:nth-child(1){
+    margin-left: 0;
+}
+/* 内容容器 */
+.s-list{
+    width:100%;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+.s-list-c{
+    width:1180px;
+    margin: 0 auto;
+}
+.s-list-c-li{
+    width: 100%;
+    padding: 20px 0;
+}
+.s-list-c-li-top{
+    width: 100%;
+    height: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+.s-list-c-li-title{
+    width: 220px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    position: relative;
+    padding-left: 20px;
+    color: #0084C1;
+    float: left;
+}
+.s-list-c-li-title::before{
+    width: 4px;
+    height: 18px;
+    position: absolute;
+    left: 0;
+    top: 1px;
+    background: #0084C1;
+    content: '';
+}
+.s-list-c-li-ul{
+    width: 920px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    position: relative;
+    padding-left: 20px;
+    float: left;
+}
+.s-list-c-li-ul li{
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    position: relative;
+    color: #787878;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+.s-list-c-li-ul li.active::before{
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    background:#0084C1;
+    content: '';
+}
+.s-list-c-li-ul li.active::after{
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    content: '';
+    border-width: 0 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent #0084C1;
+    transform: translate(-50%);
+}
+.s-list-c-li-bottom{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.s-list-c-li-bottom img{
+    width: 240px;
+    height: 500px;
+}
+.s-list-c-li-bottom ul{
+    width: 920px;
+    height: 500px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+.s-list-c-li-bottom li{
+    width: 224px;
+    height:242px;
+    margin-left: 8px;
+    overflow: hidden;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #ffffff;
+    cursor: pointer;
+}
+.s-list-c-li-bottom li:nth-child(4n+1){
+    margin-left: 0;
+}
+.s-list-c-li-bottom li:nth-child(n+5){
+    margin-top: 16px;
+}
+.s-list-c-li-bottom li img{
+    width: 224px;
+    height:162px;
+}
+.s-list-c-li-bottom li .dec{
+    position: absolute;
+    top: 142px;
+    left: 0;
+    width: 214px;
+    padding: 0 5px;
+    height:20px;
+    font-size: 12px;
+    color: #ffffff;
+    background: rgba(0,0,0,0.4);
+}
+.s-list-c-li-bottom li .title{
+    width: 214px;
+    margin: 5px;
+    height:40px;
+    line-height: 19px;
+    font-size: 14px;
+    color: #333333;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.s-list-c-li-bottom li .price{
+    width: 214px;
+    padding: 0 5px;
+    height:30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #888888;
+    text-align: right;
+}
+.s-list-c-li-bottom li .price .span1,.s-list-c-li-bottom li .price .span2{
+    color: #F74702;
+}
+.s-list-c-li-bottom li .price .span2{
+    font-size: 22px;
+    font-weight: 500;
+}
