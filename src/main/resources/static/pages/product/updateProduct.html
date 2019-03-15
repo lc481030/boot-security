@@ -11,15 +11,15 @@
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>title</label>
+				<label class='col-md-2 control-label'>标题</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='title 不能为空'>
+					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='标题不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>detail</label>
+				<label class='col-md-2 control-label'>描述</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='detail' type='text' name='detail' id='detail' data-bv-notempty='true' data-bv-notempty-message='detail 不能为空'>
+					<input class='form-control' placeholder='detail' type='text' name='detail' id='detail' data-bv-notempty='true' data-bv-notempty-message='描述不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
@@ -40,11 +40,24 @@
 					<input class='form-control' placeholder='startTime' type='text' name='startTime' id='startTime' data-bv-notempty='true' data-bv-notempty-message='startTime 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
+			<!--<div class='form-group'>
 				<label class='col-md-2 control-label'>imgs</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='imgs' type='text' name='imgs' id='imgs' data-bv-notempty='true' data-bv-notempty-message='imgs 不能为空'>
 				</div>
+			</div>-->
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>图片</label>
+				<div class='col-md-10'>
+					<div id="productImg">
+					</div>
+					<input  style="display:none" class='form-control' placeholder='imgs' type='text' name='imgs' id='imgs' data-bv-notempty='true' data-bv-notempty-message='最少上传一张'>
+					<button type="button" class="layui-btn" id="test1">
+						<i class="layui-icon">&#xe67c;</i>上传文件
+					</button>
+
+				</div>
+
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>price</label>
@@ -166,7 +179,6 @@
 						$('#productMode').val(data.productMode);
 						$('#productType').val(data.productType);
 						$('#startTime').val(data.startTime);
-						$('#imgs').val(data.imgs);
 						$('#price').val(data.price);
 						$('#startCity').val(data.startCity);
 						$('#targetCountry').val(data.targetCountry);
@@ -176,7 +188,16 @@
 						$('#brightSpot').val(data.brightSpot);
 						$('#costDescription').text(data.costDescription);
 						$('#reservationNotes').text(data.reservationNotes);
-
+						$('#imgs').val(data.imgs);
+						var imgVal = data.imgs;
+						imgs=imgVal.split(";"); //字符分割
+						for (i=0;i<imgs.length ;i++ )
+						{
+							var html =  "<div>\n"
+									+"	<img src="+imgs[i]+" style=\"width: 100px;height: 100px\"><span onclick=\"delImg(this,'"+imgs[i]+"')\">删除</span>\n"
+									+"</div>";
+							$("#productImg").append(html);
+						}
 					}
 				});
 			}
@@ -207,7 +228,40 @@
 				}
 			});
 		}
-		
+
+		function delImg(e,url) {
+			var imgVal = $("#imgs").val();
+			imgVal = imgVal.replace(url+";","");
+			imgVal = imgVal.replace(url,"");
+
+			$("#imgs").val(imgVal);
+			e.parentNode.parentNode.removeChild(e.parentNode);
+		}
+
+
+		layui.use('upload', function(){
+			var upload = layui.upload;
+			upload.render({
+				elem: '#test1' //绑定元素
+				,accept: 'file' //允许上传的文件类型
+				,url: '/files' //上传接口
+				,done: function(res, index, upload){
+					var html =  "<div>\n"
+							+"	<img src="+res.baseUrl+res.url+" style=\"width: 100px;height: 100px\"><span onclick=\"delImg(this,'"+res.baseUrl+res.url+"')\">删除</span>\n"
+							+"</div>";
+
+					$("#productImg").append(html);
+					var imgVal = $("#imgs").val();
+					if (imgVal==''){
+						$("#imgs").val(res.baseUrl+res.url);
+					} else{
+						$("#imgs").val(imgVal +";"+res.baseUrl+res.url);
+					}
+					layer.msg("上传成功");
+				}
+			});
+		});
+
 	</script>
 </body>
 </html>
