@@ -72,7 +72,8 @@
 	</select>
 
 	<select id="list" resultType="Product">
-		select * from product t
+		select ttt.productType,t.* from product t
+		LEFT JOIN product_type as ttt ON t.productType = ttt.id
 		<include refid="where" />
 		${params.orderBy}
 		limit #{offset}, #{limit}
@@ -131,6 +132,9 @@
 			</if>
 			<if test="reservationNotes != null">
 				reservationNotes = #{reservationNotes}, 
+			</if>
+			<if test="recommendIndex != null">
+				recommendIndex = #{recommendIndex},
 			</if>
 			<if test="deleted != null">
 				deleted = #{deleted}, 

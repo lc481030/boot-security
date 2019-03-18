@@ -71,6 +71,14 @@ public class ProductTypeController {
         }).handle(request);
     }
 
+
+
+    @GetMapping("/all")
+    @ApiOperation(value = "获取所有")
+    public List<ProductType> listAll() {
+        return productTypeDao.getAllList();
+    };
+
     @DeleteMapping("/{id}")
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {

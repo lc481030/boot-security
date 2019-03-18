@@ -24,7 +24,7 @@ public interface ProductDao {
     int update(Product product);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into product(createTime, updateTime, title, detail, productMode, productType, startTime, imgs, price, startCity, targetCountry, days, afterCity, vehicle, brightSpot, costDescription, reservationNotes, deleted) values(#{createTime}, #{updateTime}, #{title}, #{detail}, #{productMode}, #{productType}, #{startTime}, #{imgs}, #{price}, #{startCity}, #{targetCountry}, #{days}, #{afterCity}, #{vehicle}, #{brightSpot}, #{costDescription}, #{reservationNotes}, #{deleted})")
+    @Insert("insert into product(createTime, updateTime, title, detail, productMode, productType, startTime, imgs, price, startCity, targetCountry, days, afterCity, vehicle, brightSpot, costDescription, reservationNotes, deleted,recommendIndex) values(#{createTime}, #{updateTime}, #{title}, #{detail}, #{productMode}, #{productType}, #{startTime}, #{imgs}, #{price}, #{startCity}, #{targetCountry}, #{days}, #{afterCity}, #{vehicle}, #{brightSpot}, #{costDescription}, #{reservationNotes}, #{deleted},0)")
     int save(Product product);
     
     int count(@Param("params") Map<String, Object> params);

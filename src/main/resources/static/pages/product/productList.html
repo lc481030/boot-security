@@ -51,7 +51,7 @@
 									<th>价格</th>
 									<th>出发城市</th>
 									<th>目标国家</th>
-									<th>天数</th>
+									<th>首页推荐</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -104,19 +104,29 @@ function init(){
 				{"data" : "price", "defaultContent" : ""},
 				{"data" : "startCity", "defaultContent" : ""},
 				{"data" : "targetCountry", "defaultContent" : ""},
-				{"data" : "days", "defaultContent" : ""},
-				{ 
-								"data": "", 
-								"defaultContent": "",
-								"orderable":false,
-						        "render": function (data, type, row) {
-                		           var id = row['id'];
-                		           var href = "updateProduct.html?id=" + id;
-                                   var edit = buttonEdit(href, "", pers);
-                		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
-                  	            }		
-							},
+				{"data" : "recommendIndex", "defaultContent" : "",
+					"render": function (data, type, row) {
+						var recommendIndex = row['recommendIndex'];
+						if(recommendIndex == 1){
+							return  "推荐";
+						}else {
+							return  "未推荐";
+						}
+					}
+				},
+				{
+					"data": "",
+					"defaultContent": "",
+					"orderable":false,
+					"render": function (data, type, row) {
+					   var id = row['id'];
+					   var href = "updateProduct.html?id=" + id;
+					   var edit = buttonEdit(href, "", pers);
+					   var del = buttonDel(id, "", pers);
+					   var recommend = buttonRecommend(id, "", pers);
+					   return edit + recommend + del;
+					}
+				},
                 
             ],
            "order": [[ 0, "asc" ]]
@@ -126,6 +136,29 @@ function init(){
 layui.use('layer', function(){
     var layer = layui.layer;
 });
+
+function recommend(id){
+	layer.confirm('确定要修改推荐状态吗？', {
+		btn : [ '确定', '取消' ]
+	}, function() {
+		$.ajax({
+			type : 'put',
+			url : '/products/productsRecommend/'+id,
+			success : function(data) {
+				var s = data.recommendIndex;
+				example.ajax.reload();
+				if (s=="1"){
+					layer.msg("推荐成功");
+				}else{
+					layer.msg("取消推荐成功");
+				}
+
+
+			}
+		});
+		layer.close(1);
+	});
+}
 
 function del(id){
 	layer.confirm('确定要删除吗？', {

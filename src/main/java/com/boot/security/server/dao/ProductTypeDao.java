@@ -30,4 +30,7 @@ public interface ProductTypeDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<ProductType> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select * from product_type t where  deleted = 0 ")
+    List<ProductType> getAllList();
 }
