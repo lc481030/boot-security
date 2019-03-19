@@ -32,7 +32,7 @@ public class IndexController {
         ModelAndView view = new ModelAndView();
         List<TIndexImg> imgList = indexImgDao.getAllList();
         view.addObject("imgList",imgList);
-        view.setViewName("main");
+        view.setViewName("index");
         return view;
     }
 
@@ -43,7 +43,7 @@ public class IndexController {
         List<ProductLine> productList = productLineDao.getAllList();
         view.addObject("productList",productList);
         view.addObject("imgList",imgList);
-        view.setViewName("main");
+        view.setViewName("index");
         return view;
     }
 }

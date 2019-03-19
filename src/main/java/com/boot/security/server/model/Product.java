@@ -1,5 +1,7 @@
 package com.boot.security.server.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Product extends BaseEntity<Long> {

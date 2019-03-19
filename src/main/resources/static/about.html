@@ -28,30 +28,7 @@
         </div>
     </div>
     <!-- 导航 -->
-    <div class="navwp">
-        <div class="nav box-direction-r">
-            <div class="left display p-l1">
-                <img src="../img/pc/logo.png" alt="">
-            </div>
-            <ul class="right p-r1">
-                <li class="cursor">
-                    <a href="../index.html">首页</a>
-                </li>
-                <li class="cursor">
-                    <a href="../html/main.html">旅游商城</a>
-                </li>
-                <li class="cursor">
-                    <a href="../html/main.html">咨询活动</a>
-                </li>
-                <li class="cursor">
-                    <a href="../html/main.html">会员中心</a>
-                </li>
-                <li class="cursor">
-                    <a href="../about.html">关于我们</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <div class="navwp" th:include="menu::#navwp"></div>
     <!-- 简介文字 -->
     <div class="introtxt box-direction-r-c">
         <img src="../img/pc/aboutBg.png" alt="">

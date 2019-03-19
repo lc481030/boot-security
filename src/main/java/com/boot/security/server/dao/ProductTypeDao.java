@@ -33,4 +33,7 @@ public interface ProductTypeDao {
 
     @Select("select * from product_type t where  deleted = 0 ")
     List<ProductType> getAllList();
+
+    @Select("select * from product_type t where  isShow = 1 and deleted = 0 ")
+    List<ProductType> getByShow();
 }

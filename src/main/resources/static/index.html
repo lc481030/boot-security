@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <title>会泽千寻</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+    <link rel="stylesheet" href="../css/pc/main.css">
+    <link rel="stylesheet" href="../css/pc/swiper.min.css">
+</head>
+<body>
+    <div class="box box-direction-c" id="sidewp">
+        <!-- 顶部 -->
+        <div class="topnav">
+            <div class="topnav-c box-direction-r">
+                <div class="left p-l1">
+                    <input type="text" placeholder="您的目的地..">
+                    <div class="btn btn1 cursor">去哪儿玩</div>
+                    <div class="btn btn2 cursor">免费咨询</div>
+                </div>
+                <ul class="right p-r1">
+                    <li class="cursor">收藏首页</li>
+                    <li class="cursor">保存到桌面</li>
+                    <li class="cursor">客服中心</li>
+                    <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-two">
+            <!-- 导航 -->
+        <div class="navwp">
+                <div class="nav box-direction-r">
+                    <div class="left display p-l1">
+                        <img src="../img/pc/logow.png" alt="">
+                    </div>
+                    <ul class="right p-r1">
+                        <li class="cursor">
+                            <a href="../index.html">首&nbsp;&nbsp;&nbsp;页</a>
+                        </li>
+                        <li class="cursor">
+                            <a href="../store.html">旅游商城
+                                <ul class="two">
+                                    <li><a href="../ore.html">地区分类</a></li>
+                                    <li><a href="../store.html">主题分类</a></li>
+                                    <li><a href="../store.html">景点分类</a></li>
+                                    <li><a href="../store.html">交通分类</a></li>
+                                    <li><a href="../dz.html">定制旅游</a></li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li class="cursor">
+                            <a href="../ixun.html">咨询活动</a>
+                        </li>
+                        <li class="cursor">
+                            <a href="../main.html">会员中心</a>
+                            <ul class="two">
+                                <li><a href="../zuji.html">足迹</a></li>
+                                <li><a href="../message.html">留言板</a></li>
+                                <li><a href="../ingjia.html">评价</a></li>
+                            </ul>
+                        </li>
+                        <li class="cursor">
+                            <a href="../about.html">关于我们</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 轮播 -->
+            <div class="lunbo">
+                <div class="swiper-container">
+
+                    <div class="swiper-wrapper">
+                    <div class="swiper-slide" th:each="img : ${imgList}">
+                        <img th:src="${img.getFilePath()}" alt="">
+                    </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- 右侧导航 -->
+                <div class="sharenav">
+                    <ul>
+                        <li title="添加书签">
+                            <a href="#" rel="sidebar" onclick="addFavorite(window.location,document.title);"><img src="../img/pc/like.png" alt=""></a>
+                        </li>
+                        <li title="qq客服">
+                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=1&uin=这里填写客服qq号&site=qq&menu=yes"><img border="0" src="../img/pc/qq.png" alt="点击这里给我发消息" title="点击这里给我发消息"/></a> 
+                        </li>
+                        <li title="微信客服" class="wx">
+                            <img src="../img/pc/weixin.png" alt="" >
+                            <img src="../img/pc/code.png" alt="" class="wximg">
+                        </li>
+                        <li>
+                            <img src="../img/pc/share.png" alt="">
+                        </li>
+                        <li id="top" title="回到顶部"><img src="../img/pc/up.png" alt=""></li>
+                    </ul>
+                    <div class="shareline"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 产品 -->
+        <div class="product">
+            <div class="title box-direction-r-c">
+                <img src="../img/pc/projectTitle.png" alt="">
+            </div>
+            <ul class="product-content">
+                <li>
+                    <img src="../img/pc/themeImg.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                    <div class="dec">光沙滩，吹海风，晒太阳，拥抱大海</div>
+                </li>
+                <li>
+                    <img src="../img/pc/pc1.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                </li>
+                <li>
+                    <img src="../img/pc/pc1.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                </li>
+                <li>
+                    <img src="../img/pc/pc1.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                </li>
+                <li>
+                    <img src="../img/pc/pc1.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                </li>
+                <li>
+                    <img src="../img/pc/pc1.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                </li>
+                <li>
+                    <img src="../img/pc/pc1.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                    <div class="dec">光沙滩，吹海风，晒太阳，拥抱大海</div>
+                </li>
+                <li>
+                    <img src="../img/pc/pc1.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                </li>
+                <li>
+                    <img src="../img/pc/pc1.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                </li>
+                <li>
+                    <img src="../img/pc/themeImg.jpg" alt="">
+                    <div class="title">私享海岛</div>
+                </li>
+            </ul>
+        </div>
+        <!-- 公司简介 -->
+        <div class="intro">
+            <div class="intro-c">
+                <div class="title box-direction-r-c"><img src="../img/pc/companyTitle.png" alt=""></div>
+                <div class="txt">
+                    会泽千寻旅行社有限责任公司，简称会泽千寻旅行社或千寻旅游，是经云南省旅游发展委员会批准设立，以提供优质国内旅游入境旅游为主的旅行社，专业提供国际化旅游服务，公司旗下旅游品类齐全，行程科学饱满，涵盖自驾游、自由行、跟团游等全系列。旅行社以品类丰富著称，以品质、尊享体验为尚。旅行社提倡个性化、慢节奏、高效率的旅行行程，依旅行者的不同特点，设计不同的旅行安排。
+                 </div>
+                 <div class="txt">
+                        会泽千寻以高端、优质、舒心的旅游产品为核心，以健康绿色返璞归为主题。迄今，公司已经为广大游客提供了上百种品质上乘的组团旅游，创意性的提出“自由组团”和“约团”等DIY旅游服务，现已成功打造多款尊享的特色化、个性化旅游产品：包括“寻学奇旅”（夏令营系列），“老来乐游”（夕阳红系列），“自在自游”（自驾游和自由行系列）、“蜜月伴旅”（浪漫海岛、游轮系列），深受广大游客喜爱和好评，回访调研满意度高达98.8%。
+                </div>
+                <div class="intro-content box-direction-r-c">
+                    <img src="../img/pc/youshiimg.png" alt="">
+                </div>
+            </div>
+        </div>
+         <!-- 预定流程 -->
+         <div class="Reserve">
+            <div class="title box-direction-r-c">
+                <img src="../img/pc/reserveFlowTitle.png" alt="">
+            </div>
+            <div class="Reserve-content box-direction-c-c">
+                <img src="../img/pc/reserveFlowBG.png" alt="">
+            </div>
+        </div>
+         <!-- 客户评价 -->
+         <div class="pingjia">
+            <div class="pingjia-c">
+                <div class="title box-direction-r-c">
+                    <img src="../img/pc/evaluateDiv.png" alt="">
+                </div>
+                <ul class="pingjia-content">
+                    <li class="num">
+                        <div class="high"><img src="../img/pc/popularity.png" alt=""></div>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li class="bcc">
+                            <img src="../img/pc/bcc.png" alt="">
+                            <div class="txt">2017年度评定为曲靖市旅游协会副会长单位</div>
+                        </li>
+                        <li class="bcc">
+                            <img src="../img/pc/bcc.png" alt="">
+                            <div class="txt">2017年度沪滇合作企业培训对口单位</div>
+                        </li>
+                    <li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家不多，这次人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。家人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li class="num">
+                        <div class="high"><img src="../img/pc/popularity.png" alt=""></div>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li class="num">
+                        <div class="high"><img src="../img/pc/popularity.png" alt=""></div>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
+                        <div class="time">发表于：2018.9.21</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 客户足迹 -->
+        <div class="footprint">
+            <div class="footprint-c">
+                <div class="title box-direction-r-c">
+                    <img src="../img/pc/footprintDiv.png" alt="">
+                </div>
+                <ul class="footprint-content">
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 资源支持 -->
+        <div class="source">
+            <div class="title box-direction-r-c">
+                <img src="../img/pc/source.png" alt="">
+            </div>
+            <ul class="source-content">
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+            </ul>
+        </div>
+        <!-- 底部 -->
+        <div class="bottom" th:include="pctop::#bottom"></div>
+    </div>
+
+</body>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
+<script src="../js/pc/swiper.min.js"></script>
+<script type="text/javascript">
+    //  向上滚动
+    jQuery(document).ready(function($) {
+        $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');// 这行是 Opera 的补丁, 少了它 Opera 是直接用跳的而且画面闪烁 by willin
+        $('#top').click(function(){
+            $body.animate({scrollTop: $('#sidewp').offset().top}, 500);
+            return false;// 返回false可以避免在原链接后加上#
+        });
+    });
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+
+    // 轮播
+	var mySwiper = new Swiper('.swiper-container', {
+        autoplay: {
+            delay: 2000,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable :true,
+        },
+        loop : true,
+    })
+    // 收藏
+    // function addFav(){
+    //     var title = document.title;
+    //     var URL = document.URL;
+    //     console.log(URL+'--'+title);
+    //     if(document.all){
+    //         window.external.addFavorite(URL,title );
+    //     }else if(window.sidebar){
+    //         window.sidebar.addPanel(title, URL,'');
+    //     }
+    // }
+    // function AddFavorite(sURL,sTitle){
+    //     // var sTitle='';
+    //     var sURL=location.href;
+    //     console.log(sTitle+'--'+sURL);
+    //     if(window.sidebar){
+    //         return true;
+    //         try{
+    //             window.external.addFavorite(sURL,sTitle);
+    //         }catch (e){
+    //             alert("加入收藏失败，请使用ctrl+D进行添加");
+    //         }
+    //         return false;
+    //     }
+    // }
+    $(function(){
+        $("#addFavorite").attr("href", window.location);
+        $("#addFavorite").attr("title", document.title);
+    });
+    function addFavorite(url, title) {  
+            // 浏览器用于 HTTP 请求的用户代理头的值，可判断浏览器种类  
+        var userAgent = navigator.userAgent.toLowerCase();  
+        if (userAgent.indexOf("360se") > -1) {  
+            console.log(1);
+            alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");  
+        } else if (userAgent.indexOf("msie 8") > -1) {  
+            console.log(2);
+            window.external.AddToFavoritesBar(url, title); // IE8  
+        } else if (document.all) { // 用于判断IE  
+            console.log(3);
+            try {  
+                window.external.addFavorite(url, title);  
+            } catch (e) {  
+                alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');  
+            }  
+        } else if (window.sidebar) { // Firefox已经取消window.sidebar.addPanel 处理方法见后面  
+            // window.sidebar.addPanel(title, url, "");  
+            console.log(4);
+        } else {  
+            console.log(5);
+            alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');  
+        }  
+    }  
+
+
+     //动态添加瀑布图片的功能函数
+     function waterfall(){
+
+        //取得展示框对象
+        var $boxs = $( ".pingjia-content>li" );
+
+        // 一个块框的宽
+        var w = $boxs.eq(0).outerWidth(true);
+
+        //每行中能容纳的展示框个数【窗口宽度除以一个块框宽度】
+        var cols = Math.floor( ($( '.pingjia-content' ).width()) / w );
+
+        //给最外围的main元素设置宽度和外边距
+        $('.pingjia-content').width(w*cols).css('margin','o auto');
+
+        //用于存储 每列中的所有块框相加的高度。
+        var hArr=[];
+
+        $boxs.each( function( index, value ){
+            var h = $boxs.eq( index).outerHeight(true);
+            if( index < cols ){
+                hArr[ index ] = h; //第一行中的num个块框 先添加进数组HArr
+            }else{
+                var minH = Math.min.apply( null, hArr );//数组HArr中的最小值minH
+                var minHIndex = $.inArray( minH, hArr );
+                $(value).css({
+                    'position':'absolute','top':minH+'px', 'left':minHIndex*w + 'px'
+                });
+                // //数组 最小高元素的高 + 添加上的展示框[i]块框高
+                hArr[ minHIndex ] += $boxs.eq(index).outerHeight(true);//更新添加了块框后的列高
+            }
+        });
+        }
+        waterfall();
+</script>
+</html>

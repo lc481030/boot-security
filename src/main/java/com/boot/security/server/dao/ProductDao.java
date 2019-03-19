@@ -30,4 +30,12 @@ public interface ProductDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<Product> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    /**
+     * @ 根据类型ID查询当前类型下的旅游地点
+     * @param id
+     * @return
+     */
+    @Select("select * from product t where t.productType = #{id} order by updateTime desc limit 8")
+    List<Product> getByProductTypeId(Long id);
 }

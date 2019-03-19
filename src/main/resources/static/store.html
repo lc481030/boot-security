@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -10,245 +10,270 @@
     <link rel="stylesheet" href="../css/pc/usually.css">
 </head>
 <body>
-    <div class="box box-direction-c">
-        <!-- 顶部 -->
-        <div class="topnav">
-            <div class="topnav-c box-direction-r">
-                <ul class="right p-l1">
-                    <li class="cursor">收藏首页</li>
-                    <li class="cursor">保存到桌面</li>
-                    <li class="cursor">客服中心</li>
-                    <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
-                </ul>
-                <div class="left p-r1">
-                    <input type="text" placeholder="目的地/关键词/旅行天数">
-                    <div class="btn btn1 cursor">去哪儿玩</div>
-                    <div class="btn btn2 cursor">免费咨询</div>
-                </div>
-            </div>
-        </div>
-        <!-- 导航 -->
-        <div class="navwp">
-            <div class="nav box-direction-r">
-                <div class="left display p-l1">
-                    <img src="../img/pc/logo.png" alt="">
-                </div>
-                <ul class="right p-r1">
-                    <li class="cursor"><span>首页</span></li>
-                    <li class="cursor"><span>旅游商城</span></li>
-                    <li class="cursor"><span>咨询活动</span></li>
-                    <li class="cursor"><span>会员中心</span></li>
-                    <li class="cursor"><span>关于我们</span></li>
-                </ul>
-            </div>
-        </div>
-        <!-- 顶部轮播 -->
-        <div class="top-lunbo">
-            <div class="t-l-c">
-                <ul class="t-l-c-ul">
-                    <li class="t-l-c-li">
-                        <div class="top">
-                            <span>地区分类</span><span>></span>
-                        </div>
-                        <ul class="city">
-                            <li>三亚</li>
-                            <li>云南</li>
-                            <li>新疆疆</li>
-                            <li>重庆</li>
-                        </ul>
-                    </li>
-                    <li class="t-l-c-li">
-                        <div class="top">
-                            <span>地区分类</span><span>></span>
-                        </div>
-                        <ul class="city">
-                            <li>三亚</li>
-                            <li>云南</li>
-                            <li>新疆</li>
-                            <li>重庆</li>
-                        </ul>
-                    </li>
-                    <li class="t-l-c-li">
-                        <div class="top">
-                            <span>地区分类</span><span>></span>
-                        </div>
-                        <ul class="city">
-                            <li>三亚</li>
-                            <li>云南</li>
-                            <li>新疆</li>
-                            <li>重庆</li>
-                        </ul>
-                    </li>
-                    <li class="t-l-c-li">
-                        <div class="top">
-                            <span>地区分类</span><span>></span>
-                        </div>
-                        <ul class="city">
-                            <li>三亚</li>
-                            <li>云南</li>
-                            <li>新疆</li>
-                            <li>重庆</li>
-                        </ul>
-                    </li>
-                    <li class="t-l-c-li">
-                        <div class="top">
-                            <span>地区分类</span><span>></span>
-                        </div>
-                        <ul class="city">
-                            <li>三亚</li>
-                            <li>云南</li>
-                            <li>新疆</li>
-                            <li>重庆</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- 商城列表 -->
-        <div class="s-list">
-            <ul class="s-list-c">
-                <li class="s-list-c-li">
-                    <div class="s-list-c-li-top">
-                        <div class="s-list-c-li-title">主题游</div>
-                        <ul class="s-list-c-li-ul">
-                            <li class="active">环球体验季</li>
-                            <li>蜜月</li>
-                            <li>美食</li>
-                            <li>观赛</li>
-                            <li>化学</li>
-                            <li>散步</li>
-                            <li>健康</li>
-                        </ul>
-                    </div>
-                    <div class="s-list-c-li-bottom">
-                        <img src="../img/pc/themeImg.jpg" alt="">
-                        <ul>
-                            <li>
-                                <img src="../img/pc/img1.jpg" alt="">
-                                <div class="dec">出发时间：201911月11日</div>
-                                <div class="title">个日番谷日番谷日番谷如果如果个日番谷日番谷日番谷如果如果个日番谷日番谷日番谷如果如果个日番谷日番谷日番谷如果如果个日番谷日番谷日番谷如果如果</div>
-                                <div class="price">
-                                    <span class="span1">￥</span>
-                                    <span class="span2">100000</span>
-                                    <span>元起</span>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="../img/pc/img1.jpg" alt="">
-                                <div class="dec">出发时间：201911月11日</div>
-                                <div class="title">个日番谷日番谷日番谷如果如果</div>
-                                <div class="price">
-                                    <span class="span1">￥</span>
-                                    <span class="span2">100000</span>
-                                    <span>元起</span>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="../img/pc/img1.jpg" alt="">
-                                <div class="dec">出发时间：201911月11日</div>
-                                <div class="title">个日番谷日番谷日番谷如果如果</div>
-                                <div class="price">
-                                    <span class="span1">￥</span>
-                                    <span class="span2">100000</span>
-                                    <span>元起</span>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="../img/pc/img1.jpg" alt="">
-                                <div class="dec">出发时间：201911月11日</div>
-                                <div class="title">个日番谷日番谷日番谷如果如果</div>
-                                <div class="price">
-                                    <span class="span1">￥</span>
-                                    <span class="span2">100000</span>
-                                    <span>元起</span>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="../img/pc/img1.jpg" alt="">
-                                <div class="dec">出发时间：201911月11日</div>
-                                <div class="title">个日番谷日番谷日番谷如果如果</div>
-                                <div class="price">
-                                    <span class="span1">￥</span>
-                                    <span class="span2">100000</span>
-                                    <span>元起</span>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="../img/pc/img1.jpg" alt="">
-                                <div class="dec">出发时间：201911月11日</div>
-                                <div class="title">个日番谷日番谷日番谷如果如果</div>
-                                <div class="price">
-                                    <span class="span1">￥</span>
-                                    <span class="span2">100000</span>
-                                    <span>元起</span>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="../img/pc/img1.jpg" alt="">
-                                <div class="dec">出发时间：201911月11日</div>
-                                <div class="title">个日番谷日番谷日番谷如果如果</div>
-                                <div class="price">
-                                    <span class="span1">￥</span>
-                                    <span class="span2">100000</span>
-                                    <span>元起</span>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="../img/pc/img1.jpg" alt="">
-                                <div class="dec">出发时间：201911月11日</div>
-                                <div class="title">个日番谷日番谷日番谷如果如果</div>
-                                <div class="price">
-                                    <span class="span1">￥</span>
-                                    <span class="span2">100000</span>
-                                    <span>元起</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+<div class="box box-direction-c">
+    <!-- 顶部 -->
+    <div class="topnav">
+        <div class="topnav-c box-direction-r">
+            <ul class="right p-l1">
+                <li class="cursor">收藏首页</li>
+                <li class="cursor">保存到桌面</li>
+                <li class="cursor">客服中心</li>
+                <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
             </ul>
-        </div>
-        <!-- 底部 -->
-        <div class="bottom">
-            <div class="code">
-                <img src="../img/pc/code.png" alt="">
-                <span>扫码关注会泽千寻公众号</span>
-            </div>
-            <div class="text">
-                <ul class="one">
-                    <li>网站地图</li>
-                    <li>联系我们</li>
-                    <li>加入我们</li>
-                    <li>商务合作</li>
-                    <li>帮助中心</li>
-                    <li>云南省旅游合同下载</li>
-                </ul>
-                <ul class="two">
-                    <li><span class="span1">客服联系电话：</span><span class="span2">15912028657</span></li>
-                    <li><span class="span1">售后联系电话：</span><span class="span2">18183563938</span></li>
-                    <li><span class="span1"> 监督热线：</span><span class="span2">15398622336 </span></li>
-                    <li><span class="span1"> 座机：</span><span class="span2">0874-5122228</span></li>
-                </ul>
-                <div class="copyright">Copyright ©   重庆夕阳果果信息科技有限公司 版权所有  渝ICP备17016541号-1</div>
+            <div class="left p-r1">
+                <input type="text" placeholder="目的地/关键词/旅行天数">
+                <div class="btn btn1 cursor">去哪儿玩</div>
+                <div class="btn btn2 cursor">免费咨询</div>
             </div>
         </div>
     </div>
+    <!-- 导航 -->
+    <div class="navwp" th:include="menu::#navwp"></div>
+    <!-- 顶部轮播 -->
+    <div class="top-lunbo">
+        <div class="t-l-c">
+            <ul class="t-l-c-ul">
+                <li class="t-l-c-li">
+                    <div class="top">
+                        <span>地区分类</span><span>></span>
+                    </div>
+                    <ul class="city">
+                        <li>三亚</li>
+                        <li>云南</li>
+                        <li>新疆疆</li>
+                        <li>重庆</li>
+                    </ul>
+                </li>
+                <li class="t-l-c-li">
+                    <div class="top">
+                        <span>地区分类</span><span>></span>
+                    </div>
+                    <ul class="city">
+                        <li>三亚</li>
+                        <li>云南</li>
+                        <li>新疆</li>
+                        <li>重庆</li>
+                    </ul>
+                </li>
+                <li class="t-l-c-li">
+                    <div class="top">
+                        <span>地区分类</span><span>></span>
+                    </div>
+                    <ul class="city">
+                        <li>三亚</li>
+                        <li>云南</li>
+                        <li>新疆</li>
+                        <li>重庆</li>
+                    </ul>
+                </li>
+                <li class="t-l-c-li">
+                    <div class="top">
+                        <span>地区分类</span><span>></span>
+                    </div>
+                    <ul class="city">
+                        <li>三亚</li>
+                        <li>云南</li>
+                        <li>新疆</li>
+                        <li>重庆</li>
+                    </ul>
+                </li>
+                <li class="t-l-c-li">
+                    <div class="top">
+                        <span>地区分类</span><span>></span>
+                    </div>
+                    <ul class="city">
+                        <li>三亚</li>
+                        <li>云南</li>
+                        <li>新疆</li>
+                        <li>重庆</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 商城列表 -->
+    <div class="s-list">
+        <ul class="s-list-c">
+            <li class="s-list-c-li">
+                <div class="s-list-c-li-top">
+                    <div class="s-list-c-li-title">主题游</div>
+                    <ul class="s-list-c-li-ul">
+                        <li class="active" th:each="productTypes,productStart : ${productTypes1}" th:if="${productStart.index==0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+')'" th:text="${productTypes.getProductType()}"></li>
+                        <li th:each="productTypes,productStart : ${productTypes1}" th:if="${productStart.index!=0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+')'" th:text="${productTypes.getProductType()}"></li>
+                    </ul>
+                </div>
+                <div class="s-list-c-li-bottom">
+                    <img src="../img/pc/themeImg.jpg" alt="">
+                    <ul id="product1">
+                        <li th:each="product:${productList1}">
+                            <img th:src="${product.getImgs()}" alt="图片无法显示">
+                            <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
+                            <div class="title" th:text="${product.getTitle()}"></div>
+                            <div class="price">
+                                <span class="span1">￥</span>
+                                <span class="span2" th:text="${product.getPrice()}"></span>
+                                <span>元起</span>
+                            </div>
+                        </li>
+                        <!--<li>
+                            <img src="../img/pc/img1.jpg" alt="">
+                            <div class="dec">出发时间：201911月11日</div>
+                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                            <div class="price">
+                                <span class="span1">￥</span>
+                                <span class="span2">100000</span>
+                                <span>元起</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../img/pc/img1.jpg" alt="">
+                            <div class="dec">出发时间：201911月11日</div>
+                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                            <div class="price">
+                                <span class="span1">￥</span>
+                                <span class="span2">100000</span>
+                                <span>元起</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../img/pc/img1.jpg" alt="">
+                            <div class="dec">出发时间：201911月11日</div>
+                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                            <div class="price">
+                                <span class="span1">￥</span>
+                                <span class="span2">100000</span>
+                                <span>元起</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../img/pc/img1.jpg" alt="">
+                            <div class="dec">出发时间：201911月11日</div>
+                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                            <div class="price">
+                                <span class="span1">￥</span>
+                                <span class="span2">100000</span>
+                                <span>元起</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../img/pc/img1.jpg" alt="">
+                            <div class="dec">出发时间：201911月11日</div>
+                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                            <div class="price">
+                                <span class="span1">￥</span>
+                                <span class="span2">100000</span>
+                                <span>元起</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../img/pc/img1.jpg" alt="">
+                            <div class="dec">出发时间：201911月11日</div>
+                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                            <div class="price">
+                                <span class="span1">￥</span>
+                                <span class="span2">100000</span>
+                                <span>元起</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../img/pc/img1.jpg" alt="">
+                            <div class="dec">出发时间：201911月11日</div>
+                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                            <div class="price">
+                                <span class="span1">￥</span>
+                                <span class="span2">100000</span>
+                                <span>元起</span>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 底部 -->
+    <div class="bottom" th:include="pctop::#bottom"></div>
+    <!--<div class="bottom">
+        <div class="code">
+            <img src="../img/pc/code.png" alt="">
+            <span>扫码关注会泽千寻公众号</span>
+        </div>
+        <div class="text">
+            <ul class="one">
+                <li>网站地图</li>
+                <li>联系我们</li>
+                <li>加入我们</li>
+                <li>商务合作</li>
+                <li>帮助中心</li>
+                <li>云南省旅游合同下载</li>
+            </ul>
+            <ul class="two">
+                <li><span class="span1">客服联系电话：</span><span class="span2">15912028657</span></li>
+                <li><span class="span1">售后联系电话：</span><span class="span2">18183563938</span></li>
+                <li><span class="span1"> 监督热线：</span><span class="span2">15398622336 </span></li>
+                <li><span class="span1"> 座机：</span><span class="span2">0874-5122228</span></li>
+            </ul>
+            <div class="copyright">Copyright ©   重庆夕阳果果信息科技有限公司 版权所有  渝ICP备17016541号-1</div>
+        </div>
+    </div>-->
+</div>
 </body>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
 <script>
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+
+
     var a=GetRequest();
-    console.log("id:"+a['id']) //打印出传过来的id
-    
+    //console.log("id:"+a['id']) //打印出传过来的id
+
     function GetRequest() {
         var url = location.search; //获取url中"?"符后的字串
         var theRequest = new Object();
-         if (url.indexOf("?") != -1) {
-               var str = url.substr(1);
-               strs = str.split("&");
-               for (var i = 0; i < strs.length; i++) {
-                   theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
-               }
-           }
-           return theRequest;
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    
+    function checkProductType(e,productType) {
+        //切换li标签的样式
+        $(e).siblings("li").removeClass("active");
+        $(e).addClass("active");
+        //ajax 请求数据进行替换
+        $.ajax({
+            type : 'get',
+            url : '/getByProductType.html',
+            data:{"productType":productType},
+            success : function(data) {
+                $("#product1").empty();
+                $.each(data,function (i,item) {
+                    var html =  "<li>\n"
+                                +"		<img src=\""+item.imgs+"\" alt=\"\">\n"
+                                +"		<div class=\"dec\">出发时间："+item.startTime+"</div>\n"
+                                +"		<div class=\"title\">"+item.title+"</div>\n"
+                                +"		<div class=\"price\">\n"
+                                +"				<span class=\"span1\">￥</span>\n"
+                                +"				<span class=\"span2\">"+item.price+"</span>\n"
+                                +"				<span>元起</span>\n"
+                                +"		</div>\n"
+                                +"</li>"
+                    $("#product1").append(html);
+                })
+
+                console.log(data)
+            }
+        });
+
     }
 </script>
 </html>
