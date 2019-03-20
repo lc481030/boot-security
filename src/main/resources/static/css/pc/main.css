@@ -31,7 +31,7 @@
     bottom: -10px;
     left: -9px;
     width: 90px;
-    background: rgba(0, 0, 0, 0.8);
+    /*background: rgba(0, 0, 0, 0.8);*/
     display: none;
 }
 .nav .right .cursor .two li{
@@ -39,15 +39,17 @@
     line-height: 30px;
     font-size: 14px;
     color: #ffffff;
+    background: rgba(0, 0, 0, 0.5);
     position: relative;
     padding: 5px 13px;
     cursor: pointer;
-    border-bottom: 1px solid #ffffff;
+    /*border-bottom: 1px solid #ffffff;*/
+    margin-top: 1px;
     font-family: 'MicrosoftYaHei';
 }
 .nav .right .cursor .two li:hover{
     color: #000;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
 }
 .box-two{
     overflow: hidden;
@@ -56,8 +58,7 @@
 .navwp{
     width: 100%;
     height: 70px;
-    background: #000000;
-    opacity: 0.5;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 3;
     position: absolute;
     top: 0;
@@ -258,7 +259,7 @@
 .intro{
     width: 100%;
     height: 840px;
-    background: url('../img/companybg.jpg') no-repeat;
+    background: url('../../img/pc/companybg.jpg') no-repeat;
     background-size: 100% 100%;
 }
 .intro-c{
@@ -308,7 +309,7 @@
 .pingjia{
     width: 100%;
     height: 1100px;
-    background: url('../img/pingjiabg.png') no-repeat;
+    background: url('../../img/pc/pingjiabg.png') no-repeat;
     background-size: 100% 100%;
 }
 .pingjia-c{
@@ -456,7 +457,7 @@
 .footprint-content li:nth-child(1){
     width: 200px;
     height: 230px;
-    background: url('../img/companybg.jpg')no-repeat;
+    background: url('../../img/pc/companybg.jpg')no-repeat;
     background-position: cover;
 }
 .footprint-content li:nth-child(2){

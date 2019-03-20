@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <title>足迹</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/zuji.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+</head>
+<style>
+    
+</style>
+<body>
+    <div class="box box-direction-c">
+        <!-- 顶部 -->
+        <div class="topnav">
+            <div class="topnav-c box-direction-r">
+                <ul class="right p-l1">
+                    <li class="cursor">收藏首页</li>
+                    <li class="cursor">保存到桌面</li>
+                    <li class="cursor">客服中心</li>
+                    <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
+                </ul>
+                <div class="left p-r1">
+                    <input type="text" placeholder="目的地/关键词/旅行天数">
+                    <div class="btn btn1 cursor">去哪儿玩</div>
+                    <div class="btn btn2 cursor">免费咨询</div>
+                </div>
+            </div>
+        </div>
+        <!-- 导航 -->
+        <div class="navwp" th:include="menu::#navwp"></div>
+       <!-- 客户足迹 -->
+       <div class="footprint">
+            <div class="footprint-c">
+                <div class="title">
+                    <ul>
+                        <li class="active" onclick="checkPointType(this,0)">全部</li>
+                        <li th:each="dict:${dictList}" th:text="${dict.val}" th:onclick="'javascript:checkPointType(this,'+${dict.getK()}+')'"></li>
+                        <!-- <li>地区分类</li>
+                        <li>主题分类</li>
+                        <li>景点分类</li>
+                        <li>交通分类</li>-->
+                    </ul>
+                </div>
+                <ul class="footprint-content" id="footPoint">
+                    <li th:each="point:${pointList}"><img th:src="${point.getImg()}"><div class="dec" th:text="${point.getTitle()}"></div></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="bottom" th:include="pctop::#bottom"></div>
+    </div>
+</body>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
+<script>
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+
+
+   //动态添加瀑布图片的功能函数
+     function waterfall(){
+
+        //取得展示框对象
+        var $boxs = $( ".pingjia-content>li" );
+
+        // 一个块框的宽
+        var w = $boxs.eq(0).outerWidth(true);
+
+        //每行中能容纳的展示框个数【窗口宽度除以一个块框宽度】
+        var cols = Math.floor( ($( '.pingjia-content' ).width()) / w );
+
+        //给最外围的main元素设置宽度和外边距
+        $('.pingjia-content').width(w*cols).css('margin','o auto');
+
+        //用于存储 每列中的所有块框相加的高度。
+        var hArr=[];
+
+        $boxs.each( function( index, value ){
+            var h = $boxs.eq( index).outerHeight(true);
+            if( index < cols ){
+                hArr[ index ] = h; //第一行中的num个块框 先添加进数组HArr
+            }else{
+                var minH = Math.min.apply( null, hArr );//数组HArr中的最小值minH
+                var minHIndex = $.inArray( minH, hArr );
+                $(value).css({
+                    'position':'absolute','top':minH+'px', 'left':minHIndex*w + 'px'
+                });
+                // //数组 最小高元素的高 + 添加上的展示框[i]块框高
+                hArr[ minHIndex ] += $boxs.eq(index).outerHeight(true);//更新添加了块框后的列高
+            }
+        });
+    }
+    waterfall();
+
+    function checkPointType(e,footPointType) {
+        //切换li标签的样式
+        $(e).siblings("li").removeClass("active");
+        $(e).addClass("active");
+        //ajax 请求数据进行替换
+        $.ajax({
+            type : 'get',
+            url : '/getByFootPointType.html',
+            data:{"footPointType":footPointType},
+            success : function(data) {
+                $("#footPoint").empty();
+                $.each(data,function (i,item) {
+                    var html =  "<li><img src=\""+item.img+"\" alt=\"\"><div class=\"dec\">"+item.title+"</div></li>"
+                    $("#footPoint").append(html);
+                })
+            }
+        });
+
+    }
+
+    // //监听滚动条
+    // window.onscroll=function(){
+    //     if(checkscrollside()){
+    //         // AddWaterfall(dataInt);//这个是动态填充新展示框的函数
+    //         waterfall();
+    //     };
+    // }
+
+    // //判断是否需要继续加载瀑布流
+    // function checkscrollside(){
+    //     var $lastBox = $( ".pingjia-content>li" ).last();
+    //     var lastBoxDis = $lastBox.offset().top + Math.floor($lastBox.outerHeight()/2);
+    //     var scrollTop = $(window).scrollTop();
+    //     var documentH = $(window).height();
+    //     return (lastBoxDis<scrollTop+documentH)?true:false;
+    // }
+</script>
+</html>

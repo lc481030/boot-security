@@ -96,10 +96,10 @@
         <ul class="s-list-c">
             <li class="s-list-c-li">
                 <div class="s-list-c-li-top">
-                    <div class="s-list-c-li-title">主题游</div>
+                    <div class="s-list-c-li-title">地区游</div>
                     <ul class="s-list-c-li-ul">
-                        <li class="active" th:each="productTypes,productStart : ${productTypes1}" th:if="${productStart.index==0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+')'" th:text="${productTypes.getProductType()}"></li>
-                        <li th:each="productTypes,productStart : ${productTypes1}" th:if="${productStart.index!=0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+')'" th:text="${productTypes.getProductType()}"></li>
+                        <li class="active" th:each="productTypes,productStart : ${productTypes1}" th:if="${productStart.index==0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+',1)'" th:text="${productTypes.getProductType()}"></li>
+                        <li th:each="productTypes,productStart : ${productTypes1}" th:if="${productStart.index!=0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+',1)'" th:text="${productTypes.getProductType()}"></li>
                     </ul>
                 </div>
                 <div class="s-list-c-li-bottom">
@@ -115,76 +115,92 @@
                                 <span>元起</span>
                             </div>
                         </li>
-                        <!--<li>
-                            <img src="../img/pc/img1.jpg" alt="">
-                            <div class="dec">出发时间：201911月11日</div>
-                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="s-list">
+        <ul class="s-list-c">
+            <li class="s-list-c-li">
+                <div class="s-list-c-li-top">
+                    <div class="s-list-c-li-title">主题游</div>
+                    <ul class="s-list-c-li-ul">
+                        <li class="active" th:each="productTypes,productStart : ${productTypes2}" th:if="${productStart.index==0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+',2)'" th:text="${productTypes.getProductType()}"></li>
+                        <li th:each="productTypes,productStart : ${productTypes2}" th:if="${productStart.index!=0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+',2)'" th:text="${productTypes.getProductType()}"></li>
+                    </ul>
+                </div>
+                <div class="s-list-c-li-bottom">
+                    <img src="../img/pc/themeImg.jpg" alt="">
+                    <ul id="product2">
+                        <li th:each="product:${productList2}">
+                            <img th:src="${product.getImgs()}" alt="图片无法显示">
+                            <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
+                            <div class="title" th:text="${product.getTitle()}"></div>
                             <div class="price">
                                 <span class="span1">￥</span>
-                                <span class="span2">100000</span>
+                                <span class="span2" th:text="${product.getPrice()}"></span>
                                 <span>元起</span>
                             </div>
                         </li>
-                        <li>
-                            <img src="../img/pc/img1.jpg" alt="">
-                            <div class="dec">出发时间：201911月11日</div>
-                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="s-list">
+        <ul class="s-list-c">
+            <li class="s-list-c-li">
+                <div class="s-list-c-li-top">
+                    <div class="s-list-c-li-title">景点游</div>
+                    <ul class="s-list-c-li-ul">
+                        <li class="active" th:each="productTypes,productStart : ${productTypes3}" th:if="${productStart.index==0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+',3)'" th:text="${productTypes.getProductType()}"></li>
+                        <li th:each="productTypes,productStart : ${productTypes3}" th:if="${productStart.index!=0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+',3)'" th:text="${productTypes.getProductType()}"></li>
+                    </ul>
+                </div>
+                <div class="s-list-c-li-bottom">
+                    <img src="../img/pc/themeImg.jpg" alt="">
+                    <ul id="product3">
+                        <li th:each="product:${productList3}">
+                            <img th:src="${product.getImgs()}" alt="图片无法显示">
+                            <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
+                            <div class="title" th:text="${product.getTitle()}"></div>
                             <div class="price">
                                 <span class="span1">￥</span>
-                                <span class="span2">100000</span>
+                                <span class="span2" th:text="${product.getPrice()}"></span>
                                 <span>元起</span>
                             </div>
                         </li>
-                        <li>
-                            <img src="../img/pc/img1.jpg" alt="">
-                            <div class="dec">出发时间：201911月11日</div>
-                            <div class="title">个日番谷日番谷日番谷如果如果</div>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="s-list">
+        <ul class="s-list-c">
+            <li class="s-list-c-li">
+                <div class="s-list-c-li-top">
+                    <div class="s-list-c-li-title">交通游</div>
+                    <ul class="s-list-c-li-ul">
+                        <li class="active" th:each="productTypes,productStart : ${productTypes4}" th:if="${productStart.index==0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+',4)'" th:text="${productTypes.getProductType()}"></li>
+                        <li th:each="productTypes,productStart : ${productTypes4}" th:if="${productStart.index!=0}" th:onclick="'javascript:checkProductType(this,'+${productTypes.getId()}+',4)'" th:text="${productTypes.getProductType()}"></li>
+                    </ul>
+                </div>
+                <div class="s-list-c-li-bottom">
+                    <img src="../img/pc/themeImg.jpg" alt="">
+                    <ul id="product4">
+                        <li th:each="product:${productList4}">
+                            <img th:src="${product.getImgs()}" alt="图片无法显示">
+                            <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
+                            <div class="title" th:text="${product.getTitle()}"></div>
                             <div class="price">
                                 <span class="span1">￥</span>
-                                <span class="span2">100000</span>
+                                <span class="span2" th:text="${product.getPrice()}"></span>
                                 <span>元起</span>
                             </div>
                         </li>
-                        <li>
-                            <img src="../img/pc/img1.jpg" alt="">
-                            <div class="dec">出发时间：201911月11日</div>
-                            <div class="title">个日番谷日番谷日番谷如果如果</div>
-                            <div class="price">
-                                <span class="span1">￥</span>
-                                <span class="span2">100000</span>
-                                <span>元起</span>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../img/pc/img1.jpg" alt="">
-                            <div class="dec">出发时间：201911月11日</div>
-                            <div class="title">个日番谷日番谷日番谷如果如果</div>
-                            <div class="price">
-                                <span class="span1">￥</span>
-                                <span class="span2">100000</span>
-                                <span>元起</span>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../img/pc/img1.jpg" alt="">
-                            <div class="dec">出发时间：201911月11日</div>
-                            <div class="title">个日番谷日番谷日番谷如果如果</div>
-                            <div class="price">
-                                <span class="span1">￥</span>
-                                <span class="span2">100000</span>
-                                <span>元起</span>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../img/pc/img1.jpg" alt="">
-                            <div class="dec">出发时间：201911月11日</div>
-                            <div class="title">个日番谷日番谷日番谷如果如果</div>
-                            <div class="price">
-                                <span class="span1">￥</span>
-                                <span class="span2">100000</span>
-                                <span>元起</span>
-                            </div>
-                        </li>-->
                     </ul>
                 </div>
             </li>
@@ -192,29 +208,6 @@
     </div>
     <!-- 底部 -->
     <div class="bottom" th:include="pctop::#bottom"></div>
-    <!--<div class="bottom">
-        <div class="code">
-            <img src="../img/pc/code.png" alt="">
-            <span>扫码关注会泽千寻公众号</span>
-        </div>
-        <div class="text">
-            <ul class="one">
-                <li>网站地图</li>
-                <li>联系我们</li>
-                <li>加入我们</li>
-                <li>商务合作</li>
-                <li>帮助中心</li>
-                <li>云南省旅游合同下载</li>
-            </ul>
-            <ul class="two">
-                <li><span class="span1">客服联系电话：</span><span class="span2">15912028657</span></li>
-                <li><span class="span1">售后联系电话：</span><span class="span2">18183563938</span></li>
-                <li><span class="span1"> 监督热线：</span><span class="span2">15398622336 </span></li>
-                <li><span class="span1"> 座机：</span><span class="span2">0874-5122228</span></li>
-            </ul>
-            <div class="copyright">Copyright ©   重庆夕阳果果信息科技有限公司 版权所有  渝ICP备17016541号-1</div>
-        </div>
-    </div>-->
 </div>
 </body>
 <script src="../js/pc/jquery-3.3.1.min.js"></script>
@@ -227,11 +220,7 @@
     $(".two").mouseleave(function(){
         $(this).hide();
     })
-
-
     var a=GetRequest();
-    //console.log("id:"+a['id']) //打印出传过来的id
-
     function GetRequest() {
         var url = location.search; //获取url中"?"符后的字串
         var theRequest = new Object();
@@ -245,7 +234,7 @@
         return theRequest;
     }
     
-    function checkProductType(e,productType) {
+    function checkProductType(e,productType,productId) {
         //切换li标签的样式
         $(e).siblings("li").removeClass("active");
         $(e).addClass("active");
@@ -255,7 +244,7 @@
             url : '/getByProductType.html',
             data:{"productType":productType},
             success : function(data) {
-                $("#product1").empty();
+                $("#product"+productId).empty();
                 $.each(data,function (i,item) {
                     var html =  "<li>\n"
                                 +"		<img src=\""+item.imgs+"\" alt=\"\">\n"
@@ -267,7 +256,7 @@
                                 +"				<span>元起</span>\n"
                                 +"		</div>\n"
                                 +"</li>"
-                    $("#product1").append(html);
+                    $("#product"+productId).append(html);
                 })
 
                 console.log(data)

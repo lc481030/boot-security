@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en"  >
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -33,7 +33,8 @@
     <div class="introtxt box-direction-r-c">
         <img src="../img/pc/aboutBg.png" alt="">
         <div class="textwp">
-            <div class="text" th:text="${aaa}">
+            <div class="text">
+                会泽千寻旅行社有限责任公司，简称会泽千寻旅行社或千寻旅游，是经云南省旅游发展委员会批准设立，以提供优质国内旅游入境旅游为主的旅行社，专业提供国际化旅游服务，公司旗下旅游品类齐全，行程科学饱满，涵盖自驾游、自由行、跟团游等全系列。旅行社以品类丰富著称，以品质、尊享体验为尚。旅行社提倡个性化、慢节奏、高效率的旅行行程，依旅行者的不同特点，设计不同的旅行安排。
             </div>
             <div class="text">
                 会泽千寻以高端、优质、舒心的旅游产品为核心，以健康绿色返璞归为主题。迄今，公司已经为广大游客提供了上百种品质上乘的组团旅游，创意性的提出“自由组团”和“约团”等DIY旅游服务，现已成功打造多款尊享的特色化、个性化旅游产品：包括“寻学奇旅”（夏令营系列），“老来乐游”（夕阳红系列），“自在自游”（自驾游和自由行系列）、“蜜月伴旅”（浪漫海岛、游轮系列），深受广大游客喜爱和好评，回访调研满意度高达98.8%。
@@ -124,33 +125,19 @@
             </div>
         </div>
     </div>
-
+    <!-- 底部 -->
     <div class="bottom" th:include="pctop::#bottom"></div>
-    <!-- 底部
-    <div class="bottom">
-        <div class="code">
-            <img src="../img/pc/code.png" alt="">
-            <span>扫码关注会泽千寻公众号</span>
-        </div>
-        <div class="text">
-            <ul class="one">
-                <li>网站地图</li>
-                <li>联系我们</li>
-                <li>加入我们</li>
-                <li>商务合作</li>
-                <li>帮助中心</li>
-                <li>云南省旅游合同下载</li>
-            </ul>
-            <ul class="two">
-                <li><span class="span1">客服联系电话：</span><span class="span2">15912028657</span></li>
-                <li><span class="span1">售后联系电话：</span><span class="span2">18183563938</span></li>
-                <li><span class="span1"> 监督热线：</span><span class="span2">15398622336 </span></li>
-                <li><span class="span1"> 座机：</span><span class="span2">0874-5122228</span></li>
-            </ul>
-            <div class="copyright">Copyright ©   重庆夕阳果果信息科技有限公司 版权所有  渝ICP备17016541号-1</div>
-        </div>
-    </div>
-    -->
 </div>
 </body>
-<html/>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
+<script>
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+</script>
+</html>
