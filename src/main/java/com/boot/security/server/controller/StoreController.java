@@ -1,8 +1,11 @@
 package com.boot.security.server.controller;
 
+import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dao.ProductDao;
 import com.boot.security.server.dao.ProductTypeDao;
+import com.boot.security.server.model.Dict;
 import com.boot.security.server.model.Product;
+import com.boot.security.server.model.ProductModeNum;
 import com.boot.security.server.model.ProductType;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -29,9 +32,16 @@ public class StoreController {
     @Resource
     private ProductTypeDao productTypeDao;
 
+    @Resource
+    private DictDao dictDao;
 
+
+    /**
+     * 旅游商城
+     * @return
+     */
     @RequestMapping("store.html")
-    public ModelAndView pcIndex() {
+    public ModelAndView storeIndex() {
         ModelAndView view = new ModelAndView();
         //查询四个分类中得显示得子项目
 
@@ -82,7 +92,7 @@ public class StoreController {
 
     public List<Product> productFormat(List<Product> productList1){
         productList1.forEach(product -> {
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             try {
                 Date date= df.parse(product.getStartTime());
                 String Datetime  = df.format(date);
@@ -102,10 +112,91 @@ public class StoreController {
         return productList1;
     }
 
+    /**
+     * 获取旅游类型
+     * @param productType
+     * @return
+     */
     @GetMapping("/getByProductType.html")
     @ResponseBody
     public List<Product> pcIndex(String productType) {
         List<Product> productList1 = productDao.getByProductTypeId(Long.parseLong(productType));
         return productFormat(productList1);
     }
+
+
+    /**
+     * 旅游商城
+     * @return
+     */
+    @RequestMapping("customized.html")
+    public ModelAndView customized() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("customized");
+        return view;
+    }
+
+
+
+    /**
+     * 旅游商城
+     * @return
+     */
+    @RequestMapping("storeList.html")
+    public ModelAndView storeList() {
+        ModelAndView view = new ModelAndView();
+
+        //查询四种旅游各自的数量
+        List<ProductModeNum> productModeNums = productDao.getNumByModeType();
+
+
+        List<Product> productList = productDao.storeList(null, 0, 10);
+        productList = productFormat(productList);
+        Integer totalNum = 0;
+
+        for (ProductModeNum modeNums: productModeNums) {
+            totalNum +=Integer.parseInt(modeNums.getProductNum());
+            if (modeNums.getProductMode().equals("1")){
+                modeNums.setProductName("地区游");
+            }else if (modeNums.getProductMode().equals("2")){
+                modeNums.setProductName("主题游");
+            }else if (modeNums.getProductMode().equals("3")){
+                modeNums.setProductName("景点游");
+            }else if (modeNums.getProductMode().equals("4")){
+                modeNums.setProductName("交通游");
+            }
+        }
+        view.addObject("totalNum",totalNum);
+        view.addObject("productModeNums",productModeNums);
+
+        /*途径城市*/
+        List<Dict> afterCitys = dictDao.listByType("afterCity");
+        /*出发城市*/
+        List<Dict> startCitys = dictDao.listByType("startCity");
+        /*目标国家*/
+        List<Dict> targetCountry = dictDao.listByType("targetCountry");
+
+        /*查询符合要求的当前的旅游数据*/
+
+        view.addObject("productList",productList);
+
+        view.addObject("startCitys",startCitys);
+        view.addObject("targetCountrys",targetCountry);
+        view.addObject("afterCitys",afterCitys);
+        view.setViewName("storeList");
+        return view;
+    }
+
+
+    /**
+     * 旅游商城
+     * @return
+     */
+    @GetMapping("getProductList.html")
+    @ResponseBody
+    public List<Product> getProductList() {
+        List<Product> productList = productDao.storeList(null, 0, 10);
+        return productFormat(productList);
+    }
+
 }

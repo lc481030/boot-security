@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.model.ProductModeNum;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -38,4 +39,10 @@ public interface ProductDao {
      */
     @Select("select * from product t where t.productType = #{id} order by updateTime desc limit 8")
     List<Product> getByProductTypeId(Long id);
+
+    @Select("SELECT productMode,COUNT(1) as productNum FROM `product` WHERE deleted is null or deleted = 0   GROUP BY productMode ")
+    List<ProductModeNum> getNumByModeType();
+
+    /*前段列表查询*/
+    List<Product> storeList(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 }

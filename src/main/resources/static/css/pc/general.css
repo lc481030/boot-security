@@ -248,17 +248,17 @@ a{text-decoration-line: none;}
 .bottom .text .one li:nth-child(1){
     padding-left: 0;
 }
-.bottom .text .two{
+.bottom .text .btntwo{
     overflow: hidden;
     margin-top: 20px;
 }
-.bottom .text .two li{
+.bottom .text .btntwo li{
     float: left;
     height: 20px;
     line-height: 20px;
     margin-left: 30px;
 }
-.bottom .text .two li:nth-child(1){
+.bottom .text .btntwo li:nth-child(1){
     margin-left: 0;
 }
 .bottom .text .copyright{

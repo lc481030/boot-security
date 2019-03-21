@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <title>旅游商城</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/allshops.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+    <link rel="stylesheet" href="../css/pc/lyz.calendar.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+</head>
+<body>
+    <div class="box box-direction-c">
+        <!-- 顶部 -->
+        <div class="topnav">
+            <div class="topnav-c box-direction-r">
+                <ul class="right p-l1">
+                    <li class="cursor">收藏首页</li>
+                    <li class="cursor">保存到桌面</li>
+                    <li class="cursor">客服中心</li>
+                    <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
+                </ul>
+                <div class="left p-r1">
+                    <input type="text" placeholder="目的地/关键词/旅行天数">
+                    <div class="btn btn1 cursor">去哪儿玩</div>
+                    <div class="btn btn2 cursor">免费咨询</div>
+                </div>
+            </div>
+        </div>
+        <!-- 导航 -->
+        <div class="navwp" th:include="menu::#navwp"></div>
+        <!-- 商城容器 -->
+        <div class="s-container">
+            <div class="s-content">
+                <!-- 内容导航 -->
+                <div class="s-navwp">
+                    <ul class="bignav">
+                        <li class="active" data="0">全部产品(<span th:text="${totalNum}"></span>)</li>
+                        <li th:each=" productModeNum:${productModeNums}" th:attr="data=${productModeNum.getProductMode()}">
+                            <span th:text="${productModeNum.getProductName()}"></span>（<span th:text="${productModeNum.getProductNum()}"></span>）
+                        </li>
+                    </ul>
+                    <div class="smallnav">
+                        <div class="every">
+                            <div class="left">出发城市</div>
+                            <ul>
+                                <li th:each="startCity,iterStat :${startCitys}" th:attr="data=${startCity.getK()}" datatype="startCity" th:class="${iterStat.index eq 0 }? 'active'" th:text="${startCity.getVal()}"></li>
+                            </ul>
+                        </div>
+                        <div class="every">
+                            <div class="left">目的地国家</div>
+                            <ul>
+                                <li th:each="targetCountry :${targetCountrys}" th:attr="data=${targetCountry.getK()}"  datatype="targetCountry"  th:text="${targetCountry.getVal()}"></li>
+
+                            </ul>
+                        </div>
+                        <div class="every">
+                            <div class="left">出行天数</div>
+                            <ul>
+                                <li>1-5天</li>
+                                <li>6-9天</li>
+                                <li>10-15天</li>
+                                <li>16-20天</li>
+                                <li>21天及以上</li>
+                            </ul>
+                        </div>
+                        <div class="every">
+                            <div class="left">途径城市</div>
+                            <ul>
+                                <li th:each="afterCity :${afterCitys}"  datatype="afterCity" th:attr="data=${afterCity.getK()}" th:text="${afterCity.getVal()}"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 排序 -->
+                <div class="s-sortwp">
+                    <ul class="sort-title">
+                        <li class="active">默认排序</li>
+                        <li>价格排序</li>
+                    </ul>
+                    <div class="pricechoose">
+                        <ul class="sort-title">
+                            <li>出行时间</li>
+                        </ul>
+                        <input  class="input" style="width: 100px;" type="text" placeholder="出发时间" id="beginTime" name='beginTime'>
+                        <div class="line">-</div>
+                        <input  class="input" style="width: 100px;margin-right: 20px" type="text" placeholder="结束时间" id="endTime" name='endTime'>
+                        <ul class="sort-title">
+                            <li>价格</li>
+                        </ul>
+                        <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
+                        <div class="line">-</div>  
+                        <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
+                        <div class="btn yes">确认</div>
+                        <div class="btn cancer">取消</div>
+                    </div>
+                </div>
+                <!-- 列表 -->
+                <ul class="s-listwp">
+                    <!--begin-->
+                    <li class="list-li" th:each="product:${productList}">
+                        <div class="top">
+                            <div class="img">
+                                <img th:src="${product.getImgs()}" alt="">
+                            </div>
+                            <div class="right">
+                                <div class="list-title" th:text="${product.getTitle()}"></div>
+                                <div class="list-dec" th:text="${product.getDetail()}"></div>
+                                <ul class="lable">
+                                    <li class="orange">
+                                        <span>凯撒自营</span>
+                                    </li>
+                                    <li class="green">
+                                        <span>大众型</span>
+                                    </li>
+                                </ul>
+                                <div class="gotime">出发时间:<span th:text="${product.getStartTime()}"></span></div>
+                                <div class="overcity">途径城市:<span th:text="${product.getAfterCity()}"></span></div>
+                                <div class="price">
+                                    <span class="span1">￥</span><span class="span2">3388</span><span class="span3">/人起</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-bottom">
+                            <div class="detailbtn">查看详情</div>
+                        </div>
+                    </li>
+
+                    <!--end-->
+
+                </ul>
+                <div onclick="getProductList()">查看更多</div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="bottom" th:include="pctop::#bottom"></div>
+    </div>
+</body>
+    <script src="../js/pc/jquery-3.3.1.min.js"></script>
+    <script src="../js/pc/lyz.calendar.min.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+<script>
+
+    layui.use(['layer','laydate'], function(){
+        var layer = layui.layer;
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#beginTime',
+
+        });
+    });
+    layui.use(['layer','laydate'], function(){
+        var layer = layui.layer;
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#endTime',
+
+        });
+    });
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+
+    /*查询菜单选择 -- 产品类型*/
+    var productMode = 0;
+    $('.bignav li').click(function(){
+        $(this).siblings('li').removeClass('active');
+        $(this).addClass('active');
+        productMode =  $(this).attr("data");
+    })
+    var startCity = 0;
+    var targetCountry = 0;
+    var afterCity = 0;
+    $('.every li').click(function(){
+        $(this).siblings('li').removeClass('active');
+        $(this).addClass('active');
+
+        var dataType = $(this).attr("dataType");
+        if(dataType=="startCity"){
+            startCity =  $(this).attr("data");
+
+        }else if (dataType=="targetCountry"){
+            targetCountry =  $(this).attr("data");
+
+        }else if (dataType=="afterCity"){
+            afterCity =  $(this).attr("data");
+
+        }
+
+    })
+
+    function getProductList(){
+        $.ajax({
+            type : 'GET',
+            url : '/getProductList.html',
+            contentType: "application/json; charset=utf-8",
+            success : function(data) {
+               $.each(data,function (e,val) {
+                   var html = "<li class=\"list-li\">\n"
+                              + "		<div class=\"top\">\n"
+                              + "				<div class=\"img\">\n"
+                              + "						<img src=\""+val.imgs+"\" alt=\"\">\n"
+                              +"				</div>\n"
+                              + "				<div class=\"right\">\n"
+                              + "						<div class=\"list-title\">"+val.title+"</div>\n"
+                              + "						<div class=\"list-dec\">"+val.detail+"</div>\n"
+                              + "						<ul class=\"lable\">\n"
+                              + "								<li class=\"orange\">\n"
+                              + "										<span>凯撒自营</span>\n"
+                              + "								</li>\n"
+                              + "								<li class=\"green\">\n"
+                              + "										<span>大众型</span>\n"
+                              + "								</li>\n"
+                              + "						</ul>\n"
+                              + "						<div class=\"gotime\">出发时间:<span>"+val.startTime+"</span></div>\n"
+                              + "						<div class=\"overcity\">途径城市:<span>"+val.afterCity+"</span></div>\n"
+                              + "						<div class=\"price\">\n"
+                              + "								<span class=\"span1\">￥</span><span class=\"span2\">"+val.price+"</span><span class=\"span3\">/人起</span>\n"
+                              + "						</div>\n"
+                              + "				</div>\n"
+                              + "		</div>\n"
+                              + "		<div class=\"list-bottom\">\n"
+                              + "				<div class=\"detailbtn\">查看详情</div>\n"
+                              + "		</div>\n"
+                              + "</li>";
+                   $(".s-listwp").append(html);
+                   console.log(val.title);
+               })
+            }
+        });
+
+    }
+
+
+    $('.sort-title li').click(function(){
+        $(this).siblings('li').removeClass('active');
+        $(this).addClass('active');
+    })
+
+</script>
+</html>

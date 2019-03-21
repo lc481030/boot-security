@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/pc/general.css">
     <link rel="stylesheet" href="../css/pc/message.css">
     <link rel="stylesheet" href="../css/pc/usually.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 </head>
 <body>
     <div class="box box-direction-c">
@@ -28,63 +29,79 @@
             </div>
         </div>
         <!-- 导航 -->
-        <div class="navwp">
-            <div class="nav box-direction-r">
-                <div class="left display p-l1">
-                    <img src="../img/pc/logo.png" alt="">
-                </div>
-                <ul class="right p-r1">
-                    <li class="cursor"><span>首页</span></li>
-                    <li class="cursor"><span>旅游商城</span></li>
-                    <li class="cursor"><span>咨询活动</span></li>
-                    <li class="cursor"><span>会员中心</span></li>
-                    <li class="cursor"><span>关于我们</span></li>
-                </ul>
-            </div>
-        </div>
+        <div class="navwp" th:include="menu::#navwp"></div>
+
         <!-- 留言 -->
         <div class="msg">
-            <div class="msg-content box-direction-c-c">
-                <div class="title">留言板</div>
-                <div class="name box-direction-r-c">
-                    <span>称呼</span>
-                    <input type="text" placeholder="如：张先生/李女士">
+            <form class="form-horizontal" onsubmit="return false" id="form">
+                <div class="msg-content box-direction-c-c">
+                    <div class="title">留言板</div>
+                    <div class="name box-direction-r-c">
+                        <span>称呼</span>
+                        <input class='form-control' placeholder='如：张先生/李女士' type='text' name='nickName' id='nickName' data-bv-notempty='true' data-bv-notempty-message='请填写称呼'>
+                       <!-- <input type="text" placeholder="如：张先生/李女士">-->
+                    </div>
+                    <div class="contact  box-direction-r-c">
+                        <span>联系方式</span>
+                        <input class='form-control' placeholder='请填写手机或邮箱' type='text' name='phoneOrEmail' id='phoneOrEmail' data-bv-notempty='true' data-bv-notempty-message='请填写手机或邮箱'>
+                    </div>
+                    <div class="txt  box-direction-r-c">
+                        <span>想说的话</span>
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="千寻成长需要每一次真诚的发声"></textarea>
+                    </div>
+                    <div class="btn" onclick="submitMessage()">提交留言</div>
                 </div>
-                <div class="contact  box-direction-r-c">
-                    <span>联系方式</span>
-                    <input type="text" placeholder="请填写手机或邮箱">
-                </div>
-                <div class="txt  box-direction-r-c">
-                    <span>想说的话</span>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="千寻成长需要每一次真诚的发声"></textarea>
-                </div>
-                <div class="btn">提交留言</div>
-            </div>
+            </form>
         </div>
         <!-- 底部 -->
-        <div class="bottom">
-            <div class="code">
-                <img src="../img/pc/code.png" alt="">
-                <span>扫码关注会泽千寻公众号</span>
-            </div>
-            <div class="text">
-                <ul class="one">
-                    <li>网站地图</li>
-                    <li>联系我们</li>
-                    <li>加入我们</li>
-                    <li>商务合作</li>
-                    <li>帮助中心</li>
-                    <li>云南省旅游合同下载</li>
-                </ul>
-                <ul class="two">
-                    <li><span class="span1">客服联系电话：</span><span class="span2">15912028657</span></li>
-                    <li><span class="span1">售后联系电话：</span><span class="span2">18183563938</span></li>
-                    <li><span class="span1"> 监督热线：</span><span class="span2">15398622336 </span></li>
-                    <li><span class="span1"> 座机：</span><span class="span2">0874-5122228</span></li>
-                </ul>
-                <div class="copyright">Copyright ©   重庆夕阳果果信息科技有限公司 版权所有  渝ICP备17016541号-1</div>
-            </div>
-        </div>
+        <div class="bottom"  th:include="pctop::#bottom"></div>
     </div>
 </body>
+<script type="text/javascript" src="../js/pc/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<!--序列化-->
+<script type="text/javascript" src="../../js/common.js"></script>
+<script>
+
+    layui.use(['layer','laydate'], function(){
+        var layer = layui.layer;
+    });
+
+    function submitMessage() {
+        var nickName = $("#nickName").val();
+        var phoneOrEmail = $("#phoneOrEmail").val();
+        if(nickName.trim() == ""){
+            layer.msg("请填写称呼")
+            return;
+        }
+        if(phoneOrEmail.trim() == ""){
+            layer.msg("请填写联系方式")
+            return;
+        }
+        var formdata = $("#form").serializeObject();
+        formdata.message = $("#message").val();
+
+        $.ajax({
+            type : 'post',
+            url : '/messageAdd.html',
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formdata),
+            success : function(data) {
+                layer.msg("留言成功", {shift: -1, time: 1000}, function(){
+                    location.href = "index.html";
+                });
+            }
+        });
+    }
+
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+
+</script>
 </html>

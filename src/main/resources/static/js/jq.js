@@ -33,6 +33,18 @@ function buttonDel(data, permission, pers){
 	return btn.prop("outerHTML");
 }
 
+
+function buttonCl(data, permission, pers){
+	if(permission != ""){
+		if ($.inArray(permission, pers) < 0) {
+			return "";
+		}
+	}
+	var btn = $("<button class='layui-btn layui-btn-xs' title='处理' onclick='del(\"" + data +"\")'><i class='layui-icon'>&#xe639;;</i></button>");
+	return btn.prop("outerHTML");
+}
+
+
 function buttonEdit(href, permission, pers){
 	if(permission != ""){
 		if ($.inArray(permission, pers) < 0) {

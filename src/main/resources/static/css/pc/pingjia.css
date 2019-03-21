@@ -59,6 +59,7 @@
     float: left;
 }
 .pingjia-content .bcc{
+    overflow: hidden;
     width: 180px;
     height:40px;
     line-height: 40px;
