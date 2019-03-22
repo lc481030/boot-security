@@ -37,8 +37,8 @@
                 <!-- 内容导航 -->
                 <div class="s-navwp">
                     <ul class="bignav">
-                        <li class="active" data="0">全部产品(<span th:text="${totalNum}"></span>)</li>
-                        <li th:each=" productModeNum:${productModeNums}" th:attr="data=${productModeNum.getProductMode()}">
+                        <li th:class="${search.getProductMode()=='' }? 'active'" data="">全部产品(<span th:text="${totalNum}"></span>)</li>
+                        <li th:each=" productModeNum:${productModeNums}" th:attr="data=${productModeNum.getProductMode()}" th:class="${search.getProductMode()==productModeNum.getProductMode() }? 'active'">
                             <span th:text="${productModeNum.getProductName()}"></span>（<span th:text="${productModeNum.getProductNum()}"></span>）
                         </li>
                     </ul>
@@ -59,11 +59,11 @@
                         <div class="every">
                             <div class="left">出行天数</div>
                             <ul>
-                                <li>1-5天</li>
-                                <li>6-9天</li>
-                                <li>10-15天</li>
-                                <li>16-20天</li>
-                                <li>21天及以上</li>
+                                <li datatype="goDay1" data1="1" data2="5">1-5天</li>
+                                <li datatype="goDay1" data1="6" data2="10">6-9天</li>
+                                <li datatype="goDay1" data1="11" data2="15">10-15天</li>
+                                <li datatype="goDay1" data1="16" data2="20">16-20天</li>
+                                <li datatype="goDay2" data1="21">21天及以上</li>
                             </ul>
                         </div>
                         <div class="every">
@@ -84,17 +84,27 @@
                         <ul class="sort-title">
                             <li>出行时间</li>
                         </ul>
-                        <input  class="input" style="width: 100px;" type="text" placeholder="出发时间" id="beginTime" name='beginTime'>
-                        <div class="line">-</div>
-                        <input  class="input" style="width: 100px;margin-right: 20px" type="text" placeholder="结束时间" id="endTime" name='endTime'>
-                        <ul class="sort-title">
-                            <li>价格</li>
-                        </ul>
-                        <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
-                        <div class="line">-</div>  
-                        <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
-                        <div class="btn yes">确认</div>
-                        <div class="btn cancer">取消</div>
+                        <form id="searchForm">
+                            <input  class="input" style="width: 100px;" type="text" placeholder="出发时间" id="beginTime" name='beginTime'>
+                            <div class="line">-</div>
+                            <input  class="input" style="width: 100px;margin-right: 20px" type="text" placeholder="结束时间" id="endTime" name='endTime'>
+                            <ul class="sort-title">
+                                <li>价格</li>
+                            </ul>
+                            <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
+                            <div class="line">-</div>
+                            <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
+                            <input id="pageSize" style="display: none" name="pageSize" th:value="${search.getPageSize()}" >
+                            <input id="afterCity" style="display: none"  name="afterCity" th:value="${search.getAfterCity()}">
+                            <input id="beginDay" style="display: none"  name="beginDay" th:value="${search.getBeginDay()}">
+                            <input id="endDay" style="display: none"  name="endDay" th:value="${search.getEndDay()}">
+                            <input id="startCity" style="display: none"  name="startCity" th:value="${search.getStartCity()}">
+                            <input id="targetCountry" style="display: none"  name="targetCountry" th:value="${search.getTargetCountry()}">
+                            <input id="productMode" style="display: none"  name="productMode" th:value="${search.getProductMode()}">
+
+                            <div class="btn yes" onclick="goStoreList()">确认</div>
+                        </form>
+                        <!--<div class="btn cancer">取消</div>-->
                     </div>
                 </div>
                 <!-- 列表 -->
@@ -119,7 +129,7 @@
                                 <div class="gotime">出发时间:<span th:text="${product.getStartTime()}"></span></div>
                                 <div class="overcity">途径城市:<span th:text="${product.getAfterCity()}"></span></div>
                                 <div class="price">
-                                    <span class="span1">￥</span><span class="span2">3388</span><span class="span3">/人起</span>
+                                    <span class="span1">￥</span><span class="span2" th:text="${product.getPrice()}"></span><span class="span3">/人起</span>
                                 </div>
                             </div>
                         </div>
@@ -131,6 +141,7 @@
                     <!--end-->
 
                 </ul>
+
                 <div onclick="getProductList()">查看更多</div>
             </div>
         </div>
@@ -141,6 +152,8 @@
     <script src="../js/pc/jquery-3.3.1.min.js"></script>
     <script src="../js/pc/lyz.calendar.min.js"></script>
     <script type="text/javascript" src="../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 <script>
 
     layui.use(['layer','laydate'], function(){
@@ -169,15 +182,18 @@
     })
 
     /*查询菜单选择 -- 产品类型*/
-    var productMode = 0;
+    //var productMode = 0;
     $('.bignav li').click(function(){
         $(this).siblings('li').removeClass('active');
         $(this).addClass('active');
         productMode =  $(this).attr("data");
+        $("#productMode").val(productMode);
     })
     var startCity = 0;
     var targetCountry = 0;
     var afterCity = 0;
+    var beginDay = 0;
+    var endDay = 0;
     $('.every li').click(function(){
         $(this).siblings('li').removeClass('active');
         $(this).addClass('active');
@@ -192,15 +208,33 @@
         }else if (dataType=="afterCity"){
             afterCity =  $(this).attr("data");
 
+        }else if (dataType=="goDay1"){
+            beginDay = $(this).attr("data1");
+            endDay = $(this).attr("data2");
+        }else if (dataType=="goDay2"){
+            beginDay = $(this).attr("data1");
         }
 
     })
 
+    function goStoreList() {
+        var param = $("#searchForm").serialize();//form序列化
+        var url = "storeList.html?"+param;
+        location.href = url;
+
+    }
+    
+    
     function getProductList(){
+
+       var pageSize = $("#pageSize").val();
+        pageSize++;
+
         $.ajax({
             type : 'GET',
             url : '/getProductList.html',
             contentType: "application/json; charset=utf-8",
+            data:{"startCity":startCity,"targetCountry":targetCountry,"afterCity":afterCity,"beginDay":beginDay,"endDay":endDay,"pageSize":pageSize},
             success : function(data) {
                $.each(data,function (e,val) {
                    var html = "<li class=\"list-li\">\n"
@@ -233,6 +267,7 @@
                    $(".s-listwp").append(html);
                    console.log(val.title);
                })
+                $("#pageSize").val(pageSize);
             }
         });
 

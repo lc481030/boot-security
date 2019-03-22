@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.boot.security.server.model.ProductModeNum;
+import com.boot.security.server.model.StoreSearch;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -44,5 +45,5 @@ public interface ProductDao {
     List<ProductModeNum> getNumByModeType();
 
     /*前段列表查询*/
-    List<Product> storeList(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    List<Product> storeList(@Param("search") StoreSearch search, @Param("offset") Integer offset, @Param("limit") Integer limit);
 }

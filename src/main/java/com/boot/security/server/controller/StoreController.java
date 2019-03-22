@@ -3,10 +3,7 @@ package com.boot.security.server.controller;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dao.ProductDao;
 import com.boot.security.server.dao.ProductTypeDao;
-import com.boot.security.server.model.Dict;
-import com.boot.security.server.model.Product;
-import com.boot.security.server.model.ProductModeNum;
-import com.boot.security.server.model.ProductType;
+import com.boot.security.server.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -143,14 +140,38 @@ public class StoreController {
      * @return
      */
     @RequestMapping("storeList.html")
-    public ModelAndView storeList() {
+    public ModelAndView storeList(StoreSearch search) {
         ModelAndView view = new ModelAndView();
+
+        if (StringUtils.isEmpty(search.getProductMode())){
+            search.setProductMode("");
+        }
+
+        if (StringUtils.isEmpty(search.getAfterCity())){
+            search.setAfterCity("");
+        }
+
+        if (StringUtils.isEmpty(search.getPageSize())){
+            search.setPageSize(1);
+        }
+        if (StringUtils.isEmpty(search.getBeginDay())){
+            search.setBeginDay("");
+        }
+
+        if (StringUtils.isEmpty(search.getEndDay())){
+            search.setEndDay("");
+        }
+        if (StringUtils.isEmpty(search.getStartCity())){
+            search.setStartCity("");
+        }
+
+
 
         //查询四种旅游各自的数量
         List<ProductModeNum> productModeNums = productDao.getNumByModeType();
 
 
-        List<Product> productList = productDao.storeList(null, 0, 10);
+        List<Product> productList = productDao.storeList(search, 0, 10);
         productList = productFormat(productList);
         Integer totalNum = 0;
 
@@ -184,6 +205,7 @@ public class StoreController {
         view.addObject("targetCountrys",targetCountry);
         view.addObject("afterCitys",afterCitys);
         view.setViewName("storeList");
+        view.addObject("search",search);
         return view;
     }
 
@@ -194,8 +216,9 @@ public class StoreController {
      */
     @GetMapping("getProductList.html")
     @ResponseBody
-    public List<Product> getProductList() {
-        List<Product> productList = productDao.storeList(null, 0, 10);
+    public List<Product> getProductList(StoreSearch search) {
+        search.getAfterCity();
+        List<Product> productList = productDao.storeList(null, (search.getPageSize()-1)*10, 10);
         return productFormat(productList);
     }
 

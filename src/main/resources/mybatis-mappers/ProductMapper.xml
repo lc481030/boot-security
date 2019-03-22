@@ -74,8 +74,20 @@
 	<select id="list" resultType="Product">
 		select ttt.productType,t.* from product t
 		LEFT JOIN product_type as ttt ON t.productType = ttt.id
-		<include refid="where" />
-		${params.orderBy}
+		where 1=1 and deleted = 0
+		<if test="startCity != null and startCity != ''">
+			and startCity = #{startCity}
+		</if>
+		<if test="targetCountry != null and targetCountry != ''">
+			and targetCountry = #{targetCountry}
+		</if>
+		<if test="beginDay != null and beginDay != ''">
+			and days &gt;= #{beginDay}
+		</if>
+		<if test="endDay != null and endDay != ''">
+			and days &lt; #{endDay}
+		</if>
+		order by updateTime desc
 		limit #{offset}, #{limit}
 	</select>
 
@@ -84,6 +96,10 @@
 	<select id="storeList" resultType="Product">
 		select ttt.productType,t.* from product t
 		LEFT JOIN product_type as ttt ON t.productType = ttt.id
+		where  1=1 and (t.deleted = 0 or t.deleted is null )
+		<if test="search.productMode != null and search.productMode !=''">
+			and t.productMode = #{search.productMode}
+		</if>
 		limit #{offset}, #{limit}
 	</select>
 
