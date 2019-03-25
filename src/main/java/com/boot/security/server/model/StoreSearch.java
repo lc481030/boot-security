@@ -8,7 +8,50 @@ public class StoreSearch {
     private String afterCity;
     private String beginDay;
     private String endDay;
+
+    private String beginTime;
+
+    private String endTime;
+
+
     private Integer pageSize;
+
+    private Integer beginPrice;
+
+    private Integer endPrice;
+
+    public Integer getBeginPrice() {
+        return beginPrice;
+    }
+
+    public Integer getEndPrice() {
+        return endPrice;
+    }
+
+    public void setBeginPrice(Integer beginPrice) {
+        this.beginPrice = beginPrice;
+    }
+
+    public void setEndPrice(Integer endPrice) {
+        this.endPrice = endPrice;
+    }
+
+    public String getBeginTime() {
+        return beginTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setBeginTime(String beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
 
     public String getProductMode() {
         return productMode;

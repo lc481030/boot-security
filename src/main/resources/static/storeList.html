@@ -46,33 +46,34 @@
                         <div class="every">
                             <div class="left">出发城市</div>
                             <ul>
-                                <li data=""  datatype="startCity">不限</li>
-                                <li th:each="startCity,iterStat :${startCitys}" th:attr="data=${startCity.getK()}" datatype="startCity" th:class="${iterStat.index eq 0 }? 'active'" th:text="${startCity.getVal()}"></li>
+                                <li data="" th:class="${search.getStartCity() eq '' }? 'active'"  datatype="startCity">不限</li>
+                                <li th:each="startCity,iterStat :${startCitys}" th:attr="data=${startCity.getK()}" datatype="startCity" th:class="${startCity.getK() eq search.getStartCity() }? 'active'" th:text="${startCity.getVal()}"></li>
                             </ul>
                         </div>
                         <div class="every">
                             <div class="left">目的地国家</div>
                             <ul>
-                                <li data=""  datatype="targetCountry">不限</li>
-                                <li th:each="targetCountry :${targetCountrys}" th:attr="data=${targetCountry.getK()}"  datatype="targetCountry"  th:text="${targetCountry.getVal()}"></li>
+                                <li data="" th:class="${search.getTargetCountry() eq '' }? 'active'"   datatype="targetCountry">不限</li>
+                                <li th:each="targetCountry :${targetCountrys}" th:attr="data=${targetCountry.getK()}" th:class="${targetCountry.getK() eq search.getTargetCountry() }? 'active'"  datatype="targetCountry"  th:text="${targetCountry.getVal()}"></li>
 
                             </ul>
                         </div>
                         <div class="every">
                             <div class="left">出行天数</div>
                             <ul>
-                                <li data1="" data2="" datatype="goDay1">不限</li>
-                                <li datatype="goDay1" data1="1" data2="5">1-5天</li>
-                                <li datatype="goDay1" data1="6" data2="10">6-9天</li>
-                                <li datatype="goDay1" data1="11" data2="15">10-15天</li>
-                                <li datatype="goDay1" data1="16" data2="20">16-20天</li>
+                                <li data1="" data2="" th:class="${search.getBeginDay() eq '' }? 'active'" datatype="goDay1">不限</li>
+                                <li datatype="goDay1" data1="1" data2="5" th:class="${search.getBeginDay() eq '1' }? 'active'">1-5天</li>
+                                <li datatype="goDay1" data1="6" data2="10" th:class="${search.getBeginDay() eq '6' }? 'active'">6-9天</li>
+                                <li datatype="goDay1" data1="11" data2="15" th:class="${search.getBeginDay() eq '11' }? 'active'">10-15天</li>
+                                <li datatype="goDay1" data1="16" data2="20" th:class="${search.getBeginDay() eq '20' }? 'active'">16-20天</li>
                                 <li datatype="goDay2" data1="21">21天及以上</li>
                             </ul>
                         </div>
                         <div class="every">
                             <div class="left">途径城市</div>
                             <ul>
-                                <li th:each="afterCity :${afterCitys}"  datatype="afterCity" th:attr="data=${afterCity.getK()}" th:text="${afterCity.getVal()}"></li>
+                                <li data="" th:class="${search.getAfterCity() eq '' }? 'active'"   datatype="afterCity">不限</li>
+                                <li th:each="afterCity :${afterCitys}"  datatype="afterCity" th:attr="data=${afterCity.getK()}" th:class="${afterCity.getK() eq search.getAfterCity() }? 'active'"  th:text="${afterCity.getVal()}"></li>
                             </ul>
                         </div>
                     </div>
@@ -94,9 +95,9 @@
                             <ul class="sort-title">
                                 <li>价格</li>
                             </ul>
-                            <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
+                            <div class="input"><input type="number" id="beginPrice" name="beginPrice"  placeholder="￥" maxlength="7"></div>
                             <div class="line">-</div>
-                            <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
+                            <div class="input"><input type="number" id="endPrice" name="endPrice"   placeholder="￥" maxlength="7"></div>
                             <input id="pageSize" style="display: none" name="pageSize" th:value="${search.getPageSize()}" >
                             <input id="afterCity" style="display: none"  name="afterCity" th:value="${search.getAfterCity()}">
                             <input id="beginDay"  style="display: none" name="beginDay" th:value="${search.getBeginDay()}">
@@ -145,7 +146,7 @@
 
                 </ul>
 
-                <div onclick="getProductList()">查看更多</div>
+                <div onclick="getProductList()" class="storemore">查看更多</div>
             </div>
         </div>
         <!-- 底部 -->
@@ -225,7 +226,7 @@
 
     function goStoreList() {
         var param = $("#searchForm").serialize();//form序列化
-        alert(param);
+        //alert(param);
         console.log(param);
         var url = "storeList.html?"+param;
         location.href = url;
