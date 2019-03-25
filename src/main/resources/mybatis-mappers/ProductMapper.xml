@@ -74,19 +74,7 @@
 	<select id="list" resultType="Product">
 		select ttt.productType,t.* from product t
 		LEFT JOIN product_type as ttt ON t.productType = ttt.id
-		where 1=1 and deleted = 0
-		<if test="startCity != null and startCity != ''">
-			and startCity = #{startCity}
-		</if>
-		<if test="targetCountry != null and targetCountry != ''">
-			and targetCountry = #{targetCountry}
-		</if>
-		<if test="beginDay != null and beginDay != ''">
-			and days &gt;= #{beginDay}
-		</if>
-		<if test="endDay != null and endDay != ''">
-			and days &lt; #{endDay}
-		</if>
+		<include refid="where" />
 		order by updateTime desc
 		limit #{offset}, #{limit}
 	</select>

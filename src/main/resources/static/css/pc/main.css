@@ -94,12 +94,12 @@
     list-style: none;
     margin-top: 10px;
     float: left;
-    background: #000000;
 }
 .sharenav li{
+    margin-bottom: 1px;
     width: 50px;
     height: 50px;
-    border-bottom: 1px solid #ffffff;
+    background-color: black;
     cursor: pointer;
     display: flex;
     position: relative;

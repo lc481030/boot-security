@@ -375,7 +375,7 @@
     font-size: 18px;
     text-align: center;
     color: #ffffff;
-    float: right;
+    margin: 0 auto;
     background: #1EA9E2;
     cursor: pointer;
 }

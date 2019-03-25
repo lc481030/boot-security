@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -142,17 +144,11 @@ public class StoreController {
     @RequestMapping("storeList.html")
     public ModelAndView storeList(StoreSearch search) {
         ModelAndView view = new ModelAndView();
-
         if (StringUtils.isEmpty(search.getProductMode())){
             search.setProductMode("");
         }
-
         if (StringUtils.isEmpty(search.getAfterCity())){
             search.setAfterCity("");
-        }
-
-        if (StringUtils.isEmpty(search.getPageSize())){
-            search.setPageSize(1);
         }
         if (StringUtils.isEmpty(search.getBeginDay())){
             search.setBeginDay("");
@@ -164,13 +160,9 @@ public class StoreController {
         if (StringUtils.isEmpty(search.getStartCity())){
             search.setStartCity("");
         }
-
-
-
         //查询四种旅游各自的数量
         List<ProductModeNum> productModeNums = productDao.getNumByModeType();
-
-
+        search.setPageSize(1);
         List<Product> productList = productDao.storeList(search, 0, 10);
         productList = productFormat(productList);
         Integer totalNum = 0;
@@ -196,11 +188,8 @@ public class StoreController {
         List<Dict> startCitys = dictDao.listByType("startCity");
         /*目标国家*/
         List<Dict> targetCountry = dictDao.listByType("targetCountry");
-
         /*查询符合要求的当前的旅游数据*/
-
         view.addObject("productList",productList);
-
         view.addObject("startCitys",startCitys);
         view.addObject("targetCountrys",targetCountry);
         view.addObject("afterCitys",afterCitys);
@@ -217,9 +206,48 @@ public class StoreController {
     @GetMapping("getProductList.html")
     @ResponseBody
     public List<Product> getProductList(StoreSearch search) {
-        search.getAfterCity();
-        List<Product> productList = productDao.storeList(null, (search.getPageSize()-1)*10, 10);
+        List<Product> productList = productDao.storeList(search, (search.getPageSize()-1)*10, 10);
         return productFormat(productList);
+    }
+
+
+
+    /**
+     * 旅游商城
+     * @return
+     */
+    @RequestMapping("storeDetail.html")
+    public ModelAndView storeDetail(Long id) {
+        ModelAndView view = new ModelAndView();
+        Product product = productDao.getById(id);
+
+        List<String> imgList = new ArrayList<>();
+        String imgStr = product.getImgs();
+        if (!StringUtils.isEmpty(imgStr)){
+            String[] img = imgStr.split(";");
+            if (img==null || img.length<1){
+                imgList.add(imgStr);
+            }else {
+                imgList = Arrays.asList(img);
+            }
+        }
+
+        List<String> brightList = new ArrayList<>();
+        String brightStr = product.getBrightSpot();
+        if (!StringUtils.isEmpty(brightStr)){
+            String[] bright = brightStr.split(";");
+            if (bright==null || bright.length<1){
+                brightList.add(brightStr);
+            }else {
+                brightList = Arrays.asList(bright);
+            }
+
+        }
+        view.addObject("brightList",brightList);
+        view.addObject("imgList",imgList);
+        view.addObject("product",product);
+        view.setViewName("storeDetail");
+        return view;
     }
 
 }
