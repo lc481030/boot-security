@@ -100,6 +100,18 @@
 		<if test="search.productMode != null and search.productMode !=''">
 			and t.productMode = #{search.productMode}
 		</if>
+		<if test="search.startCity != null and search.startCity !=''">
+			and t.startCity = #{search.startCity}
+		</if>
+		<if test="search.targetCountry != null and search.targetCountry !=''">
+			and t.targetCountry = #{search.targetCountry}
+		</if>
+		<if test="search.beginDay != null and search.beginDay !=''">
+			and t.days  &gt;= #{search.beginDay}
+		</if>
+		<if test="search.endDay != null and search.endDay !=''">
+			and t.days  &gt;= #{search.endDay}
+		</if>
 		limit #{offset}, #{limit}
 	</select>
 

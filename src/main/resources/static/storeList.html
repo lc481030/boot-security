@@ -46,12 +46,14 @@
                         <div class="every">
                             <div class="left">出发城市</div>
                             <ul>
+                                <li data=""  datatype="startCity">不限</li>
                                 <li th:each="startCity,iterStat :${startCitys}" th:attr="data=${startCity.getK()}" datatype="startCity" th:class="${iterStat.index eq 0 }? 'active'" th:text="${startCity.getVal()}"></li>
                             </ul>
                         </div>
                         <div class="every">
                             <div class="left">目的地国家</div>
                             <ul>
+                                <li data=""  datatype="targetCountry">不限</li>
                                 <li th:each="targetCountry :${targetCountrys}" th:attr="data=${targetCountry.getK()}"  datatype="targetCountry"  th:text="${targetCountry.getVal()}"></li>
 
                             </ul>
@@ -59,6 +61,7 @@
                         <div class="every">
                             <div class="left">出行天数</div>
                             <ul>
+                                <li data1="" data2="" datatype="goDay1">不限</li>
                                 <li datatype="goDay1" data1="1" data2="5">1-5天</li>
                                 <li datatype="goDay1" data1="6" data2="10">6-9天</li>
                                 <li datatype="goDay1" data1="11" data2="15">10-15天</li>
@@ -96,8 +99,8 @@
                             <div class="input"><input type="number"  placeholder="￥" maxlength="7"></div>
                             <input id="pageSize" style="display: none" name="pageSize" th:value="${search.getPageSize()}" >
                             <input id="afterCity" style="display: none"  name="afterCity" th:value="${search.getAfterCity()}">
-                            <input id="beginDay" style="display: none"  name="beginDay" th:value="${search.getBeginDay()}">
-                            <input id="endDay" style="display: none"  name="endDay" th:value="${search.getEndDay()}">
+                            <input id="beginDay"  style="display: none" name="beginDay" th:value="${search.getBeginDay()}">
+                            <input id="endDay"  style="display: none"  name="endDay" th:value="${search.getEndDay()}">
                             <input id="startCity" style="display: none"  name="startCity" th:value="${search.getStartCity()}">
                             <input id="targetCountry" style="display: none"  name="targetCountry" th:value="${search.getTargetCountry()}">
                             <input id="productMode" style="display: none"  name="productMode" th:value="${search.getProductMode()}">
@@ -201,24 +204,29 @@
         var dataType = $(this).attr("dataType");
         if(dataType=="startCity"){
             startCity =  $(this).attr("data");
-
+            $("#startCity").val(startCity)
         }else if (dataType=="targetCountry"){
             targetCountry =  $(this).attr("data");
-
+            $("#targetCountry").val(targetCountry)
         }else if (dataType=="afterCity"){
             afterCity =  $(this).attr("data");
-
+            $("#afterCity").val(afterCity)
         }else if (dataType=="goDay1"){
             beginDay = $(this).attr("data1");
+            $("#beginDay").val(beginDay)
             endDay = $(this).attr("data2");
+            $("#endDay").val(endDay)
         }else if (dataType=="goDay2"){
             beginDay = $(this).attr("data1");
+            $("#endDay").val(endDay)
         }
 
     })
 
     function goStoreList() {
         var param = $("#searchForm").serialize();//form序列化
+        alert(param);
+        console.log(param);
         var url = "storeList.html?"+param;
         location.href = url;
 
