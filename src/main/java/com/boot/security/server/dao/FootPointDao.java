@@ -24,7 +24,7 @@ public interface FootPointDao {
     int update(FootPoint footPoint);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into footPoint(createTime, updateTime, title, footPointType, img, deleted) values(#{createTime}, #{updateTime}, #{title}, #{footPointType}, #{img}, #{deleted})")
+    @Insert("insert into footPoint(createTime, updateTime, title, footPointType, img, detail,deleted) values(#{createTime}, #{updateTime}, #{title}, #{footPointType}, #{img}, #{detail}, #{deleted})")
     int save(FootPoint footPoint);
     
     int count(@Param("params") Map<String, Object> params);

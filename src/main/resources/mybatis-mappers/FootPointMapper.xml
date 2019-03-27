@@ -48,6 +48,9 @@
 			<if test="createTime != null">
 				createTime = #{createTime}, 
 			</if>
+			<if test="detail != null">
+				detail = #{detail},
+			</if>
 			<if test="updateTime != null">
 				updateTime = #{updateTime}, 
 			</if>

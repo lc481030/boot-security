@@ -8,6 +8,7 @@ public class FootPoint extends BaseEntity<Long> {
 	private Integer footPointType;
 	private String img;
 	private Integer deleted;
+	private String detail;
 
 	public String getTitle() {
 		return title;
@@ -34,4 +35,12 @@ public class FootPoint extends BaseEntity<Long> {
 		this.deleted = deleted;
 	}
 
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 }

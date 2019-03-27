@@ -46,7 +46,7 @@
                     </ul>
                 </div>
                 <ul class="footprint-content" id="footPoint">
-                    <li th:each="point:${pointList}"><img th:src="${point.getImg()}"><div class="dec" th:text="${point.getTitle()}"></div></li>
+                    <li th:each="point:${pointList}" th:onclick="'javascript:goDetail(\''+${point.id}+'\')'" ><img th:src="${point.getImg()}"><div class="dec" th:text="${point.getTitle()}"></div></li>
                 </ul>
             </div>
         </div>
@@ -64,8 +64,12 @@
     $(".two").mouseleave(function(){
         $(this).hide();
     })
+    
+    function goDetail(id) {
+        location.href = "/footPointDetail.html?id="+id;          //location.href实现客户端页面的跳转
+    }
 
-
+    
    //动态添加瀑布图片的功能函数
      function waterfall(){
 
