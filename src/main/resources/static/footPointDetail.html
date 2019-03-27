@@ -77,7 +77,7 @@
                 会员中心&nbsp;>&nbsp;旅游足迹&nbsp;>&nbsp;游记
             </div>
             <div style="font-size: 24px;text-align: center;margin-bottom: 20px;margin-top: 20px" th:text="${point.title}"></div>
-            <div class="yjtxt" style="min-height: 500px" th:text="${point.detail}"></div>
+            <div class="yjtxt" style="min-height: 500px" th:utext="${point.detail}"></div>
         </div>
     </div>
     <!-- 底部 -->
