@@ -1,9 +1,11 @@
 package com.boot.security.server.controller;
 
+import com.boot.security.server.dao.CustomizedDao;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dao.ProductDao;
 import com.boot.security.server.dao.ProductTypeDao;
 import com.boot.security.server.model.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,13 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -34,6 +32,8 @@ public class StoreController {
     @Resource
     private DictDao dictDao;
 
+    @Resource
+    private CustomizedDao customizedDao;
 
     /**
      * 旅游商城
@@ -134,7 +134,21 @@ public class StoreController {
         view.setViewName("customized");
         return view;
     }
-
+    /**
+     * 旅游商城
+     * @return
+     */
+    @RequestMapping("addCustomized.html")
+    @ResponseBody
+    public Map<String,String> addCustomized(AddCustomized customized) {
+        Customized customized1 = new Customized();
+        BeanUtils.copyProperties(customized,customized1);
+        customizedDao.save(customized1);
+        Map<String,String> map = new HashMap<>();
+        map.put("status","1");
+        map.put("info","定制成功");
+        return map;
+    }
 
 
     /**

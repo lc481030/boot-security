@@ -141,11 +141,8 @@
                             <div class="detailbtn"><a th:href="'/storeDetail.html?id='+${product.getId()}">查看详情</a></div>
                         </div>
                     </li>
-
                     <!--end-->
-
                 </ul>
-
                 <div onclick="getProductList()" class="storemore">查看更多</div>
             </div>
         </div>
@@ -265,7 +262,7 @@
                               + "				</div>\n"
                               + "		</div>\n"
                               + "		<div class=\"list-bottom\">\n"
-                              + "				<div class=\"detailbtn\"><a href=\"storeDetail.html?id="+val.id`+"\">查看详情</a></div>\n"
+                              + "				<div class=\"detailbtn\"><a href=\"storeDetail.html?id="+val.id+"\">查看详情</a></div>\n"
                               + "		</div>\n"
                               + "</li>";
                    $(".s-listwp").append(html);

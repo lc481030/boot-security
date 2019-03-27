@@ -174,7 +174,7 @@
     position: relative;
 }
 .time .right li.active::before{
-    background: url(../img/sdssde.png) no-repeat;
+    background: url(../../img/pc/sdssde.png) no-repeat;
     background-position: 0 0;
     content: '';
     position: absolute;
@@ -217,7 +217,7 @@
     flex-direction: row;
     margin-bottom: 20px;
 }
-.d-left .txtput span{
+.d-left .txtput .lable{
     display: block;
     width: 84px;
     height: 38px;
@@ -476,7 +476,7 @@
     cursor: pointer;
 }
 .choose li.active{
-    background: url('../img/border.png')no-repeat;
+    background: url('../../img/pc/border.png')no-repeat;
     background-size: 100% 100%;
 }
 .choose li img{
@@ -584,7 +584,7 @@
     margin-left: 90px;
 }
 .jiudian li.active{
-    background: url('../img/border.png')no-repeat;
+    background: url('../../img/pc/border.png')no-repeat;
     background-size: 100% 100%;
 }
 .jiudian li img{
@@ -644,7 +644,7 @@
     margin-left: 0;
 }
 .yusuan li.active{
-    background: url('../img/border.png')no-repeat;
+    background: url('../../img/pc/border.png')no-repeat;
     background-size: 100% 100%;
 }
 .yusuan li img{
@@ -747,3 +747,19 @@
     line-height: 30px;
     font-size: 14px;
 }
+
+/*
+.selectfriend li.active span{
+    border:1px solid #1EA9E1;
+    border-radius: 5px;
+}
+
+.jiudian ul li.active span{
+    border:1px solid #1EA9E1;
+    border-radius: 5px;
+}
+
+.yusuan ul li.active span{
+    border:1px solid #1EA9E1;
+    border-radius: 5px;
+}*/
