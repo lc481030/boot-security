@@ -177,9 +177,9 @@
                                 <ul>
                                     <li><span>您的姓名：</span><input type="text" name="userName" maxlength="5" id="userName" onchange="getUserNameStr()" placeholder="请输入您的姓名"></li>
                                     <li><span>手机号码：</span><input type="text" maxlength="11" id="phone" name="phone" onchange="getPhoneStr()" placeholder="请输入您的手机号码"></li>
-                                    <li><span>图形验证码：</span><input type="text" placeholder="图形验证码" id="imgCode" onchange="getEmailStr()" class="small">
+                                    <li><span>图形验证码：</span><input type="text" placeholder="图形验证码"  class="small">
                                         <!--<img src="../img/pc/hotel1.png" alt="">-->
-                                        <img src="/defaultKaptcha.html" alt="">
+                                        <img src="/defaultKaptcha.html"  id="imgCode" onclick="this.src='defaultKaptcha.html?d='+Math.random();" alt="">
                                     </li>
                                     <li><span>手机验证码：</span><input type="text" placeholder="手机验证码" id="phoneCode" name="phoneCode" class="small"><div class="huoqu" onclick="getPhoneCode()">获取验证码</div></li>
                                     <li><span>电子邮箱：</span><input type="text" id="email" name="email" onchange="getEmailStr()" placeholder="请输入您的电子邮箱"></li>
@@ -382,6 +382,15 @@
            $("#step5").hide();
            $("#step6").show();
        }
+
+       function changeCode() {
+           /*var img=$("#imgCode")*/
+           alert(1);
+           window.location($(this).attr('src'));
+           $(this).attr('src',$(this).attr('src'));
+          /* img.src="/defaultKaptcha.html";*/
+       }
+
 
        //验证图形验证码
         function getPhoneCode() {
