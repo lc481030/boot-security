@@ -99,7 +99,7 @@
     list-style: none;
     width: 320px;
     overflow: hidden;
-    height: 571px;
+    /*height: 571px;*/
     float: left;
     margin-left: 20px;
 }
@@ -108,7 +108,7 @@
 }
 .zxtxt .imgli{
     width: 320px;
-    height: 350px;
+   /* height: 350px;*/
     display: flex;
     flex-direction: column;
     background: #ffffff;

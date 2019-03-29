@@ -10,45 +10,49 @@
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>pushTime</label>
+				<label class='col-md-2 control-label'>发布时间</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='pushTime' type='text' name='pushTime' id='pushTime' data-bv-notempty='true' data-bv-notempty-message='pushTime 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>title</label>
+				<label class='col-md-2 control-label'>标题</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='title 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>detail</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='detail' type='text' name='detail' id='detail' data-bv-notempty='true' data-bv-notempty-message='detail 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>headImg</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='headImg' type='text' name='headImg' id='headImg' data-bv-notempty='true' data-bv-notempty-message='headImg 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>sort</label>
+				<label class='col-md-2 control-label'>排序</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='sort' type='text' name='sort' id='sort' data-bv-notempty='true' data-bv-notempty-message='sort 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
+				<label class='col-md-2 control-label'>内容</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='detail' type='text' name='detail' id='detail' data-bv-notempty='true' data-bv-notempty-message='detail 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>图片路径</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='headImg' type='text' name='headImg' id='headImg' data-bv-notempty='true' data-bv-notempty-message='headImg 不能为空'>
+				</div>
+			</div>
+
+			<!--<div class='form-group'>
 				<label class='col-md-2 control-label'>deleted</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='deleted' type='text' name='deleted' id='deleted' data-bv-notempty='true' data-bv-notempty-message='deleted 不能为空'>
 				</div>
-			</div>
+			</div>-->
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>isShow</label>
+				<label class='col-md-2 control-label'>是否展示在主页</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='isShow' type='text' name='isShow' id='isShow' data-bv-notempty='true' data-bv-notempty-message='isShow 不能为空'>
+						<select id='isShow' name='isShow' class="form-control input-sm"  data-bv-notempty='true' data-bv-notempty-message='是否展示在主页不能为空'>
+							<option value="0">是</option>
+							<option value="1">否</option>
+						</select>
 				</div>
 			</div>
 
@@ -98,7 +102,6 @@
 						$('#sort').val(data.sort);
 						$('#deleted').val(data.deleted);
 						$('#isShow').val(data.isShow);
-
 					}
 				});
 			}
