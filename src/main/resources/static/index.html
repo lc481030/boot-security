@@ -46,7 +46,7 @@
                                     <li><a href="../store.html#zt">主题分类</a></li>
                                     <li><a href="../store.html#jd">景点分类</a></li>
                                     <li><a href="../store.html#jt">交通分类</a></li>
-                                    <li><a href="../dz.html">定制旅游</a></li>
+                                    <li><a href="../customized.html">定制旅游</a></li>
                                 </ul>
                             </a>
                         </li>
@@ -106,47 +106,10 @@
                 <img src="../img/pc/projectTitle.png" alt="">
             </div>
             <ul class="product-content">
-                <li>
-                    <img src="../img/pc/themeImg.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                    <div class="dec">光沙滩，吹海风，晒太阳，拥抱大海</div>
-                </li>
-                <li>
-                    <img src="../img/pc/pc1.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                </li>
-                <li>
-                    <img src="../img/pc/pc1.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                </li>
-                <li>
-                    <img src="../img/pc/pc1.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                </li>
-                <li>
-                    <img src="../img/pc/pc1.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                </li>
-                <li>
-                    <img src="../img/pc/pc1.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                </li>
-                <li>
-                    <img src="../img/pc/pc1.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                    <div class="dec">光沙滩，吹海风，晒太阳，拥抱大海</div>
-                </li>
-                <li>
-                    <img src="../img/pc/pc1.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                </li>
-                <li>
-                    <img src="../img/pc/pc1.jpg" alt="">
-                    <div class="title">私享海岛</div>
-                </li>
-                <li>
-                    <img src="../img/pc/themeImg.jpg" alt="">
-                    <div class="title">私享海岛</div>
+                <li th:each="produck:${productList}">
+                    <img th:src="${produck.img}" alt="">
+                    <div class="title" th:text="${produck.title}"></div>
+                    <div class="dec" th:text="${produck.detail}"></div>
                 </li>
             </ul>
         </div>
@@ -181,82 +144,16 @@
                     <img src="../img/pc/evaluateDiv.png" alt="">
                 </div>
                 <ul class="pingjia-content">
-                    <li class="num">
-                        <div class="high"><img src="../img/pc/popularity.png" alt=""></div>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li class="bcc">
-                            <img src="../img/pc/bcc.png" alt="">
-                            <div class="txt">2017年度评定为曲靖市旅游协会副会长单位</div>
-                        </li>
-                        <li class="bcc">
-                            <img src="../img/pc/bcc.png" alt="">
-                            <div class="txt">2017年度沪滇合作企业培训对口单位</div>
-                        </li>
-                    <li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家不多，这次人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。家人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li class="num">
-                        <div class="high"><img src="../img/pc/popularity.png" alt=""></div>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li class="num">
-                        <div class="high"><img src="../img/pc/popularity.png" alt=""></div>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
-                    </li>
-                    <li>
-                        <div class="img"><img src="../img/pc/aboutBg.png" alt=""></div>
-                        <div class="text">王**:我们去的是泰国，之前和朋友一起四五千，走下来，效果和这推荐的差不多，这次家人选的，也就3000多点吧，住的海景房我比较满意。</div>
-                        <div class="time">发表于：2018.9.21</div>
+                    <li th:each="comment:${commentList}" th:class="${comment.getCommentType() == 3} ? 'bcc'">
+                        <!--是否人气高-->
+                        <div class="high" th:if="${comment.getCommentType()==2}"><img src="../img/pc/popularity.png" alt=""></div>
+                        <!--正常信息-->
+                        <div class="img" th:if="${comment.getCommentType()!=3}"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="text" th:if="${comment.getCommentType()!=3}" th:text="${comment.getDetail()}"></div>
+                        <div class="time" th:if="${comment.getCommentType()!=3}" th:text="'发表于：'+${comment.getCommentTimeStr()}"></div>
+                        <!--企业事业单位认证评论-->
+                        <img th:if="${comment.getCommentType()==3}" th:src="${comment.getImg()}"  alt="">
+                        <div class="txt" th:if="${comment.getCommentType()==3}" th:text="${comment.getDetail()}"></div>
                     </li>
                 </ul>
             </div>
@@ -268,6 +165,8 @@
                     <img src="../img/pc/footprintDiv.png" alt="">
                 </div>
                 <ul class="footprint-content">
+                    <li th:each="point:${pointList}" th:onclick="'javascript:goDetail(\''+${point.id}+'\')'"><img th:src="${point.img}" alt=""><div class="dec" th:text="${point.title}"></div></li>
+                    <!--<li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
                     <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
                     <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
                     <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
@@ -278,8 +177,7 @@
                     <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
                     <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
                     <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
+                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>-->
                 </ul>
             </div>
         </div>
@@ -424,5 +322,9 @@
         });
         }
         waterfall();
+
+    function goDetail(id) {
+        location.href = "/footPointDetail.html?id="+id;          //location.href实现客户端页面的跳转
+    }
 </script>
 </html>

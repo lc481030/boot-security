@@ -18,7 +18,8 @@
         color: #000000;
     }
     .navwp{
-        opacity: 1;
+       /* opacity: 1;*/
+        cursor: pointer;
     }
     .topnav{
         box-shadow: 0 0 2px  rgba(6,6,6,0.5);
@@ -73,7 +74,7 @@
     <div class="yjcontent">
         <div class="container">
             <!-- 标题 -->
-            <div class="yj-title">
+            <div class="yj-title" onclick="goFootPoint()">
                 会员中心&nbsp;>&nbsp;旅游足迹&nbsp;>&nbsp;游记
             </div>
             <div style="font-size: 24px;text-align: center;margin-bottom: 20px;margin-top: 20px" th:text="${point.title}"></div>
@@ -94,5 +95,9 @@
     $(".two").mouseleave(function(){
         $(this).hide();
     })
+    
+    function goFootPoint() {
+        location.href = "/footPoint.html";
+    }
 </script>
 </html>

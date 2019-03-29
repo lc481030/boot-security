@@ -117,7 +117,7 @@
             success : function(data) {
                 $("#footPoint").empty();
                 $.each(data,function (i,item) {
-                    var html =  "<li><img src=\""+item.img+"\" alt=\"\"><div class=\"dec\">"+item.title+"</div></li>"
+                    var html =  "<li onclick=\"javascript:goDetail('"+item.id+"')\" ><img src=\""+item.img+"\" alt=\"\"><div class=\"dec\">"+item.title+"</div></li>"
                     $("#footPoint").append(html);
                 })
             }

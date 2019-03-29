@@ -8,6 +8,7 @@ public class ProductLine extends BaseEntity<Long> {
 	private String detail;
 	private String img;
 	private String remark;
+	private String urlAddress;
 
 	public String getTitle() {
 		return title;
@@ -34,4 +35,11 @@ public class ProductLine extends BaseEntity<Long> {
 		this.remark = remark;
 	}
 
+	public String getUrlAddress() {
+		return urlAddress;
+	}
+
+	public void setUrlAddress(String urlAddress) {
+		this.urlAddress = urlAddress;
+	}
 }
