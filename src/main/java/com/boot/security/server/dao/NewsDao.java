@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.model.Comment;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -30,4 +31,13 @@ public interface NewsDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<News> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select * from news ne where ne.headImg != '' and ne.isShow = 0 ")
+    List<News> getByAllImg();
+    @Select("select * from news ne where ne.detail != '' and  ne.isShow = 0  Limit  0,6")
+    List<News> getByAllCont();
+    @Select("select * from news ne where ne.detail != '' and  ne.isShow = 0 ")
+    List<News> querAll();
+    @Select("select * from news ne where ne.detail != '' and  ne.isShow = 0 Limit  0,9")
+    List<News> querTen();
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class News extends BaseEntity<Long> {
 
-	private Date pushTime;
+	private String pushTime;
 	private String title;
 	private String detail;
 	private String headImg;
@@ -12,10 +12,10 @@ public class News extends BaseEntity<Long> {
 	private Integer deleted;
 	private Integer isShow;
 
-	public Date getPushTime() {
+	public String getPushTime() {
 		return pushTime;
 	}
-	public void setPushTime(Date pushTime) {
+	public void setPushTime(String pushTime) {
 		this.pushTime = pushTime;
 	}
 	public String getTitle() {
