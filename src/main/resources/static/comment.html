@@ -12,7 +12,8 @@
 <body>
     <div class="box box-direction-c">
         <!-- 顶部 -->
-        <div class="topnav">
+        <div class="topnav" th:include="topPage::#topnav"></div>
+        <!--<div class="topnav">
             <div class="topnav-c box-direction-r">
                 <ul class="right p-l1">
                     <li class="cursor">收藏首页</li>
@@ -26,7 +27,7 @@
                     <div class="btn btn2 cursor">免费咨询</div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- 导航 -->
         <div class="navwp" th:include="menu::#navwp"></div>
         <!-- 客户评价 -->
@@ -40,7 +41,7 @@
                             <!--是否人气高-->
                             <div class="high" th:if="${comment.getCommentType()==2}"><img src="../img/pc/popularity.png" alt=""></div>
                             <!--正常信息-->
-                            <div class="img" th:if="${comment.getCommentType()!=3}"><img src="../img/pc/aboutBg.png" alt=""></div>
+                            <div class="img" th:if="${comment.getCommentType()!=3}"><img th:src="${comment.img}" alt=""></div>
                             <div class="text" th:if="${comment.getCommentType()!=3}" th:text="${comment.getDetail()}"></div>
                             <div class="time" th:if="${comment.getCommentType()!=3}" th:text="'发表于：'+${comment.getCommentTimeStr()}"></div>
                             <!--企业事业单位认证评论-->

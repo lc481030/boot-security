@@ -13,7 +13,8 @@
 <body>
     <div class="box box-direction-c">
         <!-- 顶部 -->
-        <div class="topnav">
+        <div class="topnav" th:include="topPage::#topnav"></div>
+        <!--<div class="topnav">
             <div class="topnav-c box-direction-r">
                 <ul class="right p-l1">
                     <li class="cursor">收藏首页</li>
@@ -27,7 +28,7 @@
                     <div class="btn btn2 cursor">免费咨询</div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- 导航 -->
         <div class="navwp" th:include="menu::#navwp"></div>
 
