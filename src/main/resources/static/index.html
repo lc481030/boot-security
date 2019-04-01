@@ -18,7 +18,7 @@
             <div class="topnav-c box-direction-r">
                 <div class="left p-l1">
                     <input type="text" placeholder="您的目的地..">
-                    <div class="btn btn1 cursor">去哪儿玩</div>
+                    <div class="btn btn1 cursor" onclick="goStoreList()">去哪儿玩</div>
                     <div class="btn btn2 cursor">免费咨询</div>
 
                 </div>
@@ -339,6 +339,10 @@
         catch(e)  {
             alert("当前IE安全级别不允许操作！");
         }
+    }
+    
+    function goStoreList() {
+        location.href = "/storeList.html";          //location.href实现客户端页面的跳转
     }
 
 </script>

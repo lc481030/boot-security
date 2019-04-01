@@ -35,3 +35,8 @@ function toDesktop(sUrl,sName){
         alert("当前IE安全级别不允许操作！");
     }
 }
+
+
+function goStoreList() {
+    location.href = "/storeList.html";          //location.href实现客户端页面的跳转
+}
