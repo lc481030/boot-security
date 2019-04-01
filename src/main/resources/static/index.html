@@ -110,9 +110,11 @@
             </div>
             <ul class="product-content">
                 <li th:each="produck:${productList}">
-                    <img th:src="${produck.img}" alt="">
-                    <div class="title" th:text="${produck.title}"></div>
-                    <div class="dec" th:text="${produck.detail}"></div>
+                    <a th:href="${produck.urlAddress}">
+                        <img th:src="${produck.img}" alt="">
+                        <div class="title" th:text="${produck.title}"></div>
+                        <div class="dec" th:text="${produck.detail}"></div>
+                    </a>
                 </li>
             </ul>
         </div>
