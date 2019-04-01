@@ -36,8 +36,10 @@ public interface NewsDao {
     List<News> getByAllImg();
     @Select("select * from news ne where ne.detail != '' and  ne.isShow = 0  Limit  0,6")
     List<News> getByAllCont();
-    @Select("select * from news ne where ne.detail != '' and  ne.isShow = 0 ")
-    List<News> querAll();
+
+    @Select("select * from news ne where ne.detail != '' and  ne.isShow = 0  limit  #{pageCount},#{pageSize}")
+    List<News> querAll(long pageCount,long pageSize);
+
     @Select("select * from news ne where ne.detail != '' and  ne.isShow = 0 Limit  0,9")
     List<News> querTen();
 }

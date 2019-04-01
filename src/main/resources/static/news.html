@@ -65,6 +65,7 @@
                 </ul>
             </div>
         </div>
+
         <!-- 咨询 -->
         <div class="zixuncontent">
             <div class="zxwp">
@@ -181,18 +182,24 @@
                 $("#imgli").empty();
 
                 $.each(data,function (i,item) {
-                    var re1 = new RegExp("<.+?>","g");//匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
-                    var msg = item.detail.replace(re1,'');//执行替换成空字符
-                    var msgStr = msg.substr(0,20);//截取内容后十位
+                    /*var re1 = new RegExp("<.+?>","g");//匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
+                    var msg = item.detail.replace(re1,'');//执行替换成空字符*/
+                    var msgStr = item.detail.substr(0,200);//截取内容后十位
                     var msgStr1 =  msgStr+"......";//拼接内容
-                    var index =  item.detail.indexOf(">");//拿到标签结束位置的下标
-                    var img = item.detail.substr(0,index);//截取图片
-                    var html =  "<ul class='imgli'><li>"+img+"<div>"+msgStr1+"</div>";
+                   /* var index =  item.detail.indexOf(">");//拿到标签结束位置的下标
+                    var img = item.detail.substr(0,index);//截取图片*/
+                    var id = item.id;
+                    var html =  "<ul class='imgli'><li onclick='aaa("+id+")'>"+msgStr1+"";
                     html += "<div class=\"zx-more\"><a href='../newsDetail.html?id="+item.id+"'>详情&nbsp;&nbsp;</a></div></li></ul>";
                     $("#imgli").append(html);
                 })
             }
         });
     })
+
+  /*function aaa(id) {
+        var id = id;
+        window.location.href='../newsDetail.html?id="'+id+'"';
+    }*/
 </script>
 </html>

@@ -57,6 +57,7 @@ public class IndexController {
         List<FootPoint> pointList = footPointDao.list(params,0,12);;
         view.addObject("pointList",pointList);
 
+        //ziyuan zichi
 
         view.setViewName("index");
         return view;
