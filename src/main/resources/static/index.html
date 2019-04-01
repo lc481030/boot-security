@@ -23,8 +23,8 @@
 
                 </div>
                 <ul class="right p-r1">
-                    <li class="cursor">收藏首页</li>
-                    <li class="cursor">保存到桌面</li>
+                    <li class="cursor" onclick="addFavorite()">收藏首页</li>
+                    <li class="cursor" onclick="toDesktop(location.href,'会泽千寻')">保存到桌面</li>
                     <li class="cursor">客服中心</li>
                     <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
                 </ul>
@@ -325,5 +325,19 @@
     function goDetail(id) {
         location.href = "/footPointDetail.html?id="+id;          //location.href实现客户端页面的跳转
     }
+
+    //保存到桌面
+    function toDesktop(sUrl,sName){
+        try {
+            var WshShell = new ActiveXObject("WScript.Shell");
+            var oUrlLink =          WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop")     + "\\" + sName + ".url");
+            oUrlLink.TargetPath = sUrl;
+            oUrlLink.Save();
+        }
+        catch(e)  {
+            alert("当前IE安全级别不允许操作！");
+        }
+    }
+
 </script>
 </html>
