@@ -34,6 +34,10 @@ public class AdvisoryActivitiesController {
         return modelAndView;
     }
 
+    /**
+     * 查询三条
+     * @return
+     */
     @RequestMapping("newslist.html")
     public ModelAndView newList(){
         ModelAndView view = new ModelAndView();
@@ -55,16 +59,33 @@ public class AdvisoryActivitiesController {
     @GetMapping("/getSixlist.html")
     @ResponseBody
     public List<News>  getSixlist(){
+       /* String regEx_img = "<img.*src\\s*=\\s*(.*?)[^>]*?>";*/
         List<News> sixLists = newsDao.getByAllCont();
         return  sixLists;
     }
     /**
      * 查看更多
+     * pageNumber
      */
     @GetMapping("/getNewslist.html")
     @ResponseBody
-    public List<News>  getNewslist(){
-        List<News> newsLists = newsDao.querAll();
+    public List<News>  getNewslist(long pageNumber ){
+        long pageSize = 9;//每页显示条数
+        long pageCount = (pageNumber-1)*pageSize;//开始条数
+        List<News> newsLists = newsDao.querAll( pageCount, pageSize);
         return  newsLists;
+    }
+
+    /**
+     * 详情
+     * 通过id查询数据
+     */
+    @GetMapping("/newsDetail.html")
+    public News getNewDetails( Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        News news = newsDao.getById(id.longValue());
+        modelAndView.addObject("news",news);
+        modelAndView.setViewName("newsDetail");
+        return news;
     }
 }

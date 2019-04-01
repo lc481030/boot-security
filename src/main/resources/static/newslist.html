@@ -82,13 +82,13 @@
         <div class="zixuncontent">
             <!-- 标题 -->
             <div class="zx-topnav">
-                资讯活动&nbsp;>&nbsp;行业资讯
+                <a href="../news.html">资讯活动</a>&nbsp;>&nbsp;行业资讯
             </div>
             <!-- 咨询文章 -->
             <div class="zxtxt"  id="imgli">
                 <ul class="imgli" th:each="aaa: ${newsLists}">
                     <li>
-                        <div th:utext="${#strings.abbreviate(aaa.detail,160)}" ></div>
+                        <div th:utext="${#strings.abbreviate(aaa.detail,185)}" ></div>
                         <!-- <img src="../img/ShortImg.jpg" alt="">
                        <div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。。</div>-->
@@ -205,7 +205,7 @@
                             </li>
                         </ul>-->
             </div>
-            <div id="whole" class="morebtn" onclick="whole();">查看全部</div>
+            <div id="whole" class="morebtn" onclick="whole();">查看更多</div>
         </div>
 
         <!-- 底部 -->
@@ -222,24 +222,27 @@
         $(".two").mouseleave(function(){
             $(this).hide();
         });
+        var pageNumber = 1//初始化页码
       function whole(){
-
+          pageNumber++
           $.ajax({
               type : 'get',
               url : '/getNewslist.html',
-              data:{},
+              data:{pageNumber:pageNumber},
               success : function(data) {
-                  $("#imgli").empty();
-                  $("#whole").hide();
-
+                 /* $("#imgli").empty();*/
+                  if (data.length < 9 ){//当查询出来的数据小于九条说明数据已经查完
+                      $("#whole").hide();
+                  }
                   $.each(data,function (i,item) {
-                      var re1 = new RegExp("<.+?>","g");//匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
-                      var msg = item.detail.replace(re1,'');//执行替换成空字符
-                      var msgStr = msg.substr(0,10);//截取内容后十位
+                     /* var re1 = new RegExp("<.+?>","g");//匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
+
+                      var msg = item.detail.replace(re1,'');//执行替换成空字符*/
+                      var msgStr = item.detail.substr(0,200);//截取内容后十位
                       var msgStr1 =  msgStr+"......";//拼接内容
-                      var index =  item.detail.indexOf(">");//拿到标签结束位置的下标
-                      var img = item.detail.substr(0,index);//截取图片
-                      var html =  "<ul class='imgli'><li>"+img+"<span>"+msgStr1+"</span>";
+                     /* var index =  item.detail.indexOf(" > ");//拿到标签结束位置的下标
+                      var img = item.detail.substr(0,index);//截取图片*/
+                      var html =  "<ul class='imgli'><li>"+msgStr1+"";
                       html += "<div class=\"zx-more\"><a href='../newsDetail.html?id="+item.id+"'>详情&nbsp;&nbsp;</a></div></li></ul>";
                       $("#imgli").append(html);
                   })

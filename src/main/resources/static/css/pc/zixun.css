@@ -144,7 +144,7 @@
     -webkit-box-orient: vertical;
 }
 .zxtxt .imgli .zx-more{
-    width: 280px;
+    width: 288px;
     margin: 10px 20px;
     height: 20px;
     line-height: 20px;
@@ -152,6 +152,9 @@
     color: #555555;
     text-align: right;
     cursor: pointer;
+}
+.zxtxt .imgli .zx-more a{
+    color:#0E95D9;
 }
 .zxtxt .li{
     width: 320px;
@@ -187,6 +190,7 @@
     text-align: right;
     cursor: pointer;
 }
+
 .morebtn{
     width: 120px;
     height: 20px;
@@ -203,4 +207,14 @@
 }
 .morebtn a{
     color: #1ea9e1;
+}
+
+.imgli p{
+    margin-left: 20px;
+    line-height: 24px;
+    font-size: 14px;
+    margin-right:10px;
+}
+.imgli p img{
+    margin-left: -20px;
 }
