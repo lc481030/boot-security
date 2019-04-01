@@ -30,4 +30,7 @@ public interface TResourceSupportImgDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<TResourceSupportImg> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select * from t_resource_support_img ")
+    List<TResourceSupportImg> imgList();
 }

@@ -1,9 +1,6 @@
 package com.boot.security.server.controller;
 
-import com.boot.security.server.dao.CommentDao;
-import com.boot.security.server.dao.FootPointDao;
-import com.boot.security.server.dao.ProductLineDao;
-import com.boot.security.server.dao.TIndexImgDao;
+import com.boot.security.server.dao.*;
 import com.boot.security.server.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +28,10 @@ public class IndexController {
 
     @Resource
     private FootPointDao footPointDao;
+
+    @Resource
+    private TResourceSupportImgDao tResourceSupportImgDao;
+
     /*================================================================*
     * =========================   首页   =============================*
     * ================================================================*
@@ -57,7 +58,7 @@ public class IndexController {
         List<FootPoint> pointList = footPointDao.list(params,0,12);;
         view.addObject("pointList",pointList);
 
-        //资源支持
+
 
         view.setViewName("index");
         return view;
@@ -84,6 +85,9 @@ public class IndexController {
         List<FootPoint> pointList = footPointDao.list(params,0,12);;
         view.addObject("pointList",pointList);
 
+        //资源支持
+        List<TResourceSupportImg> tResourceSupportImgList = tResourceSupportImgDao.imgList();
+        view.addObject("tResourceSupportImgList",tResourceSupportImgList);
 
         view.setViewName("index");
         return view;

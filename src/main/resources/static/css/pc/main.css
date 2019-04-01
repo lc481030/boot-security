@@ -543,9 +543,9 @@
     padding-bottom: 40px;
 }
 .source-content li{
-    margin:0 0 30px 10px;
-    width: 140px;
-    height: 40px;
+    padding: 10px;
+    width: 170px;
+    height: 60px;
     display: flex;
     float: left;
 }

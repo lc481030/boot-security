@@ -181,15 +181,17 @@
             <div class="title box-direction-r-c">
                 <img src="../img/pc/source.png" alt="">
             </div>
-            <ul class="source-content">
+            <ul  class="source-content" >
+                <li th:each="tResourceSupportImgList:${tResourceSupportImgList}">
+                    <img th:src="${tResourceSupportImgList.img}" alt="">
+                </li>
+                <!--<li><img src="../img/pc/Support1.jpg" alt=""></li>
                 <li><img src="../img/pc/Support1.jpg" alt=""></li>
                 <li><img src="../img/pc/Support1.jpg" alt=""></li>
                 <li><img src="../img/pc/Support1.jpg" alt=""></li>
                 <li><img src="../img/pc/Support1.jpg" alt=""></li>
                 <li><img src="../img/pc/Support1.jpg" alt=""></li>
-                <li><img src="../img/pc/Support1.jpg" alt=""></li>
-                <li><img src="../img/pc/Support1.jpg" alt=""></li>
-                <li><img src="../img/pc/Support1.jpg" alt=""></li>
+                <li><img src="../img/pc/Support1.jpg" alt=""></li>-->
             </ul>
         </div>
 
