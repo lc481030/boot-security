@@ -14,11 +14,13 @@
     <div class="box box-direction-c" id="sidewp">
         <!-- 顶部 -->
         <div class="topnav">
+
             <div class="topnav-c box-direction-r">
                 <div class="left p-l1">
                     <input type="text" placeholder="您的目的地..">
                     <div class="btn btn1 cursor">去哪儿玩</div>
                     <div class="btn btn2 cursor">免费咨询</div>
+
                 </div>
                 <ul class="right p-r1">
                     <li class="cursor">收藏首页</li>
@@ -27,6 +29,7 @@
                     <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
                 </ul>
             </div>
+
         </div>
         <div class="box-two">
             <!-- 导航 -->
@@ -91,9 +94,9 @@
                             <img src="../img/pc/weixin.png" alt="" >
                             <img src="../img/pc/code.png" alt="" class="wximg">
                         </li>
-                        <li>
+                      <!--  <li>
                             <img src="../img/pc/share.png" alt="">
-                        </li>
+                        </li>-->
                         <li id="top" title="回到顶部"><img src="../img/pc/up.png" alt=""></li>
                     </ul>
                     <div class="shareline"></div>
@@ -128,6 +131,7 @@
                 </div>
             </div>
         </div>
+
          <!-- 预定流程 -->
          <div class="Reserve">
             <div class="title box-direction-r-c">
@@ -148,7 +152,7 @@
                         <!--是否人气高-->
                         <div class="high" th:if="${comment.getCommentType()==2}"><img src="../img/pc/popularity.png" alt=""></div>
                         <!--正常信息-->
-                        <div class="img" th:if="${comment.getCommentType()!=3}"><img src="../img/pc/aboutBg.png" alt=""></div>
+                        <div class="img" th:if="${comment.getCommentType()!=3}"><img th:src="${comment.img}" alt=""></div>
                         <div class="text" th:if="${comment.getCommentType()!=3}" th:text="${comment.getDetail()}"></div>
                         <div class="time" th:if="${comment.getCommentType()!=3}" th:text="'发表于：'+${comment.getCommentTimeStr()}"></div>
                         <!--企业事业单位认证评论-->
@@ -166,21 +170,10 @@
                 </div>
                 <ul class="footprint-content">
                     <li th:each="point:${pointList}" th:onclick="'javascript:goDetail(\''+${point.id}+'\')'"><img th:src="${point.img}" alt=""><div class="dec" th:text="${point.title}"></div></li>
-                    <!--<li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>
-                    <li><img src="../img/pc/ShortImg.jpg" alt=""><div class="dec">哈尔冰，雪人顾，冬捕,冰上乐园，活动，亚布力</div></li>-->
                 </ul>
             </div>
         </div>
+
         <!-- 资源支持 -->
         <div class="source">
             <div class="title box-direction-r-c">
@@ -197,6 +190,7 @@
                 <li><img src="../img/pc/Support1.jpg" alt=""></li>
             </ul>
         </div>
+
         <!-- 底部 -->
         <div class="bottom" th:include="pctop::#bottom"></div>
     </div>
@@ -205,6 +199,9 @@
 <script src="../js/pc/jquery-3.3.1.min.js"></script>
 <script src="../js/pc/swiper.min.js"></script>
 <script type="text/javascript">
+
+
+
     //  向上滚动
     jQuery(document).ready(function($) {
         $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');// 这行是 Opera 的补丁, 少了它 Opera 是直接用跳的而且画面闪烁 by willin

@@ -98,7 +98,7 @@ public class KaptchaController {
                     char ch=str.charAt(new Random().nextInt(str.length()));
                     sb.append(ch);
                 }
-                params.add(new BasicNameValuePair("message", "验证码："+sb.toString()+"【运鸿三六五】"));
+                params.add(new BasicNameValuePair("message", "验证码："+sb.toString()+"【会泽千寻】"));
                 HttpEntity reqEntity = new UrlEncodedFormEntity(params, "UTF-8");
                 int resultCode = HttpClient.sendPost(reqEntity);
                 httpServletRequest.getSession().setAttribute(phone,sb.toString());
@@ -111,7 +111,6 @@ public class KaptchaController {
             }catch (Exception e){
 
             }
-            //map.put("info", "登录成功");
         }
         return map;
     }

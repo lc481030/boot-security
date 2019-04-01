@@ -40,7 +40,7 @@
                             <!--是否人气高-->
                             <div class="high" th:if="${comment.getCommentType()==2}"><img src="../img/pc/popularity.png" alt=""></div>
                             <!--正常信息-->
-                            <div class="img" th:if="${comment.getCommentType()!=3}"><img src="../img/pc/aboutBg.png" alt=""></div>
+                            <div class="img" th:if="${comment.getCommentType()!=3}"><img th:src="${comment.img}" alt=""></div>
                             <div class="text" th:if="${comment.getCommentType()!=3}" th:text="${comment.getDetail()}"></div>
                             <div class="time" th:if="${comment.getCommentType()!=3}" th:text="'发表于：'+${comment.getCommentTimeStr()}"></div>
                             <!--企业事业单位认证评论-->
