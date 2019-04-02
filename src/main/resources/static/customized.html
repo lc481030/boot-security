@@ -20,21 +20,6 @@
     <div class="box box-direction-c">
         <!-- 顶部 -->
         <div class="topnav" th:include="topPage::#topnav"></div>
-        <!--<div class="topnav">
-            <div class="topnav-c box-direction-r">
-                <ul class="right p-l1">
-                    <li class="cursor">收藏首页</li>
-                    <li class="cursor">保存到桌面</li>
-                    <li class="cursor">客服中心</li>
-                    <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
-                </ul>
-                <div class="left p-r1">
-                    <input type="text" placeholder="目的地/关键词/旅行天数">
-                    <div class="btn btn1 cursor">去哪儿玩</div>
-                    <div class="btn btn2 cursor">免费咨询</div>
-                </div>
-            </div>
-        </div>-->
         <!-- 导航 -->
         <div class="navwp" th:include="menu::#navwp"></div>
         <!-- 定制 -->
@@ -42,13 +27,13 @@
             <div class="d-c">
                 <!-- 顶部导航 -->
                 <div class="d-nav">
-                    <ul>
-                        <li class="active">目的地</li>
-                        <li>出游时间</li>
-                        <li>同游伙伴</li>
-                        <li>常驻酒店</li>
-                        <li>预算</li>
-                        <li>联系信息</li>
+                    <ul id="customizedMenu">
+                        <li menuNum="1" class="active">目的地</li>
+                        <li menuNum="2">出游时间</li>
+                        <li menuNum="3">同游伙伴</li>
+                        <li menuNum="4">常驻酒店</li>
+                        <li menuNum="5">预算</li>
+                        <li menuNum="6">联系信息</li>
                     </ul>
                     <div class="yulan">我的优定制·预览</div>
                 </div>
@@ -289,6 +274,23 @@
            });
 
         });
+
+
+       $("#customizedMenu").on("click","li", function() {
+           var menuNum = $(this).attr("menuNum")
+           $(this).siblings("li").removeClass("active");
+           $(this).addClass("active");
+           $("#step1").hide();
+           $("#step2").hide();
+           $("#step3").hide();
+           $("#step4").hide();
+           $("#step5").hide();
+           $("#step6").hide();
+           $("#step"+menuNum).show();
+           //test($(this).attr("name"));
+           //do something here
+       });
+
         /*出游类型*/
         function setDzType(e,dzType) {
             $(e).siblings("li").removeClass("active");
