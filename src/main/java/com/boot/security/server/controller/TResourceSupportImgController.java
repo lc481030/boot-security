@@ -33,7 +33,6 @@ public class TResourceSupportImgController {
     @ApiOperation(value = "保存")
     public TResourceSupportImg save(@RequestBody TResourceSupportImg tResourceSupportImg) {
         tResourceSupportImgDao.save(tResourceSupportImg);
-
         return tResourceSupportImg;
     }
 
@@ -47,7 +46,6 @@ public class TResourceSupportImgController {
     @ApiOperation(value = "修改")
     public TResourceSupportImg update(@RequestBody TResourceSupportImg tResourceSupportImg) {
         tResourceSupportImgDao.update(tResourceSupportImg);
-
         return tResourceSupportImg;
     }
 
