@@ -6,7 +6,7 @@ public class TResourceSupportImg extends BaseEntity<Long> {
 
 	private String img;
 	private Integer sort;
-	private String LinkAddress;
+	private String linkAddress;
 
 	public String getImg() {
 		return img;
@@ -21,10 +21,10 @@ public class TResourceSupportImg extends BaseEntity<Long> {
 		this.sort = sort;
 	}
 	public String getLinkAddress() {
-		return LinkAddress;
+		return linkAddress;
 	}
-	public void setLinkAddress(String LinkAddress) {
-		this.LinkAddress = LinkAddress;
+	public void setLinkAddress(String linkAddress) {
+		this.linkAddress = linkAddress;
 	}
 
 }

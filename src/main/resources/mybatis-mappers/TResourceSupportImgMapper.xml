@@ -14,8 +14,8 @@
 			<if test="params.sort != null and params.sort != ''">
 				and sort = #{params.sort} 
 			</if>
-			<if test="params.LinkAddress != null and params.LinkAddress != ''">
-				and LinkAddress = #{params.LinkAddress} 
+			<if test="params.linkAddress != null and params.linkAddress != ''">
+				and LinkAddress = #{params.linkAddress}
 			</if>
 		
 		</where>
@@ -42,8 +42,8 @@
 			<if test="sort != null">
 				sort = #{sort}, 
 			</if>
-			<if test="LinkAddress != null">
-				LinkAddress = #{LinkAddress}, 
+			<if test="linkAddress != null">
+				LinkAddress = #{linkAddress},
 			</if>
 
 		</set>

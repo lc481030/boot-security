@@ -24,7 +24,7 @@ public interface TResourceSupportImgDao {
     int update(TResourceSupportImg tResourceSupportImg);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into t_resource_support_img(img, sort, LinkAddress) values(#{img}, #{sort}, #{LinkAddress})")
+    @Insert("insert into t_resource_support_img(img, sort, linkAddress) values(#{img}, #{sort}, #{linkAddress})")
     int save(TResourceSupportImg tResourceSupportImg);
     
     int count(@Param("params") Map<String, Object> params);
