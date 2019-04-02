@@ -68,7 +68,7 @@
 	<select id="list" resultType="Customized">
 		select * from customized t
 		<include refid="where" />
-		${params.orderBy}
+		order by id desc
 		limit #{offset}, #{limit}
 	</select>
 

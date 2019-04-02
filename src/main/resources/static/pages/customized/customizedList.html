@@ -55,7 +55,7 @@
 									<th>称呼</th>
 									<th>电话</th>
 									<th>邮箱</th>
-									<th>isCl</th>
+									<th>处理</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -112,19 +112,26 @@ function init(){
 				{"data" : "userNameShow", "defaultContent" : ""},
 				{"data" : "phoneShow", "defaultContent" : ""},
 				{"data" : "emailShow", "defaultContent" : ""},
-				{"data" : "isCl", "defaultContent" : ""},
-				{ 
-								"data": "", 
-								"defaultContent": "",
-								"orderable":false,
-						        "render": function (data, type, row) {
-                		           var id = row['id'];
-                		           var href = "updateCustomized.html?id=" + id;
-                                   var edit = buttonEdit(href, "", pers);
-                		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
-                  	            }		
-							},
+                {"data" : "isCl", "defaultContent" : "",
+                    "render": function (data, type, row) {
+                        var isCl = row['isCl'];
+                        if(isCl == 1){
+                            return  "是";
+                        } else {
+                            return  "否";
+                        }
+                    }
+                },
+                {
+                    "data": "",
+                    "defaultContent": "",
+                    "orderable":false,
+                    "render": function (data, type, row) {
+                        var id = row['id'];
+                        var del = buttonCl(id, "", pers);
+                        return del;
+                    }
+                },
                 
             ],
            "order": [[ 0, "asc" ]]
@@ -136,15 +143,15 @@ layui.use('layer', function(){
 });
 
 function del(id){
-	layer.confirm('确定要删除吗？', {
+	layer.confirm('确定标记为处理吗？', {
         btn : [ '确定', '取消' ]
     }, function() {
     	$.ajax({
-            type : 'delete',
-            url : '/customizeds/'+id,
+            type : 'get',
+            url : '/customizeds/Cl/'+id,
             success : function(data) {
                 example.ajax.reload();
-                layer.msg("删除成功");
+                layer.msg("标记成功");
             }
         });
         

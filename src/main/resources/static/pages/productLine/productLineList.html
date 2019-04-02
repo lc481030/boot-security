@@ -92,7 +92,15 @@ function init(){
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "title", "defaultContent" : ""},
 				{"data" : "detail", "defaultContent" : ""},
-				{"data" : "img", "defaultContent" : ""},
+                {
+                    "data": "img",
+                    "defaultContent": "",
+                    "render": function (data, type, row) {
+                        var url = row['img'];
+                        return "<a target='_blank' href='" + url +"'><img width='30' src='" + url + "'></img></a>";
+                    }
+                },
+				/*{"data" : "img", "defaultContent" : ""},*/
                 {"data" : "urlAddress", "defaultContent" : ""},
 				{"data" : "remark", "defaultContent" : ""},
 				{ 

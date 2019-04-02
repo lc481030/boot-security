@@ -74,4 +74,11 @@ public class CustomizedController {
     public void delete(@PathVariable Long id) {
         customizedDao.delete(id);
     }
+
+
+    @GetMapping("Cl/{id}")
+    @ApiOperation(value = "删除")
+    public void isCl(@PathVariable Long id) {
+        customizedDao.updateIsCl(id);
+    }
 }

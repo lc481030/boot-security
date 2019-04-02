@@ -31,6 +31,8 @@
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>img</label>
 				<div class='col-md-10'>
+					<div id="productImg">
+					</div>
 					<input class='form-control' style="display: none" placeholder='img' type='text' name='img' id='img' data-bv-notempty='true' data-bv-notempty-message='图片不能为空'>
 					<button type="button" class="layui-btn" id="test1">
 						<i class="layui-icon">&#xe67c;</i>上传文件
@@ -93,6 +95,11 @@
 				,accept: 'file' //允许上传的文件类型
 				,url: '/files' //上传接口
 				,done: function(res, index,upload){
+					var html =  "<div>\n"
+							+"	<img src="+res.baseUrl+res.url+" style=\"width: 100px;height: 100px\"><span onclick=\"delImg(this,'"+res.baseUrl+res.url+"')\">删除</span>\n"
+							+"</div>";
+
+					$("#productImg").append(html);
 					$('#img').val(res.baseUrl+res.url);
 					layer.msg("上传成功");
 				}
