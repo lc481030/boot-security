@@ -24,9 +24,10 @@
 			</div>
 
 			<div class='form-group' style="visibility: visible">
-				<label class='col-md-2 control-label'>图片路径</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='headImg' type='text' name='headImg' id='headImg' data-bv-notempty='true' data-bv-notempty-message='图片路径不能为空'  autocomplete="off">
+				<label class='col-md-2 control-label'>图片</label>
+				<input name='headImg' id='headImg' style="display:none">
+				<div class='col-md-10' id="headImgDiv">
+
 				</div>
 			</div>
 			<div class='form-group'>
@@ -149,6 +150,9 @@
 				,accept: 'file' //允许上传的文件类型
 				,url: '/files' //上传接口
 				,done: function(res, index,upload){
+					$("#headImgDiv").empty();
+					var html =	"<img src="+res.baseUrl+res.url+" style=\"width: 100px;height: 100px\">"
+					$("#headImgDiv").append(html);
 					$('#headImg').val(res.baseUrl+res.url);
 					console.log(res);
 					layer.msg("上传成功");

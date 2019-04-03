@@ -276,7 +276,7 @@
     margin: 40px auto;
 }
 .intro-c .txt{
-    width: 800px;
+    width: 1040px;
     margin: 0 auto;
     line-height: 26px;
     font-size: 15px;
@@ -285,15 +285,14 @@
     font-family: 'MicrosoftYaHei';
 }
 .intro-content{
-    width: 800px;
-    height: 160px;
+    width: 1043px;
     padding: 30px;
     margin: 70px auto 0;
     background: #ffffff;
 }
 .intro-content img{
-    width: 100%;
-    height: 100%;
+    width: 983px;
+    height: 139px;
 }
 /* 预定流程 */
 .Reserve .Reserve-content{
@@ -310,7 +309,6 @@
     width: 100%;
     height: 1100px;
     background: url('../../img/pc/pingjiabg.png') no-repeat;
-    background-size: 100% 100%;
 }
 .pingjia-c{
     width: 1200px;

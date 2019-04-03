@@ -2,7 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -34,12 +36,21 @@
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>图片路径</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='headImg' type='text' name='headImg' id='headImg' data-bv-notempty='true' data-bv-notempty-message='headImg 不能为空'>
+				<label class='col-md-2 control-label'>图片</label>
+				<input name='headImg' id='headImg' style="display:none">
+				<div class='col-md-10' id="headImgDiv">
+					<img id="trImg" src="" style="width: 100px;height: 100px">
 				</div>
 			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>图片</label>
+				<div class='col-md-10'>
+					<button type="button" class="layui-btn" id="test1">
+						<i class="layui-icon">&#xe67c;</i>上传文件
+					</button>
+				</div>
 
+			</div>
 			<!--<div class='form-group'>
 				<label class='col-md-2 control-label'>deleted</label>
 				<div class='col-md-10'>
@@ -102,6 +113,7 @@
 						$('#sort').val(data.sort);
 						$('#deleted').val(data.deleted);
 						$('#isShow').val(data.isShow);
+						$('#trImg').attr('src',data.headImg);
 					}
 				});
 			}
@@ -129,7 +141,24 @@
 				}
 			});
 		}
-		
+		/*文件上传*/
+		layui.use('upload', function(){
+			var upload = layui.upload;
+			upload.render({
+				elem: '#test1' //绑定元素
+				,accept: 'file' //允许上传的文件类型
+				,url: '/files' //上传接口
+				,done: function(res, index,upload){
+					$("#headImgDiv").empty();
+					var html =	"<img src="+res.baseUrl+res.url+" style=\"width: 100px;height: 100px\">"
+					$("#headImgDiv").append(html);
+					$('#headImg').val(res.baseUrl+res.url);
+					console.log(res);
+					layer.msg("上传成功");
+					//example.ajax.reload();
+				}
+			});
+		});
 	</script>
 </body>
 </html>

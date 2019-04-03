@@ -139,7 +139,7 @@
                             </div>
                         </div>
                         <div class="list-bottom">
-                            <div class="detailbtn"><a th:href="'/storeDetail.html?id='+${product.getId()}">查看详情</a></div>
+                            <div class="detailbtn" style="background: linear-gradient(#2AC3E6,#1AA0DF);"><a th:href="'/storeDetail.html?id='+${product.getId()}" style="font-weight: bold;color: white;">查看详情</a></div>
                         </div>
                     </li>
                     <!--end-->
@@ -229,7 +229,6 @@
     
     
     function getProductList(){
-
        var pageSize = $("#pageSize").val();
         pageSize++;
 
