@@ -215,7 +215,8 @@
 }
 .s-list-c-li-bottom li .price{
     width: 214px;
-    padding: 0 5px;
+    /*padding: 0 5px;*/
+    margin-top: -7px;
     height:30px;
     line-height: 30px;
     font-size: 12px;
