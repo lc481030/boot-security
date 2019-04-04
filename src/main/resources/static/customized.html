@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="旅游,千寻,会泽旅行社">
+    <meta name="description" content="旅游,千寻,会泽旅行社">
+    <meta name="Copyright" content="会泽千寻">
+    <meta name="baidu-site-verification" content="L6SDEmSjQm">
+    <title>定制</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/dingzhi.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+
+</head>
+<body>
+<form method="post" action="/addCustomized.html">
+    <div class="box box-direction-c">
+        <!-- 顶部 -->
+        <div class="topnav" th:include="topPage::#topnav"></div>
+        <!-- 导航 -->
+        <div class="navwp" th:include="menu::#navwp"></div>
+        <!-- 定制 -->
+        <div class="dingzhi">
+            <div class="d-c">
+                <!-- 顶部导航 -->
+                <div class="d-nav">
+                    <ul id="customizedMenu">
+                        <li menuNum="1" class="active">目的地</li>
+                        <li menuNum="2">出游时间</li>
+                        <li menuNum="3">同游伙伴</li>
+                        <li menuNum="4">常驻酒店</li>
+                        <li menuNum="5">预算</li>
+                        <li menuNum="6">联系信息</li>
+                    </ul>
+                    <div class="yulan">我的优定制·预览</div>
+                </div>
+                <!-- 中间内容 -->
+                <div class="d-center">
+                    <div class="d-left">
+                        <!-- 目的地板块 -->
+                        <div class="box mudidi" id="step1">
+                            <div class="line">
+                                <span class="lable">定制类型：</span>
+                                <ul>
+                                    <li class="active" onclick="setDzType(this,'个人')">个人</li>
+                                    <li onclick="setDzType(this,'公司')">公司</li>
+                                </ul>
+                            </div>
+                            <div class="txtput">
+                                <span class="lable">出发城市：</span>
+                                <input type="text" placeholder="请输入您的出发城市" id="startCity" name="startCity" onchange="getStartCity();">
+                            </div>
+                            <div class="line">
+                                <span class="lable">目的地：</span>
+                                <ul>
+                                    <li class="active" onclick="objectiveLocalType(this,'国内')">国内</li>
+                                    <li onclick="objectiveLocalType(this,'出境')">出境</li>
+                                </ul>
+                            </div>
+                            <div class="put">
+                                <input type="text" placeholder="请输入您想去的目的地或直接点击下方推荐"  id="objectiveLocal" name="objectiveLocal" onblur="getObjectiveLocal();">
+                            </div>
+
+                            <div class="txt">
+                                <span class="lable"></span>
+                            </div>
+                            <div class="line">
+                                <span class="lable"></span>
+                                <ul>
+                                    <li class="active" onclick="objectiveLocal(this,'澳大利亚1')">澳大利亚1</li>
+                                    <li onclick="objectiveLocal(this,'澳大利亚2')">澳大利亚2</li>
+                                </ul>
+                            </div>
+
+                            <div class="nextbtn" onclick="stepOne()">下一步</div>
+                        </div>
+                        <!-- 出游时间板块 -->
+                        <div class="box time" id="step2" style="display:none">
+                            <div class="txtput">
+                                <span class="lable">出发时间：</span>
+                                <div type="text" id="startDate" name="startDate"></div>
+                            </div>
+                            <div class="line" style="margin-top: 310px">
+                                <span class="lable">出现天数：</span>
+                                <ul>
+                                    <li class="active" onclick="getDays(this,'1-5')">1-5天</li>
+                                    <li onclick="getDays(this,'11-15')">6-10天</li>
+                                    <li onclick="getDays(this,'11-15')">11-15天</li>
+                                    <li onclick="getDays(this,'16-20')">16-20天</li>
+                                    <li onclick="getDays(this,'20')">20天以上</li>
+                                </ul>
+                            </div>
+                            <div class="nextbtn" onclick="stepTwo()">下一步</div>
+                        </div>
+                        <!-- 同游伙伴板块 -->
+                        <div class="box with" id="step3" style="display: none">
+                            <div class="choose">
+                                <div class="title">选择您的同游伙伴</div>
+                                <ul class="selectfriend">
+                                    <li class="active" onclick="getSelectFriend(this,'携情侣')"><img src="../img/pc/with1.png" alt=""><span>携情侣</span></li>
+                                    <li onclick="getSelectFriend(this,'陪父母')"><img src="../img/pc/with2.png" alt=""><span>陪父母</span></li>
+                                    <li onclick="getSelectFriend(this,'带孩子')"><img src="../img/pc/with3.png" alt=""><span>带孩子</span></li>
+                                    <li onclick="getSelectFriend(this,'三代同游')"><img src="../img/pc/with4.png" alt=""><span>三代同游</span></li>
+                                    <li onclick="getSelectFriend(this,'挽闺蜜')"><img src="../img/pc/with5.png" alt=""><span>挽闺蜜</span></li>
+                                    <li onclick="getSelectFriend(this,'同哥们')"><img src="../img/pc/with6.png" alt=""><span>同哥们</span></li>
+                                    <li onclick="getSelectFriend(this,'配客户')"><img src="../img/pc/with7.png" alt=""><span>配客户</span></li>
+                                    <li onclick="getSelectFriend(this,'企业团体')"><img src="../img/pc/with8.png" alt=""><span>企业团体</span></li>
+                                </ul>
+                            </div>
+                            <div class="people">
+                                <div class="title">出行人数</div>
+                                <ul>
+                                    <li>
+                                        <span>成人：</span>
+                                        <input type="number" id="adultNum" name="adultNum" min="0" max="100" onchange="getAdultNum()">
+                                        <span>人</span>
+                                    </li>
+                                    <li>
+                                        <span>儿童：</span>
+                                        <input type="number" id="childrenNum" name="childrenNum"  min="0" max="100" onchange="getChildrenNum()">
+                                        <span>人</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="nextbtn" onclick="stepThree()">下一步</div>
+                        </div>
+                        <!-- 常驻酒店板块 -->
+                        <div class="box hotel" style="display:none" id="step4">
+                            <div class="jiudian">
+                                <div class="title">请选择您喜欢的酒店类型</div>
+                                <ul>
+                                    <li class="active"><img src="../img/pc/hotel1.png" onclick="getHotel(this,'奢华型')" alt=""><span>奢华型</span></li>
+                                    <li onclick="getHotel(this,'豪华型')" ><img src="../img/pc/hotel2.png" alt=""><span>豪华型</span></li>
+                                    <li onclick="getHotel(this,'舒适性')" ><img src="../img/pc/hotel3.png" alt=""><span>舒适性</span></li>
+                                    <li onclick="getHotel(this,'经济型')" ><img src="../img/pc/hotel4.png" alt=""><span>经济型</span></li>
+                                    <li onclick="getHotel(this,'民宿')" ><img src="../img/pc/hotel5.png" alt=""><span>民宿</span></li>
+                                </ul>
+                            </div>
+                            <div class="nextbtn" onclick="stepFour()">下一步</div>
+                        </div>
+                        <!-- 预算板块 -->
+                        <div class="box budget" id="step5" style="display:none">
+                            <div class="yusuan">
+                                <div class="title">请选择您的人均旅行预算</div>
+                                <ul>
+                                    <li onclick="getBudget(this,'5,000以下')"><img src="../img/pc/yusuan.png" alt=""><span>5,000以下</span></li>
+                                    <li onclick="getBudget(this,'5,000-1,500')"><img src="../img/pc/yusuan.png" alt=""><span>5,000-1,500</span></li>
+                                    <li onclick="getBudget(this,'15,001-30,000')"><img src="../img/pc/yusuan.png" alt=""><span>15,001-30,000</span></li>
+                                    <li onclick="getBudget(this,'31,000-50,000')"><img src="../img/pc/yusuan.png" alt=""><span>31,000-50,000</span></li>
+                                    <li onclick="getBudget(this,'50,001以上')"><img src="../img/pc/yusuan.png" alt=""><span>50,001以上</span></li>
+                                    <li onclick="getBudget(this,'不确定')" class="active"><img src="../img/pc/yusuan.png" alt=""><span>不确定</span></li>
+                                </ul>
+                            </div>
+                            <div  class="nextbtn" onclick="stepFive()">下一步</div>
+                        </div>
+                        <!-- 联系信息板块 -->
+                        <div class="box info" id="step6" style="display:none">
+                            <div class="lianxi">
+                                <div class="title">请输入您的联系信息，方便我们的旅游管家为您提供1对1的旅游定制服务。</div>
+                                <ul>
+                                    <li><span>您的姓名：</span><input type="text" name="userName" maxlength="5" id="userName" onchange="getUserNameStr()" placeholder="请输入您的姓名"></li>
+                                    <li><span>手机号码：</span><input type="text" maxlength="11" id="phone" name="phone" onchange="getPhoneStr()" placeholder="请输入您的手机号码"></li>
+                                    <li><span>图形验证码：</span><input type="text" placeholder="图形验证码"  class="small">
+                                        <!--<img src="../img/pc/hotel1.png" alt="">-->
+                                        <img src="/defaultKaptcha.html"  id="imgCode" onclick="this.src='defaultKaptcha.html?d='+Math.random();" alt="">
+                                    </li>
+                                    <li><span>手机验证码：</span><input type="text" placeholder="手机验证码" id="phoneCode" name="phoneCode" class="small"><div class="huoqu" onclick="getPhoneCode()">获取验证码</div></li>
+                                    <li><span>电子邮箱：</span><input type="text" id="email" name="email" onchange="getEmailStr()" placeholder="请输入您的电子邮箱"></li>
+                                </ul>
+                                <div class="not">【温馨提示】提交需求后，非会员将自动升级为悠哉会员，享受会员专属服务。</div>
+                            </div>
+                            <div class="nextbtn" onclick="submitCustomized()">提交</div>
+                        </div>
+                    </div>
+                    <div class="d-right">
+                        <div class="infowp">
+                            <div class="line leixing">
+                                <span class="title">定制类型：</span>
+                                <div class="txtwp">
+                                    <span id="dzTypeShow">个人</span>
+                                </div>
+                            </div>
+                            <div class="line start">
+                                <span class="title">出发城市：</span>
+                                <div class="txtwp">
+                                    <span id="startCityShow"></span>
+                                </div>
+                            </div>
+                            <div class="line arrive">
+                                <span class="title">目的地：</span>
+                                <div class="txtwp">
+                                    <span id="objectiveLocalShow"></span>
+                                </div>
+                            </div>
+                            <div class="line gotime">
+                                <span class="title">出游时间：</span>
+                                <div class="txtwp">
+                                    <span id="startDateShow"></span>
+                                    <span id="dayStrShow"></span>
+                                </div>
+                            </div>
+                            <div class="line with">
+                                <span class="title">同游伙伴：</span>
+                                <div class="txtwp">
+                                    <span id="selectFriendShow">携爱侣</span>
+                                    <span id="adultNumShow">成人2</span>
+                                    <span id="childrenNumShow">儿童0</span>
+                                </div>
+                            </div>
+                            <div class="line hotel">
+                                <span class="title">长住酒店：</span>
+                                <div class="txtwp">
+                                    <span id="hotelShow">奢华型</span>
+                                </div>
+                            </div>
+                            <div class="line formoney">
+                                <span class="title">预算：</span>
+                                <div class="txtwp">
+                                    <span id="budgetShow">不确定</span>
+                                </div>
+                            </div>
+                            <div class="line name">
+                                <span class="title">联系人信息：</span>
+                                <div class="txtwp">
+                                    <span id="userNameShow">姓名</span>
+                                    <span id="phoneShow"></span>
+                                </div>
+                            </div>
+                            <div class="line email">
+                                <span class="title">电子邮箱：</span>
+                                <div class="txtwp">
+                                    <span id="emailShow">email@qq.com</span>
+                                </div>
+                            </div>
+                            <!--<div class="tijiaobtn">提交</div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- 底部 -->
+                <div class="d-bottom">
+                    <img src="../img/pc/customized.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="bottom" th:include="pctop::#bottom"></div>
+    </div>
+</form>
+</body>
+    <script src="../js/pc/collection.js"></script>
+    <script src="../js/pc/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+    <!--序列化-->
+    <script type="text/javascript" src="../../js/common.js"></script>
+
+    <script type="application/javascript">
+
+     
+       layui.use(['layer','laydate'], function(){
+            var layer = layui.layer;
+           var now = new Date();
+           var time = now.getFullYear() + "-" +((now.getMonth()+1)<10?"0":"")+(now.getMonth()+1)+"-"+(now.getDate()<10?"0":"")+now.getDate();
+           $("#startDateShow").text(time);
+           $("#dayStrShow").text("1-5");
+           layui.laydate.render({
+               elem: '#startDate',
+               position:'static',
+               change: function(value, date, endDate){
+                   $("#startDateShow").text(value);
+               }
+           });
+
+        });
+
+
+       $("#customizedMenu").on("click","li", function() {
+           var menuNum = $(this).attr("menuNum")
+           $(this).siblings("li").removeClass("active");
+           $(this).addClass("active");
+           $("#step1").hide();
+           $("#step2").hide();
+           $("#step3").hide();
+           $("#step4").hide();
+           $("#step5").hide();
+           $("#step6").hide();
+           $("#step"+menuNum).show();
+           //test($(this).attr("name"));
+           //do something here
+       });
+
+        /*出游类型*/
+        function setDzType(e,dzType) {
+            $(e).siblings("li").removeClass("active");
+            $(e).addClass("active");
+            $("#dzTypeShow").text(dzType)
+        }
+        /*出发城市*/
+        function getStartCity() {
+            $("#startCityShow").text($("#startCity").val())
+        }
+        /*出发城市类型选择*/
+        function objectiveLocalType(e) {
+            $(e).siblings("li").removeClass("active");
+            $(e).addClass("active");
+        }
+        /*出发城市输入*/
+        function getObjectiveLocal() {
+            $("#objectiveLocalShow").text($("#objectiveLocal").val())
+        }
+        /*出发城市选择*/
+        function objectiveLocal(e,objectiveLocal) {
+            $(e).siblings("li").removeClass("active");
+            $(e).addClass("active");
+            $("#objectiveLocalShow").text(objectiveLocal)
+            $("#objectiveLocal").val(objectiveLocal)
+        }
+        
+        function stepOne() {
+            $("#step1").hide();
+            $("#step2").show();
+        }
+        
+        function getStartDate() {
+            alert($("#startDate").val());
+
+        }
+
+        function getDays(e,dayStr) {
+            $(e).siblings("li").removeClass("active");
+            $(e).addClass("active");
+            $("#dayStrShow").text(dayStr);
+        }
+
+       function stepTwo() {
+           $("#step2").hide();
+           $("#step3").show();
+       }
+       
+       function getSelectFriend(e,friendStr) {
+           $(e).siblings("li").removeClass("active");
+           $(e).addClass("active");
+           $("#selectFriendShow").text(friendStr);
+       }
+        /*成年人数量*/
+       function getAdultNum(){
+           if($("#adultNum").val()>100){
+               $("#adultNum").val(100)
+           }
+            $("#adultNumShow").text("成人"+$("#adultNum").val())
+       }
+
+       /*儿童数量*/
+       function getChildrenNum(){
+           if($("#childrenNum").val()>99){
+               $("#childrenNum").val(99)
+           }
+           $("#childrenNumShow").text("儿童"+$("#childrenNum").val())
+       }
+
+       function stepThree() {
+           $("#step3").hide();
+           $("#step4").show();
+       }
+
+       function getHotel(e,hotelStr) {
+           $(e).siblings("li").removeClass("active");
+           $(e).addClass("active");
+           $("#hotelShow").text(hotelStr);
+       }
+
+       function stepFour() {
+           $("#step4").hide();
+           $("#step5").show();
+       }
+       function getBudget(e,budgetStr) {
+           $(e).siblings("li").removeClass("active");
+           $(e).addClass("active");
+           $("#budgetShow").text(budgetStr);
+       }
+
+       function stepFive() {
+           $("#step5").hide();
+           $("#step6").show();
+       }
+
+       function changeCode() {
+           /*var img=$("#imgCode")*/
+           alert(1);
+           window.location($(this).attr('src'));
+           $(this).attr('src',$(this).attr('src'));
+          /* img.src="/defaultKaptcha.html";*/
+       }
+
+
+       //验证图形验证码
+        function getPhoneCode() {
+            var imgCode =  $("#imgCode").val();
+            var phone =  $("#phone").val();
+            if (!isPoneAvailable(phone)) {
+                layer.alert('手机号码错误', {icon: 6});
+                return;
+            }
+            $.ajax({url:"imgvrifyControllerDefaultKaptcha.html",
+                data:{"tryCode":imgCode,"phone":phone},
+                success:function(result){
+                    layer.alert(result.info, {icon: 6});
+                }});
+        }
+
+       /*
+       * 手机号码验证*/
+       function isPoneAvailable(poneInput) {
+           var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+           if (!myreg.test(poneInput)) {
+               return false;
+           } else {
+               return true;
+           }
+       }
+        /*姓名显示*/
+       function getUserNameStr(){
+           $("#userNameShow").text($("#userName").val());
+       }
+
+       /*手机号码*/
+       function getPhoneStr(){
+           $("#phoneShow").text($("#phone").val());
+       }
+
+       /*邮箱*/
+       function getEmailStr(){
+           $("#emailShow").text($("#email").val());
+       }
+
+       function submitCustomized(){
+
+            /*定制类型*/
+           var dzTypeShow = $("#dzTypeShow").text();
+           /*出发时间*/
+           var startDateShow = $("#startDateShow").text();
+           /*  玩耍时间*/
+           var dayStrShow = $("#dayStrShow").text();
+           /*目的地*/
+           var objectiveLocalShow = $("#objectiveLocalShow").text();
+           /* 出发城市*/
+           var startCityShow = $("#startCityShow").text();
+           var childrenNumShow = $("#childrenNumShow").text();/*儿童数量*/
+           var adultNumShow = $("#adultNumShow").text();/*成人数量*/
+           var selectFriendShow = $("#selectFriendShow").text(); /*旅游类型*/
+           /*酒店类型*/
+           var hotelShow = $("#hotelShow").text(); /*旅游类型*/
+           /*预算*/
+           var budgetShow = $("#budgetShow").text();
+           var userNameShow = $("#userNameShow").text();
+           var phoneShow = $("#phoneShow").text();
+           var emailShow = $("#emailShow").text();
+
+           var phoneCode = $("#phoneCode").val();
+           var phone =  $("#phone").val();
+           //验证手机号码
+           $.ajax({url:"phoneCodeVerification.html",
+               data:{"phoneCode":phoneCode,
+                   "phone":phone},
+               success:function(result){
+                    if (result.status == "1"){
+                        $.post({url:"addCustomized.html",
+                            data:{"dzTypeShow":dzTypeShow,
+                                "startDateShow":startDateShow,
+                                "dayStrShow":dayStrShow,
+                                "objectiveLocalShow":objectiveLocalShow,
+                                "startCityShow":startCityShow,
+                                "childrenNumShow":childrenNumShow,
+                                "adultNumShow":adultNumShow,
+                                "selectFriendShow":selectFriendShow,
+                                "hotelShow":hotelShow,
+                                "budgetShow":budgetShow,
+                                "userNameShow":userNameShow,
+                                "phoneShow":phoneShow,
+                                "emailShow":emailShow},
+                            success:function(result){
+                                if (result.status=="1"){
+                                    alert(result.info);
+                                }
+
+                            }});
+                    } else{
+                        layer.alert("验证码错误", {icon: 6});
+                    }
+               }});
+           //提交数据
+       }
+    </script>
+</html>

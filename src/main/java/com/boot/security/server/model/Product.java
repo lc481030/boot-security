@@ -1,5 +1,7 @@
 package com.boot.security.server.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Product extends BaseEntity<Long> {
@@ -20,6 +22,16 @@ public class Product extends BaseEntity<Long> {
 	private String costDescription;
 	private String reservationNotes;
 	private Integer deleted;
+	private Integer recommendIndex;/*推荐*/
+
+
+	public Integer getRecommendIndex() {
+		return recommendIndex;
+	}
+
+	public void setRecommendIndex(Integer recommendIndex) {
+		this.recommendIndex = recommendIndex;
+	}
 
 	public String getTitle() {
 		return title;

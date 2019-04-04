@@ -12,6 +12,6 @@ public class AdminController {
     public ModelAndView adminLogin() {
         ModelAndView view = new ModelAndView();
         view.setViewName("login");
-        return view;
+         return view;
     }
 }

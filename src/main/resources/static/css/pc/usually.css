@@ -4,7 +4,9 @@
     list-style: none;
     font-family: 'MicrosoftYaHei';
 }
-body{min-width:1200px}
+body{
+    min-width:1200px;
+    }
 .p-l1{
     padding-left: 10px;
 }
@@ -37,6 +39,7 @@ body{min-width:1200px}
     flex-direction: row;
     justify-content: center;
     box-sizing: border-box;
+    /* margin: 40px 0; */
 }
 .box-direction-c-c{
     display: flex;

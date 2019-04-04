@@ -33,6 +33,18 @@ function buttonDel(data, permission, pers){
 	return btn.prop("outerHTML");
 }
 
+
+function buttonCl(data, permission, pers){
+	if(permission != ""){
+		if ($.inArray(permission, pers) < 0) {
+			return "";
+		}
+	}
+	var btn = $("<button class='layui-btn layui-btn-xs' title='处理' onclick='del(\"" + data +"\")'><i class='layui-icon'>&#xe639;;</i></button>");
+	return btn.prop("outerHTML");
+}
+
+
 function buttonEdit(href, permission, pers){
 	if(permission != ""){
 		if ($.inArray(permission, pers) < 0) {
@@ -40,6 +52,28 @@ function buttonEdit(href, permission, pers){
 		}
 	}
 	
+	var btn = $("<button class='layui-btn layui-btn-xs' title='编辑' onclick='window.location=\"" + href +"\"'><i class='layui-icon'>&#xe642;</i></button>");
+	return btn.prop("outerHTML");
+}
+
+function buttonRecommend(data, permission, pers){
+	if(permission != ""){
+		if ($.inArray(permission, pers) < 0) {
+			return "";
+		}
+	}
+
+	var btn = $("<button class='layui-btn layui-btn-xs' title='推荐' onclick='recommend(\"" + data +"\")'><i class='layui-icon'>&#xe620;</i></button>");
+	return btn.prop("outerHTML");
+}
+
+function buttonEdit(href, permission, pers){
+	if(permission != ""){
+		if ($.inArray(permission, pers) < 0) {
+			return "";
+		}
+	}
+
 	var btn = $("<button class='layui-btn layui-btn-xs' title='编辑' onclick='window.location=\"" + href +"\"'><i class='layui-icon'>&#xe642;</i></button>");
 	return btn.prop("outerHTML");
 }

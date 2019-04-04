@@ -1,7 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-
+    url: jdbc:mysql://127.0.0.1:3306/qx?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 12345
     druid:
       initialSize: 5
       minIdle: 5
@@ -77,3 +79,11 @@ token:
   jwtSecret: (XIAO:)_$^11244^%$_(WEI:)_@@++--(LAO:)_++++_.sds_(SHI:)
 server:
   port: 8080
+#最大连接数
+http:
+  maxTotal: 100
+  defaultMaxPerRoute: 20
+  connectTimeout: 1000
+  connectionRequestTimeout: 500
+  socketTimeout: 10000
+  staleConnectionCheckEnabled: true

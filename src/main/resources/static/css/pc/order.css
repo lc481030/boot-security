@@ -184,9 +184,7 @@
     text-align: center;
     font-family: 'Microsoft YaHei';
 }
-.wapper2 li.active{
-    color: #0E95D9;
-}
+
 .wapper2 li::after{
     content: '';
     position: absolute;
@@ -194,7 +192,6 @@
     right: 0;
     width: 2px;
     height: 18px;
-    background: #CDDAE1;
 }
 .wapper2 li.active::before{
     content: '';

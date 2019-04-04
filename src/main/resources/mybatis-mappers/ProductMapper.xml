@@ -72,9 +72,48 @@
 	</select>
 
 	<select id="list" resultType="Product">
-		select * from product t
+		select ttt.productType,t.* from product t
+		LEFT JOIN product_type as ttt ON t.productType = ttt.id
 		<include refid="where" />
-		${params.orderBy}
+		order by updateTime desc
+		limit #{offset}, #{limit}
+	</select>
+
+
+
+	<select id="storeList" resultType="Product">
+		select ttt.productType,t.* from product t
+		LEFT JOIN product_type as ttt ON t.productType = ttt.id
+		where  1=1 and (t.deleted = 0 or t.deleted is null )
+		<if test="search.productMode != null and search.productMode !=''">
+			and t.productMode = #{search.productMode}
+		</if>
+		<if test="search.startCity != null and search.startCity !=''">
+			and t.startCity = #{search.startCity}
+		</if>
+		<if test="search.targetCountry != null and search.targetCountry !=''">
+			and t.targetCountry = #{search.targetCountry}
+		</if>
+		<if test="search.beginDay != null and search.beginDay !=''">
+			and t.days  &gt;= #{search.beginDay}
+		</if>
+		<if test="search.endDay != null and search.endDay !=''">
+			and t.days  &lt; #{search.endDay}
+		</if>
+		<if test="search.beginTime != null and search.beginTime !=''">
+			and t.startTime  &gt;= #{search.beginTime}
+		</if>
+		<if test="search.endTime != null and search.endTime !=''">
+			and t.startTime   &lt; #{search.endTime}
+		</if>
+
+		<if test="search.beginPrice != null and search.beginPrice !=''">
+			and t.price  &gt;= #{search.beginPrice}
+		</if>
+		<if test="search.endPrice != null and search.endPrice !=''">
+			and t.price  &lt; #{search.endPrice}
+		</if>
+
 		limit #{offset}, #{limit}
 	</select>
 
@@ -131,6 +170,9 @@
 			</if>
 			<if test="reservationNotes != null">
 				reservationNotes = #{reservationNotes}, 
+			</if>
+			<if test="recommendIndex != null">
+				recommendIndex = #{recommendIndex},
 			</if>
 			<if test="deleted != null">
 				deleted = #{deleted}, 

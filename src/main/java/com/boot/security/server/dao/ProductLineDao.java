@@ -25,7 +25,7 @@ public interface ProductLineDao {
     int update(ProductLine productLine);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into product_line(title, detail, img, remark) values(#{title}, #{detail}, #{img}, #{remark})")
+    @Insert("insert into product_line(title, detail, img, remark,urlAddress) values(#{title}, #{detail}, #{img}, #{remark},#{urlAddress})")
     int save(ProductLine productLine);
     
     int count(@Param("params") Map<String, Object> params);

@@ -1,8 +1,11 @@
 package com.boot.security.server.controller;
 
+import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.boot.security.server.dao.ProductTypeDao;
+import com.boot.security.server.model.ProductType;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,11 +34,16 @@ public class ProductController {
     @Resource
     private ProductDao productDao;
 
+    @Resource
+    private ProductTypeDao productTypeDao;
+
     @PostMapping
     @ApiOperation(value = "保存")
     public Product save(@RequestBody Product product) {
+        product.setRecommendIndex(0);
+        ProductType productType = productTypeDao.getById(Long.parseLong(product.getProductType()));
+        product.setProductMode(productType.getProductMode());
         productDao.save(product);
-
         return product;
     }
 
@@ -48,10 +56,32 @@ public class ProductController {
     @PutMapping
     @ApiOperation(value = "修改")
     public Product update(@RequestBody Product product) {
+        product.setRecommendIndex(null);
+
+        ProductType productType = productTypeDao.getById(Long.parseLong(product.getProductType()));
+        product.setProductMode(productType.getProductMode());
         productDao.update(product);
 
         return product;
     }
+
+
+    @PutMapping("productsRecommend/{id}")
+    @ApiOperation(value = "推荐")
+    public Product productsRecommend(@PathVariable Long id) {
+        Product product = productDao.getById(id);
+        Integer re = product.getRecommendIndex();
+        if (StringUtils.isEmpty(re) || product.getRecommendIndex().toString().equals("0")){
+            product.setRecommendIndex(1);
+        }else if ( product.getRecommendIndex().toString().equals("1")){
+            product.setRecommendIndex(0);
+        }
+        product.setUpdateTime(new Date());
+        productDao.update(product);
+        return product;
+
+    }
+
 
     @GetMapping
     @ApiOperation(value = "列表")

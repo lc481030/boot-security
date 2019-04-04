@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="keywords" content="旅游,千寻,会泽旅行社">
+    <meta name="description" content="旅游,千寻,会泽旅行社">
+    <meta name="Copyright" content="会泽千寻">
+    <meta name="baidu-site-verification" content="L6SDEmSjQm">
+    <title>评价</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/pingjia.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+</head>
+<body>
+    <div class="box box-direction-c">
+        <!-- 顶部 -->
+        <div class="topnav" th:include="topPage::#topnav"></div>
+        <!--<div class="topnav">
+            <div class="topnav-c box-direction-r">
+                <ul class="right p-l1">
+                    <li class="cursor">收藏首页</li>
+                    <li class="cursor">保存到桌面</li>
+                    <li class="cursor">客服中心</li>
+                    <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
+                </ul>
+                <div class="left p-r1">
+                    <input type="text" placeholder="目的地/关键词/旅行天数">
+                    <div class="btn btn1 cursor">去哪儿玩</div>
+                    <div class="btn btn2 cursor">免费咨询</div>
+                </div>
+            </div>
+        </div>-->
+        <!-- 导航 -->
+        <div class="navwp" th:include="menu::#navwp"></div>
+        <!-- 客户评价 -->
+        <div class="pingjia">
+                <div class="pingjia-c">
+                    <div class="title1">责任使我们成长</div>
+                    <div class="title2">千寻旅行社为您提供高端、优质、舒心的旅游产品</div>
+                    <ul class="pingjia-content">
+
+                        <li th:each="comment:${list}" th:class="${comment.getCommentType() == 3} ? 'bcc'">
+                            <!--是否人气高-->
+                            <div class="high" th:if="${comment.getCommentType()==2}"><img src="../img/pc/popularity.png" alt=""></div>
+                            <!--正常信息-->
+                            <div class="img" th:if="${comment.getCommentType()!=3}"><img th:src="${comment.img}" alt=""></div>
+                            <div class="text" th:if="${comment.getCommentType()!=3}" th:text="${comment.getDetail()}"></div>
+                            <div class="time" th:if="${comment.getCommentType()!=3}" th:text="'发表于：'+${comment.getCommentTimeStr()}"></div>
+                            <!--企业事业单位认证评论-->
+                            <img th:if="${comment.getCommentType()==3}" th:src="${comment.getImg()}"  alt="">
+                            <div class="txt" th:if="${comment.getCommentType()==3}" th:text="${comment.getDetail()}"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <!-- 底部 -->
+        <div class="bottom" th:include="pctop::#bottom"></div>
+    </div>
+</body>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
+<script src="../js/pc/collection.js"></script>
+<script>
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+
+
+   //动态添加瀑布图片的功能函数
+     function waterfall(){
+
+        //取得展示框对象
+        var $boxs = $( ".pingjia-content>li" );
+
+        // 一个块框的宽
+        var w = $boxs.eq(0).outerWidth(true);
+
+        //每行中能容纳的展示框个数【窗口宽度除以一个块框宽度】
+        var cols = Math.floor( ($( '.pingjia-content' ).width()) / w );
+
+        //给最外围的main元素设置宽度和外边距
+        $('.pingjia-content').width(w*cols).css('margin','o auto');
+
+        //用于存储 每列中的所有块框相加的高度。
+        var hArr=[];
+
+        $boxs.each( function( index, value ){
+            var h = $boxs.eq( index).outerHeight(true);
+            if( index < cols ){
+                hArr[ index ] = h; //第一行中的num个块框 先添加进数组HArr
+            }else{
+                var minH = Math.min.apply( null, hArr );//数组HArr中的最小值minH
+                var minHIndex = $.inArray( minH, hArr );
+                $(value).css({
+                    'position':'absolute','top':minH+'px', 'left':minHIndex*w + 'px'
+                });
+                // //数组 最小高元素的高 + 添加上的展示框[i]块框高
+                hArr[ minHIndex ] += $boxs.eq(index).outerHeight(true);//更新添加了块框后的列高
+            }
+        });
+    }
+    waterfall();
+    // //监听滚动条
+    // window.onscroll=function(){
+    //     if(checkscrollside()){
+    //         // AddWaterfall(dataInt);//这个是动态填充新展示框的函数
+    //         waterfall();
+    //     };
+    // }
+
+    // //判断是否需要继续加载瀑布流
+    // function checkscrollside(){
+    //     var $lastBox = $( ".pingjia-content>li" ).last();
+    //     var lastBoxDis = $lastBox.offset().top + Math.floor($lastBox.outerHeight()/2);
+    //     var scrollTop = $(window).scrollTop();
+    //     var documentH = $(window).height();
+    //     return (lastBoxDis<scrollTop+documentH)?true:false;
+    // }
+</script>
+</html>

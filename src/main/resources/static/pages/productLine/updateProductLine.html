@@ -11,39 +11,49 @@
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>title</label>
+				<label class='col-md-2 control-label'>标题</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='title 不能为空'>
+					<input class='form-control' placeholder='title' type='text' name='title' id='title' data-bv-notempty='true' data-bv-notempty-message='标题不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>detail</label>
+				<label class='col-md-2 control-label'>简介</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='detail' type='text' name='detail' id='detail' data-bv-notempty='true' data-bv-notempty-message='detail 不能为空'>
+					<input class='form-control' placeholder='detail' type='text' name='detail' id='detail' data-bv-notempty='true' data-bv-notempty-message='简介 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>img</label>
+				<label class='col-md-2 control-label'>链接地址</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='img' type='text' name='img' id='img' data-bv-notempty='true' data-bv-notempty-message='img 不能为空'>
+					<input class='form-control' placeholder='链接地址' type='text' name='urlAddress' id='urlAddress' data-bv-notempty='true' data-bv-notempty-message='链接地址不能为空'>
+				</div>
+			</div>
+
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>备注</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='remark' type='text' name='remark' id='remark' data-bv-notempty='true' data-bv-notempty-message='备注 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>remark</label>
+				<label class='col-md-2 control-label'>图片</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='remark' type='text' name='remark' id='remark' data-bv-notempty='true' data-bv-notempty-message='remark 不能为空'>
+					<div id="productImg">
+					</div>
+					<input class='form-control' style="display: none" placeholder='img' type='text' name='img' id='img' data-bv-notempty='true' data-bv-notempty-message='图片不能为空'>
+					<button type="button" class="layui-btn" id="test1">
+						<i class="layui-icon">&#xe67c;</i>上传文件
+					</button>
 				</div>
 			</div>
-			<div class='form-group'>
+			<!--<div class='form-group'>
 				<label class='col-md-2 control-label'>sort</label>
 				<div class='col-md-10'>
 					<button type="button" class="layui-btn" id="test1">
 						<i class="layui-icon">&#xe67c;</i>上传文件
 					</button>
 				</div>
-			</div>
-
-
+			</div>-->
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
@@ -82,7 +92,12 @@
 						$('#title').val(data.title);
 						$('#detail').val(data.detail);
 						$('#img').val(data.img);
+						$('#urlAddress').val(data.urlAddress);
 						$('#remark').val(data.remark);
+						var html =  "<div>\n"
+								+"	<img src="+data.img+" style=\"width: 100px;height: 100px\">\n"
+								+"</div>";
+						$("#productImg").append(html);
 
 					}
 				});
@@ -121,7 +136,12 @@
 				,url: '/files' //上传接口
 				,done: function(res, index,upload){
 					$('#img').val(res.baseUrl+res.url);
-					console.log(res);
+					$("#productImg").empty();
+					var html =  "<div>\n"
+							+"	<img src="+res.baseUrl+res.url+" style=\"width: 100px;height: 100px\">\n"
+							+"</div>";
+
+					$("#productImg").append(html);
 					layer.msg("上传成功");
 					//example.ajax.reload();
 				}

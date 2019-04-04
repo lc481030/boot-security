@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="keywords" content="旅游,千寻,会泽旅行社">
+    <meta name="description" content="旅游,千寻,会泽旅行社">
+    <meta name="Copyright" content="会泽千寻">
+    <meta name="baidu-site-verification" content="L6SDEmSjQm">
+    <title>咨询</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/zixun.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+</head>
+<body>
+    <div class="box box-direction-c">
+        <!-- 顶部 -->
+        <div class="topnav" th:include="topPage::#topnav"></div>
+        <!-- 导航 -->
+        <div class="navwp" th:include="menu::#navwp">
+            <div class="nav box-direction-r">
+                <div class="left display p-l1">
+                    <img src="../img/pc/logow.png" alt="">
+                </div>
+                <ul class="right p-r1">
+                    <li class="cursor">
+                        <a href="../index.html">首&nbsp;&nbsp;&nbsp;页</a>
+                    </li>
+                    <li class="cursor">
+                        <a href="../store.html">旅游商城
+                            <ul class="two">
+                                <li><a href="../store.html#dz">地区分类</a></li>
+                                <li><a href="../store.html#zt">主题分类</a></li>
+                                <li><a href="../store.html#jd">景点分类</a></li>
+                                <li><a href="../store.html#jt">交通分类</a></li>
+                                <li><a href="../dz.html">定制旅游</a></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="cursor">
+                        <a href="../news.html">咨询活动</a>
+                    </li>
+                    <li class="cursor">
+                        <a href="../main.html">会员中心</a>
+                        <ul class="two">
+                            <li><a href="../footPoint.html">足迹</a></li>
+                            <li><a href="../message.html">留言板</a></li>
+                            <li><a href="../comment.html">评价</a></li>
+                        </ul>
+                    </li>
+                    <li class="cursor">
+                        <a href="../about.html">关于我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 咨询 -->
+        <div class="zixuncontent">
+            <div class="zxwp">
+                <div class="imgwp">
+                    <img src="../img/pc/zixunbg.png" alt="" id="bigimg">
+                </div>
+                <div class="imgnav">
+                    <img src="../img/pc/zxbtn1.png" alt="" class="btn" id="goleft">
+                   <div class="ulwp">
+                        <ul>
+                            <li th:each="news:${list}"><img th:src="${news.headImg}" alt=""></li>
+                        </ul>
+                   </div>
+                   <img src="../img/pc/zxbtn2.png" alt="" class="btn" id="goright">
+                </div>
+            </div>
+            <!-- 咨询文章 -->
+            <div class="zxtxt" id="imgli">
+                <ul>
+                    <li class="imgli">
+                    <!--<li class="imgli" th:each="news:${contList}">-->
+                       <!-- <div th:utext=" ${news.detail}"></div>-->
+                        <!--<div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
+                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。。</div>-->
+                       <!-- <div class="zx-more" th:onclick="'getCollect()'">更多&nbsp;&nbsp;></div>-->
+                    </li>
+                    <!--<li class="li">
+                        <div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
+                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                        <div class="zx-more">更多&nbsp;&nbsp;></div>
+                    </li>-->
+                </ul>
+                <!--<ul>
+                    <li class="imgli" th:each="news:${conttows}">
+                        <div th:utext="${news.detail}"></div>
+                        <div class="zx-title">统招生和和华侨生200分的差距</div>
+                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>-->
+                        <!--<div class="zx-more">更多&nbsp;&nbsp;></div>
+                    </li>
+                    <li class="imgli">
+                          <img src="../img/pc/ShortImg.jpg" alt="">
+                          <div class="zx-title">统招生和和华侨生200分的差距</div>
+                          <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                          <div class="zx-more">更多&nbsp;&nbsp;></div>
+                      </li>
+                  </ul>-->
+                 <!--<ul>
+                     <li class="imgli" th:each="news:${contFor}">
+                         <div th:utext="${news.detail}"></div>
+                         &lt;!&ndash;<img src="../img/pc/ShortImg.jpg" alt="">
+                         <div class="zx-title">统招生和和华侨生200分的差距</div>
+                         <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>&ndash;&gt;
+                         &lt;!&ndash;<div class="zx-more">更多&nbsp;&nbsp;></div>&ndash;&gt;
+                     </li>
+                      <li class="li">
+                          <div class="zx-title">统招生和和华侨生200分的差距</div>
+                          <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                          <div class="zx-more">更多&nbsp;&nbsp;></div>
+                      </li>
+                  </ul>-->
+            </div>
+            <div class="morebtn"><a href="../newslist.html">查看更多</a>>></div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="bottom"  th:include="pctop::#bottom"></div>
+    </div>
+</body>
+<script src="../js/pc/collection.js"></script>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
+<script>
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+    $('.ulwp li').click(function(){
+        $(this).siblings('li').removeClass('active');
+        $(this).addClass('active');
+        var src=$(this).find('img').attr('src');
+        console.log(src);
+        $('#bigimg').attr('src',src);
+    })
+    $('#goleft').click(function(){
+        var num=$('.ulwp ul li').length;
+        console.log(num)
+        var w=num*135+10*(num-1);
+        console.log(w);
+        if(w>860){
+            var add=parseInt($('.ulwp ul').css('marginLeft'))-145+'px';
+            $('.ulwp ul').animate({marginLeft:add})
+        }
+    })
+    $('#goright').click(function(){
+        $('.ulwp ul').stop();
+        var num=$('.ulwp ul li').length;
+        console.log(num)
+        var w=num*135+10*(num-1);
+        console.log(w);
+        if(w>860){
+            var add=parseInt($('.ulwp ul').css('marginLeft'))+145+'px';
+            $('.ulwp ul').animate({marginLeft:add})
+        }
+    })
+
+    $(function () {
+        $.ajax({
+            type : 'get',
+            url : '/getSixlist.html',
+            data:{},
+            success : function(data) {
+                $("#imgli").empty();
+
+                $.each(data,function (i,item) {
+                    /*var re1 = new RegExp("<.+?>","g");//匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
+                    var msg = item.detail.replace(re1,'');//执行替换成空字符*/
+                    var msgStr = item.detail.substr(0,200);//截取内容后十位
+                    var msgStr1 =  msgStr+"......";//拼接内容
+                   /* var index =  item.detail.indexOf(">");//拿到标签结束位置的下标
+                    var img = item.detail.substr(0,index);//截取图片*/
+                    var id = item.id;
+                    var html =  "<ul class='imgli'><li onclick='aaa("+id+")'>"+msgStr1+"";
+                    html += "<div class=\"zx-more\"><a href='../newsDetail.html?id="+item.id+"'>详情&nbsp;&nbsp;</a></div></li></ul>";
+                    $("#imgli").append(html);
+                })
+            }
+        });
+    })
+
+  /*function aaa(id) {
+        var id = id;
+        window.location.href='../newsDetail.html?id="'+id+'"';
+    }*/
+</script>
+</html>

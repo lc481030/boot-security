@@ -23,11 +23,13 @@ import com.boot.security.server.page.table.PageTableResponse;
 
 import io.swagger.annotations.ApiOperation;
 
+import javax.annotation.Resource;
+
 @RestController
 @RequestMapping("/dicts")
 public class DictController {
 
-	@Autowired
+	@Resource
 	private DictDao dictDao;
 
 	@PreAuthorize("hasAuthority('dict:add')")

@@ -45,13 +45,15 @@
 			<if test="detail != null">
 				detail = #{detail}, 
 			</if>
+			<if test="urlAddress != null">
+				urlAddress = #{urlAddress},
+			</if>
 			<if test="img != null">
 				img = #{img}, 
 			</if>
 			<if test="remark != null">
 				remark = #{remark}, 
 			</if>
-
 		</set>
 
 		where t.id = #{id}

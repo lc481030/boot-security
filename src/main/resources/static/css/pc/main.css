@@ -3,10 +3,70 @@
 .nav .right li a{
     color: #ffffff;
 }
+.nav .right>li:nth-child(2)::before{
+    position: absolute;
+    right: 8px;
+    top: 23px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-width: 4px 4px 0;
+    border-style: solid;
+    border-color: #ffffff transparent transparent ;
+}
+.nav .right>li:nth-child(4)::before{
+    position: absolute;
+    right: 8px;
+    top: 23px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-width: 4px 4px 0;
+    border-style: solid;
+    border-color: #ffffff transparent transparent ;
+}
+/* 下拉样式 */
+.nav .right .two{
+    position: relative;
+    bottom: -10px;
+    left: -9px;
+    width: 90px;
+    /*background: rgba(0, 0, 0, 0.8);*/
+    display: none;
+}
+.nav .right .cursor .two li{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    padding: 5px 13px;
+    cursor: pointer;
+    /*border-bottom: 1px solid #ffffff;*/
+    margin-top: 1px;
+    font-family: 'MicrosoftYaHei';
+}
+.nav .right .cursor .two li:hover{
+    color: #000;
+    background: rgba(0, 0, 0, 0.8);
+}
+.box-two{
+    overflow: hidden;
+    position: relative;
+}
+.navwp{
+    width: 100%;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    position: absolute;
+    top: 0;
+}
 /* 轮播图 */
 .lunbo{
     width: 100%;
-    height:700px;
+    height:770px;
     background: #f5f5f5;
     z-index: 2;
     position: relative;
@@ -34,12 +94,12 @@
     list-style: none;
     margin-top: 10px;
     float: left;
-    background: #000000;
 }
 .sharenav li{
+    margin-bottom: 1px;
     width: 50px;
     height: 50px;
-    border-bottom: 1px solid #ffffff;
+    background-color: black;
     cursor: pointer;
     display: flex;
     position: relative;
@@ -85,7 +145,7 @@
 
 .sharenav .shareline{
     width: 4px;
-    height: 270px;
+    height: 220px;
     float: left;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -95,7 +155,7 @@
 .product,.Reserve{
     width: 1200px;
     margin: 0 auto;
-    height: 840px;
+    height: 940px;
     background: #ffffff;
 }
 .product .title,.Reserve .title{
@@ -216,7 +276,7 @@
     margin: 40px auto;
 }
 .intro-c .txt{
-    width: 800px;
+    width: 1040px;
     margin: 0 auto;
     line-height: 26px;
     font-size: 15px;
@@ -225,15 +285,14 @@
     font-family: 'MicrosoftYaHei';
 }
 .intro-content{
-    width: 800px;
-    height: 160px;
+    width: 1043px;
     padding: 30px;
     margin: 70px auto 0;
     background: #ffffff;
 }
 .intro-content img{
-    width: 100%;
-    height: 100%;
+    width: 983px;
+    height: 139px;
 }
 /* 预定流程 */
 .Reserve .Reserve-content{
@@ -248,17 +307,31 @@
 /* 客户评价 */
 .pingjia{
     width: 100%;
-    height: 990px;
+    height: 1100px;
     background: url('../../img/pc/pingjiabg.png') no-repeat;
-    background-size: 100% 100%;
 }
 .pingjia-c{
     width: 1200px;
     margin: 0 auto;
 }
-.pingjia-c .title{
+.pingjia-c .title1{
     width: 100%;
-    height: 160px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin: 80px auto 0;
+}
+.pingjia-c .title2{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #555555;
+    text-align: center;
+    margin: 20px auto 80px;
 }
 .pingjia-c .title img{
     width: 200px;
@@ -266,19 +339,46 @@
     margin: 40px auto;
 }
 .pingjia-content{
-    width: 950px;
-    height: 830px;
+    width: 1050px;
     margin: 0 auto;
     list-style: none;
-    overflow: hidden;
+    position: relative;
 }
 .pingjia-content li{
-    width: 180px;
-    height: 200px;
+    /* position: absolute;
+    left: 0;
+    top: 0; */
+    width: 200px;
     background: #ffffff;
-    margin: 5px;
-    float:left;display:block;
+    margin:5px;
+    float: left;
+}
+.pingjia-content .bcc{
+    width: 180px;
+    height:40px;
+    line-height: 40px;
+    background: #ffffff;
+    padding: 20px 10px;
+    float:left;
+    display:block;
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.pingjia-content .bcc img{
+    width: 50px;
+    height:32px;
+    margin-top: 4px;
+}
+.pingjia-content .bcc .txt{
+    width: 130px;
+    height:40px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #888888;
+    font-weight: bold;
 }
 .pingjia-content li .high{
     position: absolute;
@@ -286,47 +386,6 @@
     top: -5px;
     width: 50px;
     height: 50px;
-}
-.pingjia-content li:nth-child(1){
-    margin-top: 80px
-}
-.pingjia-content li:nth-child(2){
-    margin-top: 140px
-}
-.pingjia-content li:nth-child(3){
-    margin-top: 190px
-}
-.pingjia-content li:nth-child(4){
-    margin-top: 150px
-}
-.pingjia-content li:nth-child(5){
-    margin-top: 0px
-}
-.pingjia-content li:nth-child(6){
-    margin-top: 0px
-}
-.pingjia-content li:nth-child(7){
-    margin-top: -120px
-}
-.pingjia-content li:nth-child(8){
-    margin-top: -60px
-}
-.pingjia-content li:nth-child(9){
-    margin-top: -10px
-}
-.pingjia-content li:nth-child(10){
-    margin-top: -50px
-}
-.pingjia-content li:nth-child(11){
-    margin-top: -0px
-}
-.pingjia-content li:nth-child(12){
-    margin-top: -55px;
-    margin-left: 195px;
-}
-.pingjia-content li:nth-child(13){
-    margin-top: -45px;
-    margin-left: 195px;
 }
 .pingjia-content li .img{
    width: 50px;
@@ -340,22 +399,14 @@
 }
 .pingjia-content li .text{
    width: 160px;
-   height: 80px;
    margin: 0 auto; 
    line-height: 20px;
    font-size: 14px;
    color: #888888;
-   overflow: hidden;  
-    text-overflow: ellipsis;  
-    display: -webkit-box;  
-    -webkit-line-clamp: 4;  
-    -webkit-box-orient: vertical;
 }
 .pingjia-content li .time{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 160px;
+    width: 180px;
+    margin: 10px;
     height: 20px;
     line-height: 20px;
     font-size: 14px;
@@ -392,7 +443,6 @@
     display: flex;
     position: relative;
     width: 200px;
-    height: 240px;
     float: left;
 }
 .footprint-content li:hover img{
@@ -401,11 +451,13 @@
 }
 .footprint-content li img{
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 .footprint-content li:nth-child(1){
     width: 200px;
     height: 230px;
+    background: url('../../img/pc/companybg.jpg')no-repeat;
+    background-position: cover;
 }
 .footprint-content li:nth-child(2){
     width: 260px;
@@ -489,9 +541,9 @@
     padding-bottom: 40px;
 }
 .source-content li{
-    margin:0 0 30px 10px;
-    width: 140px;
-    height: 40px;
+    padding: 20px;
+    width: 200px;
+    height: 80px;
     display: flex;
     float: left;
 }

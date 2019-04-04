@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="keywords" content="旅游,千寻,会泽旅行社">
+    <meta name="description" content="旅游,千寻,会泽旅行社">
+    <meta name="Copyright" content="会泽千寻">
+    <meta name="baidu-site-verification" content="L6SDEmSjQm">
+    <title>咨询</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/zixun.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+</head>
+<style>
+    .zxtxt{
+        padding: 0 0 40px;
+    }
+    .zx-topnav{
+        width: 1000px;
+        margin:10px auto 0;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        color: #888888;
+    }
+</style>
+<body>
+    <div class="box box-direction-c">
+        <!-- 顶部 -->
+        <div class="topnav" th:include="topPage::#topnav"></div>
+       <!-- 导航 -->
+       <div class="navwp">
+        <div class="nav box-direction-r">
+            <div class="left display p-l1">
+                <img src="../img/pc/logow.png" alt="">
+            </div>
+            <ul class="right p-r1">
+                <li class="cursor">
+                    <a href="../index.html">首&nbsp;&nbsp;&nbsp;页</a>
+                </li>
+                <li class="cursor">
+                    <a href="..//store.html">旅游商城
+                        <ul class="two">
+                            <li><a href="../store.html#dz">地区分类</a></li>
+                            <li><a href="../store.html#zt">主题分类</a></li>
+                            <li><a href="../store.html#zt">景点分类</a></li>
+                            <li><a href="../store.html#jt">交通分类</a></li>
+                            <li><a href="../dz.html">定制旅游</a></li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="cursor">
+                    <a href="../news.html">咨询活动</a>
+                </li>
+                <li class="cursor">
+                    <a href="../main.html">会员中心</a>
+                    <ul class="two">
+                        <li><a href="../footPoint.html">足迹</a></li>
+                        <li><a href="../message.html">留言板</a></li>
+                        <li><a href="../comment.html">评价</a></li>
+                    </ul>
+                </li>
+                <li class="cursor">
+                    <a href="../about.html">关于我们</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <!-- 咨询 -->
+        <div class="zixuncontent">
+            <!-- 标题 -->
+            <div class="zx-topnav">
+                <a href="../news.html">资讯活动</a>&nbsp;>&nbsp;行业资讯
+            </div>
+            <!-- 咨询文章 -->
+            <div class="zxtxt"  id="imgli">
+                <ul class="imgli" th:each="aaa: ${newsLists}">
+                    <li>
+                        <div th:utext="${#strings.abbreviate(aaa.detail,185)}" ></div>
+                        <!-- <img src="../img/ShortImg.jpg" alt="">
+                       <div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
+                       <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。。</div>-->
+                        <div class="zx-more"><a th:href="'../newsDetail.html?id='+${aaa.getId()}">详情&nbsp;&nbsp;</a></div>
+                    </li>
+                    <!--<li class="li">
+                        <div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
+                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                        <div class="zx-more">更多&nbsp;&nbsp;></div>
+                    </li>-->
+                </ul>
+               <!-- <ul>
+                    <li class="li">
+                        <div class="zx-title">统招生和和华侨生200分的差距</div>
+                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                        <div class="zx-more">更多&nbsp;&nbsp;></div>
+                    </li>
+                    <li class="imgli">
+                        <img src="../img/ShortImg.jpg" alt="">
+                        <div class="zx-title">统招生和和华侨生200分的差距</div>
+                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                        <div class="zx-more">更多&nbsp;&nbsp;></div>
+                    </li>
+                </ul>-->
+                <!--<ul>
+                    <li class="imgli">
+                        <img src="../img/ShortImg.jpg" alt="">
+                        <div class="zx-title">统招生和和华侨生200分的差距</div>
+                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                        <div class="zx-more">更多&nbsp;&nbsp;></div>
+                    </li>
+                    <li class="li">
+                        <div class="zx-title">统招生和和华侨生200分的差距</div>
+                        <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                        <div class="zx-more">更多&nbsp;&nbsp;></div>
+                    </li>
+                </ul>-->
+               <!-- <ul>
+                        <li class="imgli">
+                            <img src="../img/ShortImg.jpg" alt="">
+                            <div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
+                            <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。。</div>
+                            <div class="zx-more">更多&nbsp;&nbsp;></div>
+                        </li>
+                        <li class="li">
+                            <div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
+                            <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                            <div class="zx-more">更多&nbsp;&nbsp;></div>
+                        </li>
+                    </ul>-->
+                   <!-- <ul>
+                        <li class="li">
+                            <div class="zx-title">统招生和和华侨生200分的差距</div>
+                            <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                            <div class="zx-more">更多&nbsp;&nbsp;></div>
+                        </li>
+                        <li class="imgli">
+                            <img src="../img/ShortImg.jpg" alt="">
+                            <div class="zx-title">统招生和和华侨生200分的差距</div>
+                            <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                            <div class="zx-more">更多&nbsp;&nbsp;></div>
+                        </li>
+                    </ul>-->
+                    <!--<ul>
+                        <li class="imgli">
+                            <img src="../img/ShortImg.jpg" alt="">
+                            <div class="zx-title">统招生和和华侨生200分的差距</div>
+                            <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                            <div class="zx-more">更多&nbsp;&nbsp;></div>
+                        </li>
+                        <li class="li">
+                            <div class="zx-title">统招生和和华侨生200分的差距</div>
+                            <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                            <div class="zx-more">更多&nbsp;&nbsp;></div>
+                        </li>
+                    </ul>-->
+                   <!-- <ul>
+                            <li class="imgli">
+                                <img src="../img/ShortImg.jpg" alt="">
+                                <div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
+                                <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。。</div>
+                                <div class="zx-more">更多&nbsp;&nbsp;></div>
+                            </li>
+                            <li class="li">
+                                <div class="zx-title">统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距统招生和和华侨生200分的差距</div>
+                                <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                                <div class="zx-more">更多&nbsp;&nbsp;></div>
+                            </li>
+                        </ul>-->
+                        <!--<ul>
+                            <li class="li">
+                                <div class="zx-title">统招生和和华侨生200分的差距</div>
+                                <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                                <div class="zx-more">更多&nbsp;&nbsp;></div>
+                            </li>
+                            <li class="imgli">
+                                <img src="../img/ShortImg.jpg" alt="">
+                                <div class="zx-title">统招生和和华侨生200分的差距</div>
+                                <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                                <div class="zx-more">更多&nbsp;&nbsp;></div>
+                            </li>
+                        </ul>-->
+                       <!-- <ul>
+                            <li class="imgli">
+                                <img src="../img/ShortImg.jpg" alt="">
+                                <div class="zx-title">统招生和和华侨生200分的差距</div>
+                                <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                                <div class="zx-more">更多&nbsp;&nbsp;></div>
+                            </li>
+                            <li class="li">
+                                <div class="zx-title">统招生和和华侨生200分的差距</div>
+                                <div class="zx-txt">这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉，这几天高考的成绩陆续出炉。</div>
+                                <div class="zx-more">更多&nbsp;&nbsp;></div>
+                            </li>
+                        </ul>-->
+            </div>
+            <div id="whole" class="morebtn" onclick="whole();">查看更多</div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="bottom"  th:include="pctop::#bottom"></div>
+    </div>
+</body>
+<script src="../js/pc/collection.js"></script>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
+<script>
+        //顶部导航
+        $(".cursor").mouseover(function(){
+            $(this).siblings('.cursor').find('.two').hide();
+            $(this).find(".two").show();
+        });
+        $(".two").mouseleave(function(){
+            $(this).hide();
+        });
+        var pageNumber = 1//初始化页码
+      function whole(){
+          pageNumber++
+          $.ajax({
+              type : 'get',
+              url : '/getNewslist.html',
+              data:{pageNumber:pageNumber},
+              success : function(data) {
+                 /* $("#imgli").empty();*/
+                  if (data.length < 9 ){//当查询出来的数据小于九条说明数据已经查完
+                      $("#whole").hide();
+                  }
+                  $.each(data,function (i,item) {
+                     /* var re1 = new RegExp("<.+?>","g");//匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
+
+                      var msg = item.detail.replace(re1,'');//执行替换成空字符*/
+                      var msgStr = item.detail.substr(0,200);//截取内容后十位
+                      var msgStr1 =  msgStr+"......";//拼接内容
+                     /* var index =  item.detail.indexOf(" > ");//拿到标签结束位置的下标
+                      var img = item.detail.substr(0,index);//截取图片*/
+                      var html =  "<ul class='imgli'><li>"+msgStr1+"";
+                      html += "<div class=\"zx-more\"><a href='../newsDetail.html?id="+item.id+"'>详情&nbsp;&nbsp;</a></div></li></ul>";
+                      $("#imgli").append(html);
+                  })
+              }
+          });
+      }
+
+</script>
+</html>

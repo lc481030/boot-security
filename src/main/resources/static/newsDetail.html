@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="keywords" content="旅游,千寻,会泽旅行社">
+    <meta name="description" content="旅游,千寻,会泽旅行社">
+    <meta name="Copyright" content="会泽千寻">
+    <meta name="baidu-site-verification" content="L6SDEmSjQm">
+    <title>咨询详情</title>
+    <link rel="stylesheet" href="../css/pc/general.css">
+    <link rel="stylesheet" href="../css/pc/usually.css">
+</head>
+<style>
+    .navwp{
+        background: #ffffff;
+        border-bottom: 2px solid #1ea9e1;
+        margin-top: 4px;
+    }
+    .nav .right li{
+        color: #000000;
+    }
+    .navwp{
+        opacity: 1;
+    }
+    .topnav{
+        box-shadow: 0 0 2px  rgba(6,6,6,0.5);
+    }
+    .yjcontent{
+        width: 100%;
+        background: #f5f5f5;
+    }
+    .container{
+        width: 1000px;
+        margin: 20px auto;
+        overflow: hidden;
+        background: #ffffff;
+    }
+    .yj-title{
+        width: 96%;
+        padding: 0 2%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+        color: #888888;
+        border-bottom: 1px solid #f5f5f5;
+        background: #ffffff;
+    }
+    .yjtxt{
+        margin: 2% 4%;
+        background: #ffffff;
+    }
+    .yjtxt img{
+        margin: 2% 4%;
+        width: 835px;
+        height: 400px;
+        text-align: center;
+    }
+    .tit{
+        height: 120px;
+        width: 100%;
+        line-height: 120px;
+        font-size: 26px;
+        font-weight: bold;
+        text-align: center;
+        color:#4F4F4F;
+        border-bottom: 1px solid #f5f5f5;
+    }
+</style>
+<body>
+<div class="box box-direction-c">
+    <!-- 顶部 -->
+    <div class="topnav">
+        <div class="topnav-c box-direction-r">
+            <ul class="right p-l1">
+                <li class="cursor">收藏首页</li>
+                <li class="cursor">保存到桌面</li>
+                <li class="cursor">客服中心</li>
+                <li class="cursor">客服热线：<span class="number">0874-5122228</span></li>
+            </ul>
+            <div class="left p-r1">
+                <input type="text" placeholder="目的地/关键词/旅行天数">
+                <div class="btn btn1 cursor">去哪儿玩</div>
+                <div class="btn btn2 cursor">免费咨询</div>
+            </div>
+        </div>
+    </div>
+    <!-- 导航 -->
+    <div class="navwp" th:include="menu::#navwp"></div>
+    <!--游记 -->
+    <div class="yjcontent">
+        <div class="container">
+            <!-- 标题 -->
+            <div class="yj-title">
+                <span style="float: left;">  <a href="../news.html">活动咨询</a>&nbsp;>&nbsp; <a href="../newslist.html">行业资讯</a>&nbsp;>&nbsp;详情</span>
+                <span style="float: right;"  th:text="${#strings.substring(news.pushTime,0,10)}"> </span>
+            </div>
+
+            <div class="tit" th:text="${news.title}"></div>
+            <div class="yjtxt" th:utext="${news.detail}"></div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="bottom" th:include="pctop::#bottom"></div>
+</div>
+</body>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
+<script>
+    // 顶部导航
+    $(".cursor").mouseover(function(){
+        $(this).siblings('.cursor').find('.two').hide();
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
+</script>
+</html>
