@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/qx?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/boot_security?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
-    password: 12345
+    password: 123456
     druid:
       initialSize: 5
       minIdle: 5
@@ -63,8 +63,8 @@ mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
 files:
-  path: ${file-path:d:/files}
-  baseUrl: http://127.0.0.1:8080/statics
+  path: ${file-path:c:/files}
+  baseUrl: http://www.hzqxts.com/statics
 logging:
   config: classpath:logback-admin.xml
 log:
@@ -78,7 +78,7 @@ token:
     seconds: 7200
   jwtSecret: (XIAO:)_$^11244^%$_(WEI:)_@@++--(LAO:)_++++_.sds_(SHI:)
 server:
-  port: 8080
+  port: 80
 #最大连接数
 http:
   maxTotal: 100

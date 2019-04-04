@@ -369,3 +369,11 @@
     color: #333333;
     margin-bottom: 4px;
 }
+
+.storeDetail img{
+    max-width: 100%;
+}
+
+.storeDetail span{
+    font-size: 14px;
+}

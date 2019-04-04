@@ -15,104 +15,136 @@
     <link rel="stylesheet" href="../css/pc/swiper.min.css">
 </head>
 <body>
-    <div class="box box-direction-c">
-        <!-- 顶部 -->
-        <div class="topnav" th:include="topPage::#topnav"></div>
+<div class="box box-direction-c">
+    <!-- 顶部 -->
+    <div class="topnav" th:include="topPage::#topnav"></div>
 
-        <!-- 导航 -->
-        <div class="navwp" th:include="menu::#navwp"></div>
-        <!-- 内容容器 -->
-        <div class="container">
-            <!-- 产品路径 -->
-            <div class="route">
-                <span>千寻旅游</span>
-                <span>></span>
-                <span>参团游</span>
-                <span>></span>
-                <span>国内</span>
-                <span>></span>
-                <span>云南</span>
-            </div>
-            <!-- 产品介绍容器 -->
-            <div class="wapper1">
-                <div class="title" th:text="${product.title}"></div>
-                <div class="dec"th:text="${product.detail}"></div>
-                <div class="detail">
-                    <div class="d-lunbo">
-                        <div class="swiper-container gallery-top">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide" th:each="img:${imgList}">
-                                    <img th:src="${img}" alt="">
-                                </div>
+    <!-- 导航 -->
+    <div class="navwp" th:include="menu::#navwp"></div>
+    <!-- 内容容器 -->
+    <div class="container">
+        <!-- 产品路径 -->
+        <div class="route">
+            <span>千寻旅游</span>
+            <span>></span>
+            <span>参团游</span>
+            <span>></span>
+            <span>国内</span>
+            <span>></span>
+            <span>云南</span>
+        </div>
+        <!-- 产品介绍容器 -->
+        <div class="wapper1">
+            <div class="title" th:text="${product.title}"></div>
+            <div class="dec"th:text="${product.detail}"></div>
+            <div class="detail">
+                <div class="d-lunbo">
+                    <div class="swiper-container gallery-top">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" th:each="img:${imgList}">
+                                <img th:src="${img}" alt="">
                             </div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next swiper-button-white"></div>
-                            <div class="swiper-button-prev swiper-button-white"></div>
-                            </div>
-                            <div class="swiper-container gallery-thumbs">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide" th:each="img:${imgList}">
-                                    <img th:src="${img}" alt="">
-                                </div>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
+                    </div>
+                    <div class="swiper-container gallery-thumbs">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" th:each="img:${imgList}">
+                                <img th:src="${img}" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="txt">
-                        <div class="money">零售价<span>￥<span th:text="${product.price}"></span></span>/人</div>
-                        <div class="good">
-                            <div class="liangdian">产品亮点</div>
-                            <ul>
-                                <li th:each="bright:${brightList}" th:text="${bright}"></li>
-                            </ul>
-                        </div>
-                        <div class="notice"><span>网站所所示图片、行程描述仅供参考，请以最终合同版行程为准旅客须知</span></div>
-                        <div class="yuding">立即预定</div>
-                    </div>
                 </div>
-            </div>
-            <!-- 安全须知以及费用介绍 -->
-            <ul class="wapper2">
-                <li  onclick="goxc()">行程介绍</li>
-                <li  onclick="gofy()">费用说明</li>
-                <li  onclick="goyd()">预定须知</li>
-            </ul>
-            <!-- 产品特色等 -->
-            <div class="listwp">
-                <!-- 特色 -->
-                <div class="wp1">
-                    <div class="top">
-                        <div class="span1">行程介绍</div>
-                        <div class="tese" th:text="${product.costDescription}" style="font-size: 14px;">
-
-                        </div>
+                <div class="txt">
+                    <div class="money">零售价<span>￥<span th:text="${product.price}"></span></span>/人</div>
+                    <div class="good">
+                        <div class="liangdian">产品亮点</div>
+                        <ul>
+                            <li th:each="bright:${brightList}" th:text="${bright}"></li>
+                        </ul>
                     </div>
-
-                </div>
-                <!-- 费用 -->
-                <div class="wp2" id="feiyong">
-                    <div class="w-title">费用说明</div>
-                    <div class="w-right" >
-                        <div class="w-r-title" th:text="${product.reservationNotes}" style="font-size: 14px;">【费用包括】</div>
-
-                    </div>
-                </div>
-                <!-- 安全须知 -->
-                <div class="wp2" id="yuding">
-                    <div class="w-title">预定须知</div>
-                    <div class="w-right" >
-                        <div class="w-r-title" th:text="${product.costDescription}" style="font-size: 14px;"></div>
-
-                    </div>
+                    <div class="notice"><span>网站所所示图片、行程描述仅供参考，请以最终合同版行程为准旅客须知</span></div>
+                    <div class="yuding">0874-5122228</div>
                 </div>
             </div>
         </div>
-        <!-- 底部 -->
-        <div class="bottom" th:include="pctop::#bottom"></div>
+        <!-- 安全须知以及费用介绍 -->
+        <ul class="wapper2">
+            <li  onclick="goxc()">行程介绍</li>
+            <li  onclick="gofy()">费用说明</li>
+            <li  onclick="goyd()">预定须知</li>
+        </ul>
+        <!-- 产品特色等 -->
+        <div class="listwp">
+            <!-- 特色 -->
+            <div class="wp1">
+                <div class="top">
+                    <div class="span1">行程介绍</div>
+                    <div class="tese storeDetail"  th:utext="${product.costDescription}">
+                    </div>
+                </div>
+            </div>
+            <!-- 费用 -->
+            <div class="wp2" id="feiyong">
+                <div class="w-title">费用说明</div>
+                <div class="w-right" >
+                    <div class="tese storeDetail" th:utext="${product.reservationNotes}"></div>
+
+                </div>
+            </div>
+            <!-- 预定须知 -->
+            <div class="wp2" id="yuding">
+                <div class="w-title">预定须知</div>
+                <div class="w-right">
+                    <div class="w-r-title">【温馨提醒】</div>
+                    <ul>
+                        <li>签证所需资料：请提供护照原件和2张近期白底2寸免冠照片；</li>
+                        <li style="text-indent: 60px">护照有效期需具备回程有效期仍在6个月以上，护照须有至少3页以上的签证空白页；</li>
+                        <li style="text-indent: 60px">报名时把护照带个人相片的首页传真或拍照用微信发给我我社销售代表即可；</li>
+                        <li>1、不满18岁的小童需提供出身证明或者户口本复印件；</li>
+                        <li>2、港澳台及外籍人士需自备前往目的地国家的有效签证，并必须具备再次入境中国的有效签证；</li>
+                        <li>3、报名时，如护照正在办理中，请告知我社护照的办理进度，以免耽搁客人的出行计划；</li>
+                        <li>4、如因客人自身原因导致拒签；客人要承担由此产生的业务损失费，包括已出的机票费用、酒店取消费用等，</li>
+                        <li style="text-indent: 20px">我社仅退还团费中未产生的费用。</li>
+                    </ul>
+
+                    <div class="w-r-title">【行程提示】</div>
+                    <ul>
+                        <li>① 以上游览行程仅供参考，具体航班，住宿酒店，用餐餐厅标准等均以出团通知书确认为准。</li>
+                        <li>② 此行程为团队往返，行程表上的行程导游在征得客人同意的情况下可以调动，但景点不会减少。因天气原因（如台风、雷暴）、自然灾害、政治原因等不可抗拒的因素造成航班延误、取消、推迟或者行程更改，取消而产生的费用由客人自理。</li>
+                        <li>③ 本行程是团队旅游度假产品，全程随团旅游，若游客因个人原因临时自愿放弃游览，景点门票费用、酒店住宿费用、餐费、车费等恕不退款！出现安全问题自己负责！</li>
+                    </ul>
+
+                    <div class="w-r-title">【航班提示】</div>
+                    <ul>
+                        <li>① 航班时间以航空公司公布为准，航空公司有权对航班作出任何更改，如有变动，我司恕不另行通知，请以出团通知书为准。</li>
+                        <li>② 因天气原因、自然灾害、政治原因等不可抗拒的因素造成航班延误、取消、推迟而产生的费用由客人自理。</li>
+                        <li>③ 建议出发时行李托运，贵重物品、常用物品、常用药品、御寒衣物等请随身携带，尽量不要托运。行李延误属于不可抗力因素，我司将全力协助客人跟进后续工作，但我司对此不承担任何责任。</li>
+                    </ul>
+
+                    <div class="w-r-title">【安全提示】</div>
+                    <ul>
+                        <li>①  进行任何水上活动时都必须全程穿着救生衣。请在参加游泳和其他水上活动的同时尽量两人以上同行。不会游泳者请不要尝试；事先了解地形、潮汐、温度、出入水点等因素，如果上述因素不适合水上活动，则不要勉强参加。</li>
+                        <li>② 水上活动需要做好安全保护措施。参加任何游泳和任何水上活动时请客人确保自身身体状况，特别游客在沙滩或水上活动时请自觉穿戴好救生设备,如旅游者不具备较好的身体条件及技能，可能会造成身体伤害。旅游者参加此类活动应当购买相应的个人意外保险。旅游者参加出海活动时，请务必穿着救生设备。</li>
+                        <li>③ 参加水上活动应注意自己的身体状况，有心脏病、高血压、感冒、发烧和饮酒及餐后一定不要参加水上活动及潜水。感觉身体疲倦、寒冷时应立即上岸。</li>
+                        <li>④ 严禁触摸海洋中各种鱼类，水母，海胆，珊瑚等等，避免被其蛰伤, 留意岛上的各种安全提示。</li>
+                        <li>⑤ 老人、小孩和必须有成年人陪同才能参加合适的水上活动，活动期间请注意安全。</li>
+                        <li>⑥ 旅游者参加潜水、海边游泳、漂流、滑水、滑草、蹦极、跳伞、滑翔、乘热气球、攀岩、水疗、水上飞机等属于高风险性游乐项目的，敬请旅游者务必在参加前充分了解项目的安全须知并确保身体状况能适应此类活动；如旅游者不具备较好的身体条件及技能，可能会造成身体伤害。</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
     </div>
+    <!-- 底部 -->
+    <div class="bottom" th:include="pctop::#bottom"></div>
+</div>
 </body>
-    <script src="../js/pc/jquery-3.3.1.min.js"></script>
-    <script src="../js/pc/swiper.min.js"></script>
-    <script src="../js/pc/collection.js"></script>
+<script src="../js/pc/jquery-3.3.1.min.js"></script>
+<script src="../js/pc/swiper.min.js"></script>
+<script src="../js/pc/collection.js"></script>
 <script>
     var leftScreenVal, moveLeftVal;
     var galleryThumbs = new Swiper('.gallery-thumbs', {
@@ -125,39 +157,39 @@
         spaceBetween: 10
     });
     var galleryTop = new Swiper('.gallery-top', {
-      spaceBetween: 10,
-      loop:true,
-      loopedSlides: 5, //looped slides should be the same
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      thumbs: {
-        swiper: galleryThumbs,
-      },
-      on:{
-        slidePrevTransitionEnd: function(swiper) {
-            //这里因为居中显示的时候，按照我屏幕默认距离屏幕左边570像素，所以是以570为基准，然后再算每一个图片宽度155，有几张
-            leftScreenVal = document.getElementsByClassName('swiper-slide-active')[1].getBoundingClientRect().left;
-            var number=$('.gallery-thumbs > .swiper-wrapper').children().length;
-            if (leftScreenVal < 115.5) {
-                moveLeftVal = document.getElementsByClassName('swiper-slide-active')[1].offsetLeft;
-                moveLeftVal = 250 - moveLeftVal;
-                document.querySelector('.gallery-thumbs > .swiper-wrapper').style.left = moveLeftVal + 'px';
-            }
+        spaceBetween: 10,
+        loop:true,
+        loopedSlides: 5, //looped slides should be the same
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
-        slideNextTransitionEnd: function(swiper) {
-            //这里因为居中显示的时候，按照我屏幕默认距离屏幕左边570像素，所以是以570为基准，然后再算每一个图片宽度155，有几张
-            var leftScreenVal = document.getElementsByClassName('swiper-slide-active')[1].getBoundingClientRect().left;
-            if (leftScreenVal >= 615.5) { // 这里880是因为我基准570加上下边一行默认只显示两张155宽度的缩略图
-                moveLeftVal = document.getElementsByClassName('swiper-slide-active')[1].offsetLeft;
-                moveLeftVal =0 - moveLeftVal;
-                document.querySelector('.gallery-thumbs > .swiper-wrapper').style.left = moveLeftVal + 'px';
-            }else if(leftScreenVal<0){
-                document.querySelector('.gallery-thumbs > .swiper-wrapper').style.left = 0 + 'px';
+        thumbs: {
+            swiper: galleryThumbs,
+        },
+        on:{
+            slidePrevTransitionEnd: function(swiper) {
+                //这里因为居中显示的时候，按照我屏幕默认距离屏幕左边570像素，所以是以570为基准，然后再算每一个图片宽度155，有几张
+                leftScreenVal = document.getElementsByClassName('swiper-slide-active')[1].getBoundingClientRect().left;
+                var number=$('.gallery-thumbs > .swiper-wrapper').children().length;
+                if (leftScreenVal < 115.5) {
+                    moveLeftVal = document.getElementsByClassName('swiper-slide-active')[1].offsetLeft;
+                    moveLeftVal = 250 - moveLeftVal;
+                    document.querySelector('.gallery-thumbs > .swiper-wrapper').style.left = moveLeftVal + 'px';
+                }
+            },
+            slideNextTransitionEnd: function(swiper) {
+                //这里因为居中显示的时候，按照我屏幕默认距离屏幕左边570像素，所以是以570为基准，然后再算每一个图片宽度155，有几张
+                var leftScreenVal = document.getElementsByClassName('swiper-slide-active')[1].getBoundingClientRect().left;
+                if (leftScreenVal >= 615.5) { // 这里880是因为我基准570加上下边一行默认只显示两张155宽度的缩略图
+                    moveLeftVal = document.getElementsByClassName('swiper-slide-active')[1].offsetLeft;
+                    moveLeftVal =0 - moveLeftVal;
+                    document.querySelector('.gallery-thumbs > .swiper-wrapper').style.left = moveLeftVal + 'px';
+                }else if(leftScreenVal<0){
+                    document.querySelector('.gallery-thumbs > .swiper-wrapper').style.left = 0 + 'px';
+                }
             }
         }
-      }
     });
     // 行程跳转
     function goxc(){
@@ -177,10 +209,10 @@
     // 顶部导航
     $(".cursor").mouseover(function(){
         $(this).siblings('.cursor').find('.two').hide();
-        $(this).find(".two").show();
-    })
-    $(".two").mouseleave(function(){
-        $(this).hide();
-    })
+        $(this).find(".two").show();
+    })
+    $(".two").mouseleave(function(){
+        $(this).hide();
+    })
 </script>
 </html>
