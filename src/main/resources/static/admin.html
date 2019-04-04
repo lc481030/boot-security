@@ -43,7 +43,7 @@
 			type : 'get',
 			url : '/users/current?token=' + token,
 			success : function(data) {
-				location.href = '/index.html';
+				location.href = '/indexAdmin.html';
 			},
 			error : function(xhr, textStatus, errorThrown) {
 				var msg = xhr.responseText;
@@ -72,7 +72,7 @@
 				data : $("#login-form").serialize(),
 				success : function(data) {
 					localStorage.setItem("token", data.token);
-					location.href = '/index.html';
+					location.href = '/indexAdmin.html';
 				},
 				error : function(xhr, textStatus, errorThrown) {
 					var msg = xhr.responseText;
