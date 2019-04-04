@@ -100,16 +100,18 @@
                 <div class="s-list-c-li-bottom">
                     <img src="../img/pc/u1.jpg" alt="">
                     <ul id="product1">
-                        <li th:each="product:${productList1}">
-                            <img th:src="${product.getImgs()}" alt="图片无法显示">
-                            <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
-                            <div class="title" th:text="${product.getTitle()}"></div>
-                            <div class="price">
-                                <span class="span1">￥</span>
-                                <span class="span2" th:text="${product.getPrice()}"></span>
-                                <span>元起</span>
-                            </div>
-                        </li>
+                            <li th:each="product:${productList1}">
+                                <a th:href="'/storeDetail.html?id='+${product.getId()}">
+                                    <img th:src="${product.getImgs()}" alt="图片无法显示">
+                                    <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
+                                    <div class="title" th:text="${product.getTitle()}"></div>
+                                    <div class="price">
+                                        <span class="span1">￥</span>
+                                        <span class="span2" th:text="${product.getPrice()}"></span>
+                                        <span>元起</span>
+                                    </div>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </li>
@@ -129,14 +131,16 @@
                     <img src="../img/pc/u2.jpg" alt="">
                     <ul id="product2">
                         <li th:each="product:${productList2}">
-                            <img th:src="${product.getImgs()}" alt="图片无法显示">
-                            <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
-                            <div class="title" th:text="${product.getTitle()}"></div>
-                            <div class="price">
-                                <span class="span1">￥</span>
-                                <span class="span2" th:text="${product.getPrice()}"></span>
-                                <span>元起</span>
-                            </div>
+                            <a th:href="'/storeDetail.html?id='+${product.getId()}">
+                                <img th:src="${product.getImgs()}" alt="图片无法显示">
+                                <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
+                                <div class="title" th:text="${product.getTitle()}"></div>
+                                <div class="price">
+                                    <span class="span1">￥</span>
+                                    <span class="span2" th:text="${product.getPrice()}"></span>
+                                    <span>元起</span>
+                                </div>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -158,14 +162,16 @@
                     <img src="../img/pc/u3.jpg" alt="">
                     <ul id="product3">
                         <li th:each="product:${productList3}">
-                            <img th:src="${product.getImgs()}" alt="图片无法显示">
-                            <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
-                            <div class="title" th:text="${product.getTitle()}"></div>
-                            <div class="price">
-                                <span class="span1">￥</span>
-                                <span class="span2" th:text="${product.getPrice()}"></span>
-                                <span>元起</span>
-                            </div>
+                            <a th:href="'/storeDetail.html?id='+${product.getId()}">
+                                <img th:src="${product.getImgs()}" alt="图片无法显示">
+                                <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
+                                <div class="title" th:text="${product.getTitle()}"></div>
+                                <div class="price">
+                                    <span class="span1">￥</span>
+                                    <span class="span2" th:text="${product.getPrice()}"></span>
+                                    <span>元起</span>
+                                </div>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -187,14 +193,16 @@
                     <img src="../img/pc/u4.jpg" alt="">
                     <ul id="product4">
                         <li th:each="product:${productList4}">
-                            <img th:src="${product.getImgs()}" alt="图片无法显示">
-                            <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
-                            <div class="title" th:text="${product.getTitle()}"></div>
-                            <div class="price">
-                                <span class="span1">￥</span>
-                                <span class="span2" th:text="${product.getPrice()}"></span>
-                                <span>元起</span>
-                            </div>
+                            <a th:href="'/storeDetail.html?id='+${product.getId()}">
+                                <img th:src="${product.getImgs()}" alt="图片无法显示">
+                                <div class="dec" th:text="'出发时间：'+${product.getStartTime()}"></div>
+                                <div class="title" th:text="${product.getTitle()}"></div>
+                                <div class="price">
+                                    <span class="span1">￥</span>
+                                    <span class="span2" th:text="${product.getPrice()}"></span>
+                                    <span>元起</span>
+                                </div>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -243,6 +251,7 @@
                 $("#product"+productId).empty();
                 $.each(data,function (i,item) {
                     var html =  "<li>\n"
+                                +"      <a href=\"storeDetail.html?id="+item.id+"\">\n"
                                 +"		<img src=\""+item.imgs+"\" alt=\"\">\n"
                                 +"		<div class=\"dec\">出发时间："+item.startTime+"</div>\n"
                                 +"		<div class=\"title\">"+item.title+"</div>\n"
@@ -251,6 +260,7 @@
                                 +"				<span class=\"span2\">"+item.price+"</span>\n"
                                 +"				<span>元起</span>\n"
                                 +"		</div>\n"
+                                +"		</a>\n"
                                 +"</li>"
                     $("#product"+productId).append(html);
                 })
