@@ -100,9 +100,9 @@ public class KaptchaController {
                 }
                 params.add(new BasicNameValuePair("message", "验证码："+sb.toString()+"【会泽千寻】"));
                 HttpEntity reqEntity = new UrlEncodedFormEntity(params, "UTF-8");
-                int resultCode = HttpClient.sendPost(reqEntity);
+                String resultCode = HttpClient.sendPost(reqEntity);
                 httpServletRequest.getSession().setAttribute(phone,sb.toString());
-                if (resultCode !=0){
+                if (!resultCode.equals("0")){
                     map.put("info", "验证码发送失败");
                 }else{
                     httpServletRequest.getSession().setAttribute(phone,sb.toString());

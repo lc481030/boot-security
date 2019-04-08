@@ -4,7 +4,11 @@ package com.boot.security.server.utils;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,10 +24,10 @@ import org.apache.http.util.EntityUtils;
 public class HttpClient {
 
 
-    public static int sendPost(HttpEntity reqEntity) {
+    public static String sendPost(HttpEntity reqEntity) {
         //luosimao短信平台短信发送接口URL
         HttpPost post = new HttpPost("http://sms-api.luosimao.com/v1/send.json");
-        int resultCode = -1;
+        String resultCode = "-1";
         //“d609b769db914a4d959bae3414ed1f7X” --APIkey，在luosimao.com注册登陆以后可以得到
         post.setHeader("Authorization", "Basic " + Base64.encodeBase64String("api:key-91530545f0aaf11f65afee38f8f087aa".getBytes()));
         post.setEntity(reqEntity);
@@ -36,7 +40,12 @@ public class HttpClient {
             //result,如{"error":0,"msg":"ok"}
             String respString = EntityUtils.toString(respEntity);
             System.out.println(respString);
-            resultCode = statusCode;
+            Map maps = (Map) JSON.parse(respString);
+            for (Object map : maps.entrySet()){
+                System.out.println(((Map.Entry)map).getKey()+"     " + ((Map.Entry)map).getValue());
+            }
+            resultCode = maps.get("error").toString();
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
