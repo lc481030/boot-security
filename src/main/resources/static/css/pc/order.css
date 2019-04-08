@@ -150,19 +150,24 @@
     border-bottom: 1px dashed #c2c2c2;
 }
 .wapper1 .detail .txt .yuding{
-    width: 180px;
+   /* width: 180px;*/
     height: 50px;
     line-height: 50px;
     font-size: 20px;
     color: #ffffff;
-    margin-top: 30px;
-    text-align: center;
-    background: -webkit-linear-gradient(#f79648,#f16838); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(#f79648,#f16838); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(#f79648,#f16838); /* Firefox 3.6 - 15 */
-    background: linear-gradient(#f79648,#f16838); /* 标准的语法 */
+    margin-top: 50px;
+    text-align: left;
+    /*background: -webkit-linear-gradient(#f79648,#f16838); !* Safari 5.1 - 6.0 *!
+    background: -o-linear-gradient(#f79648,#f16838); !* Opera 11.1 - 12.0 *!
+    background: -moz-linear-gradient(#f79648,#f16838); !* Firefox 3.6 - 15 *!
+    background: linear-gradient(#f79648,#f16838); !* 标准的语法 *!*/
     cursor: pointer;
 }
+.wapper1 .detail .txt .yuding img{
+
+    width: 75%;
+}
+
 .wapper2{
     width: 1140px;
     height: 30px;
