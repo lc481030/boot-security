@@ -55,13 +55,13 @@
                             </div>
                             <div class="txtput">
                                 <span class="lable">出发城市：</span>
-                                <input type="text" placeholder="请输入您的出发城市" id="startCity" name="startCity" onchange="getStartCity();">
+                                <input type="text" placeholder="请输入您的出发城市" id="startCity" name="startCity" onBlur="getStartCity();">
                             </div>
                             <div class="line">
                                 <span class="lable">目的地：</span>
                                 <ul>
-                                    <li class="active" onclick="objectiveLocalType(this,'国内')">国内</li>
-                                    <li onclick="objectiveLocalType(this,'出境')">出境</li>
+                                    <li class="active type" at="1" >国内</li>
+                                    <li class="type" at="2" >出境</li>
                                 </ul>
                             </div>
                             <div class="put">
@@ -73,9 +73,17 @@
                             </div>
                             <div class="line">
                                 <span class="lable"></span>
-                                <ul>
-                                    <li class="active" onclick="objectiveLocal(this,'澳大利亚1')">澳大利亚1</li>
-                                    <li onclick="objectiveLocal(this,'澳大利亚2')">澳大利亚2</li>
+                                <ul id="u1" style="">
+                                    <li class="active diqu" >九寨沟</li>
+                                    <li class=" diqu">张家界</li>
+                                    <li class=" diqu">丽江</li>
+                                    <li class=" diqu">西双版纳</li>
+                                </ul>
+                                <ul id="u2" style="display:none;">
+                                    <li class="active diqu" >韩国</li>
+                                    <li class=" diqu">日本</li>
+                                    <li class=" diqu">澳洲</li>
+                                    <li class=" diqu">东南亚</li>
                                 </ul>
                             </div>
 
@@ -306,20 +314,52 @@
             $("#startCityShow").text($("#startCity").val())
         }
         /*出发城市类型选择*/
-        function objectiveLocalType(e) {
-            $(e).siblings("li").removeClass("active");
-            $(e).addClass("active");
-        }
+       $(".type").click(function () {
+           $(this).siblings("li").removeClass("active");
+           $(this).addClass("active");
+           var type =  $(this).attr("at");
+           if(type == 1){
+               $("#u1").show();
+               $("#u2").hide();
+           }
+           if(type == 2){
+               $("#u1").hide();
+               $("#u2").show();
+           }
+       });
+       /* function objectiveLocalType(e) {
+            // $(this).siblings("li").removeClass("active");
+            console.log($(this));
+            $(this).addClass("active").siblings('.active').removeClass('active');
+            if(e == 1){
+                $("#u1").show();
+                $("#u2").hide();
+            }else{
+                $("#u1").hide();
+                $("#u2").show();
+            }
+        }*/
         /*出发城市输入*/
         function getObjectiveLocal() {
             $("#objectiveLocalShow").text($("#objectiveLocal").val())
         }
         /*出发城市选择*/
+       $(".diqu").click(function () {
+           $(this).siblings("li").removeClass("active");
+           $(this).addClass("active");
+           $("#objectiveLocalShow").text($(this).text());
+           $("#objectiveLocal").val($(this).text());
+       });
+
+
+
+
         function objectiveLocal(e,objectiveLocal) {
-            $(e).siblings("li").removeClass("active");
-            $(e).addClass("active");
             $("#objectiveLocalShow").text(objectiveLocal)
             $("#objectiveLocal").val(objectiveLocal)
+            $(e).siblings("li").removeClass("active");
+            $(e).addClass("active");
+
         }
         
         function stepOne() {
