@@ -135,6 +135,11 @@
                                         <input type="number" id="childrenNum" name="childrenNum"  min="0" max="100" onchange="getChildrenNum()">
                                         <span>人</span>
                                     </li>
+                                    <li>
+                                        <span>老人：</span>
+                                        <input type="number" id="elderlyNum" name="adultNum" min="0" max="100" onchange="getElderlyNum()">
+                                        <span>人</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="nextbtn" onclick="stepThree()">下一步</div>
@@ -216,10 +221,11 @@
                             </div>
                             <div class="line with">
                                 <span class="title">同游伙伴：</span>
-                                <div class="txtwp">
+                                <div class="txtwp" style="width: 250px;">
                                     <span id="selectFriendShow">携爱侣</span>
                                     <span id="adultNumShow">成人2</span>
                                     <span id="childrenNumShow">儿童0</span>
+                                    <span id="elderlyNumShow">老人0</span>
                                 </div>
                             </div>
                             <div class="line hotel">
@@ -402,6 +408,13 @@
                $("#childrenNum").val(99)
            }
            $("#childrenNumShow").text("儿童"+$("#childrenNum").val())
+       }
+        /*老年人*/
+       function getElderlyNum(){
+           if($("#elderlyNum").val()>100){
+               $("#elderlyNum").val(100)
+           }
+           $("#elderlyNumShow").text("老人"+$("#elderlyNum").val())
        }
 
        function stepThree() {
